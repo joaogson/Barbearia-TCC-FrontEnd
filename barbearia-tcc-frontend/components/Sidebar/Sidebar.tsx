@@ -2,6 +2,7 @@
 import imagemBarraMenu from "../../public/BarraMenu.svg";
 import Image from "next/image";
 import "./Sidebar.css";
+import Link from "next/link";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -12,10 +13,18 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
   return (
     <div className={`sidebar ${isOpen ? " open" : " closed"}`}>
       <ul>
-        <li>Inicio</li>
-        <li>Agende seu horario</li>
-        <li>Serviços</li>
-        <li>Envie seu Feedback</li>
+        <Link href="/">
+          <li>Inicio</li>
+        </Link>
+        <Link href="/Atendimentos">
+          <li>Agende seu horario</li>
+        </Link>
+        <Link href="Servicos">
+          <li>Serviços</li>
+        </Link>
+        <Link href="Feedback">
+          <li>Envie seu Feedback</li>
+        </Link>
       </ul>
     </div>
   );
