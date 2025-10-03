@@ -1,8 +1,9 @@
 "use client";
 
-import { Barber } from "@/app/lib/types/barber";
+import { Barber } from "@/app/lib/types/Barber";
 import { useEffect, useState } from "react";
 import { getBarbers } from "@/app/lib/types/barberAPI";
+import "./ServicesList";
 
 export default function ServicesList() {
   const [barbers, setBarbers] = useState<Barber[]>([]);
@@ -16,6 +17,7 @@ export default function ServicesList() {
 
       const response = await getBarbers();
       setBarbers(response.data);
+      console.log(response.status);
     } catch (error) {
       console.error("Erro ao buscar barbeiros ", error);
       setError("Não foi possivel carregar a lista de barbeiros");
@@ -39,11 +41,11 @@ export default function ServicesList() {
   }
 
   return (
-    <div>
-      <h2>Lista de barbeiros</h2>
-      <ul>
+    <div className="ServicesList">
+      <h2 className="Title">Lista de barbeiros</h2>
+      <ul className="list">
         {barbers.map((barber) => (
-          <li key={barber.id}>
+          <li className="card" key={barber.id}>
             <strong>Nome:</strong> {barber.name}
             <strong>Email: </strong> {barber.email}
             <strong>Cellphone:</strong> {barber.phone}
