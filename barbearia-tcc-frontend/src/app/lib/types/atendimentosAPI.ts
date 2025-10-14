@@ -1,5 +1,5 @@
 import axios from "axios";
-import Service from "../types/Service";
+import { Service } from "./Servicos";
 const api = axios.create({
   baseURL: "http://localhost:3000/service",
 });

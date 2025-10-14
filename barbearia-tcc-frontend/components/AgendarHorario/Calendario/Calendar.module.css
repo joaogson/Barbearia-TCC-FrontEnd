@@ -1,0 +1,75 @@
+.container {
+  width: 350px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+.header button {
+  border: none;
+  background: #007bff;
+  color: white;
+  font-size: 1.2em;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.weekday {
+  font-weight: bold;
+  color: #888;
+  padding: 10px 0;
+}
+
+.day {
+  padding: 10px 0;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  border: 2px solid transparent;
+}
+
+.day:hover:not(.empty) {
+  background-color: #eaf6ff;
+}
+
+.empty {
+  cursor: default;
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: #ccc;
+}
+
+.selected {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.today {
+  border: 2px solid #007bff;
+}

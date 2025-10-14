@@ -1,0 +1,46 @@
+/* Container principal da lista de horários */
+.container {
+  display: grid;
+  /* Cria duas colunas de tamanho igual */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* Espaçamento entre os botões de horário */
+  gap: 15px;
+  max-width: 350px; /* Largura máxima para a lista */
+  margin: 0 auto; /* Centraliza na página */
+}
+
+/* Estilo de cada botão de horário */
+.timeSlot {
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Efeito ao passar o mouse por cima */
+.timeSlot:hover:not(.selected) {
+  background-color: #f0f0f0;
+  border-color: #aaa;
+}
+
+/* Estilo do horário que foi selecionado */
+.timeSlot.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+/* Estilo para um horário desabilitado (exemplo futuro) */
+.timeSlot:disabled {
+  background-color: #e9ecef;
+  color: #adb5bd;
+  cursor: not-allowed;
+  border-color: #dee2e6;
+}

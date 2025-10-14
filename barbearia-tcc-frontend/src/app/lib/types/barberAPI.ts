@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { Barber } from "../types/barber";
+import { Barber } from "../types/Barber";
 const api = axios.create({
   baseURL: "http://localhost:3000/barber",
 });

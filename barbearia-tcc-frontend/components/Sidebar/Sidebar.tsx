@@ -16,7 +16,7 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
         <Link href="/">
           <li>Inicio</li>
         </Link>
-        <Link href="/Atendimentos">
+        <Link href="/AgendeSeuHorario">
           <li>Agende seu horario</li>
         </Link>
         <Link href="Servicos">
@@ -24,6 +24,9 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
         </Link>
         <Link href="Feedback">
           <li>Envie seu Feedback</li>
+        </Link>
+        <Link href="/Atendimentos">
+          <li>Atendimentos</li>
         </Link>
       </ul>
     </div>

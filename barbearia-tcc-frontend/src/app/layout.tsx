@@ -1,10 +1,10 @@
 "use client";
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Menubar from "../../components/Menubar/Menubar";
+import Header from "../../components/Header/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <Menubar toggleSidebar={toggleSidebar} />
+        <div className="content-wrapper">
+          <Header />
+          <Menubar toggleSidebar={toggleSidebar} />
+          <main className="content-area">{children}</main>
+        </div>
       </body>
     </html>
   );
