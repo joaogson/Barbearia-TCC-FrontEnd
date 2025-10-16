@@ -21,11 +21,11 @@ export default function DetalhesAgendamento(props: detalhesProps) {
           {props.servico.description}
         </li>
         <li className="card-detalhes">
-          <strong>Data: </strong> {FormatedHour}
+          <strong>Data: </strong> {FomatedDate}
         </li>
         <li className="card-detalhes">
           <strong>Horario: </strong>
-          {FomatedDate}
+          {FormatedHour}
         </li>
       </ul>
     </div>

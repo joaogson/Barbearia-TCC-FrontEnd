@@ -6,13 +6,13 @@
 // - disabled: Um valor booleano (true/false) para desabilitar o botão.
 // - children: O texto que aparecerá dentro do botão.
 type BotaoNavegacaoProps = {
-  onClick: () => void;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   tipo?: "voltar" | "avancar" | "confirmar"; // Prop opcional com valores específicos
   disabled?: boolean; // Prop opcional booleana
   children: React.ReactNode; // Tipo correto para 'children'
 };
 
-export default function BotaoNavegacao({ onClick, tipo = "avancar", disabled = false, children }: BotaoNavegacaoProps) {
+export default function BotaoNavegacao({ onClick, tipo, disabled = false, children }: BotaoNavegacaoProps) {
   // Lógica para definir o estilo com base no 'tipo' do botão.
   // Isso nos permite ter aparências diferentes para cada ação.
   const getEstiloBase = () => {
