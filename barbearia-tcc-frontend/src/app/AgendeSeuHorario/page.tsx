@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Calendar from "../../../components/AgendarHorario/Calendario/Calendar"; // Importe seu componente
 import "./style.css";
-import ListarHorarios from "../../../components/listarHorarios/listarHorarios";
 import ListarServicos from "../../../components/ViewServices/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
@@ -18,7 +17,7 @@ export default function AgendarHorario() {
   const [etapa, setEtapa] = useState(1);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedHorario, setSelectedHorario] = useState<string | null>(null);
-  const [selectedServico, setSelectedServico] = useState<Servicos | null>(null);
+  const [selectedServicos, setSelectedServicos] = useState<Servicos[]>([]);
   const intervalo = 60;
   const clientLogado: Client = {
     id: 1,
@@ -53,62 +52,51 @@ export default function AgendarHorario() {
     switch (etapa) {
       case 1:
         return (
-          <div className="selecionar-servico-container">
-            <ListarServicos onServiceSelect={handleServiceSelection} />;
-          </div>
+          <>
+            <h2 style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>Selecione o serviço</h2>
+            <div className="selecionar-servico-container">
+              <ListarServicos onServiceSelect={handleServiceSelection} selectedService={selectedServicos} />;
+            </div>
+          </>
         );
 
       case 2:
         return (
-          <div className="agendar-horario-container">
-            <Calendar onDateSelect={handleDateSelection} selectedDate={selectedDate} />
-            <div style={{ padding: "20px", textAlign: "center" }}>
-              <h1>Escolha um Horário</h1>
-              <p>Intervalos de {intervalo} minutos.</p>
-
-              <ListarHorarios
+          <>
+            <h2 style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>Selecione a Data e o horario</h2>
+            <div className="agendar-horario-container">
+              <Calendar
+                onDateSelect={handleDateSelection}
+                selectedDate={selectedDate}
                 startTime="08:00"
                 endTime="20:00"
                 interval={intervalo}
                 onTimeSelect={handleSelecaoDeHorario}
                 selectedTime={selectedHorario}
               />
+              <div style={{ padding: "20px", textAlign: "center" }}></div>
+              {selectedHorario && (
+                <div style={{ marginTop: "10px", fontSize: "1.2rem" }}>
+                  Horário confirmado: <strong>{selectedHorario}</strong>
+                </div>
+              )}
             </div>
-            {selectedHorario && (
-              <div style={{ marginTop: "10px", fontSize: "1.2rem" }}>
-                Horário confirmado: <strong>{selectedHorario}</strong>
-              </div>
-            )}
-          </div>
+          </>
         );
 
       case 3:
         return (
-          <div>
-            <DetalhesAgendamento data={selectedDate} horario={selectedHorario} servico={selectedServico} />
-          </div>
+          <>
+            <h2 className="detalhesAgendamento-title" style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>
+              Detalhes do Agendamento
+            </h2>
+            <div className="detalhesAgendamento-container">
+              <DetalhesAgendamento data={selectedDate} horario={selectedHorario} servico={selectedServicos} />
+            </div>
+          </>
         );
     }
   };
-
-  const serviceDataFormatted = (client: Client, data: Date, horario: string, barber: Barber) => {
-    const [horas, minutos] = horario.split(":").map(Number);
-    const DateFormatted = new Date(data);
-    DateFormatted.setHours(horas, minutos, 0, 0);
-    console.log(DateFormatted);
-    let ServiceData = null;
-    if (selectedServico) {
-      ServiceData = {
-        ServiceTime: DateFormatted.toISOString(),
-        isPaid: false,
-        clientId: clientLogado.id,
-        barberId: barber.id,
-        serviceId: selectedServico.id,
-      };
-    }
-    return ServiceData;
-  };
-
   // Função para enviar aos componentes os horarios
   const handleDateSelection = (date: Date) => {
     console.log("Data recebida no componente pai:", date.toLocaleDateString("pt-BR"));
@@ -120,33 +108,67 @@ export default function AgendarHorario() {
     setSelectedHorario(time);
   };
 
-  const handleServiceSelection = (service: Servicos) => {
-    console.log(`O serviço ${service.description} foi selecoinado!`);
-    setSelectedServico(service);
+  const handleServiceSelection = (service: Servicos[]) => {
+    setSelectedServicos(service);
   };
 
-  const handleConfirmarAgendamento = () => {
-    let data = null;
-    if (selectedDate != null && selectedHorario != null) {
-      data = serviceDataFormatted(clientLogado, selectedDate, selectedHorario, barber);
+  const handleConfirmarAgendamento = async () => {
+    //Validação dos preenchimentos dos campos
+    if (!selectedDate || !selectedHorario) {
+      console.log("Data ou horario não selecionados");
+      alert("Por favor selecione uma data e um horario");
+      return;
     }
-    const ServiceData = data;
-    data ? createService(ServiceData) : console.log("Data vazia");
+    if (!setSelectedServicos || !selectedServicos) {
+      console.log("Nenhum serviço selecionado!");
+      alert("Por favor, selecione pelo menos um serviço");
+      return;
+    }
+
+    //Formatação da hora e data
+    const [horas, minutos] = selectedHorario.split(":").map(Number);
+    const DateFormatted = new Date(selectedDate);
+    DateFormatted.setHours(horas, minutos, 0, 0);
+
+    //Armazenamento dos ids dos Serviços selecionados
+    const serviceIds = selectedServicos.map((servico) => servico.id);
+    console.log(serviceIds);
+    //Juntando os dados para o envio a API
+    const dataAPI = {
+      ServiceTime: DateFormatted.toISOString(),
+      isPaid: false,
+      clientId: clientLogado.id,
+      barberId: barber.id,
+      servicesIds: serviceIds,
+    };
+    console.log(dataAPI);
+    //Enviando para a API
+    try {
+      console.log("Enviado os dados para a API");
+      await createService(dataAPI);
+
+      alert("Agendamento criado com sucesso!");
+    } catch (error) {
+      console.error("Falha ao criar o agendamento:", error);
+      alert("Não foi possível concluir o agendamento. Tente novamente.");
+    }
   };
 
   return (
-    <div>
+    <div className="agendarHorario-container">
       {renderizarEtapa()}
-      <div style={{ marginTop: "20px" }}>{etapa > 1 && <button onClick={etapaAnterior}>Voltar</button>}</div>
-      <BotaoNavegacao onClick={etapaAnterior} tipo="voltar">
-        Voltar
-      </BotaoNavegacao>
 
-      {etapa <= 3 && (
-        <BotaoNavegacao onClick={etapa === 3 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
-          {etapa === 3 ? "Confirmar" : "Avançar"}
+      <div className="buttons-container">
+        <BotaoNavegacao onClick={etapaAnterior} tipo="voltar">
+          Voltar
         </BotaoNavegacao>
-      )}
+
+        {etapa <= 3 && (
+          <BotaoNavegacao onClick={etapa === 3 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
+            {etapa === 3 ? "Confirmar" : "Avançar"}
+          </BotaoNavegacao>
+        )}
+      </div>
     </div>
   );
 }

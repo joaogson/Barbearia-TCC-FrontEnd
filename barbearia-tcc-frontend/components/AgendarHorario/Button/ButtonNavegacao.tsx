@@ -5,6 +5,8 @@
 // - tipo: Define a aparência do botão. Pode ser 'voltar', 'avancar' ou 'confirmar'.
 // - disabled: Um valor booleano (true/false) para desabilitar o botão.
 // - children: O texto que aparecerá dentro do botão.
+import "./button.css";
+
 type BotaoNavegacaoProps = {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   tipo?: "voltar" | "avancar" | "confirmar"; // Prop opcional com valores específicos
@@ -17,29 +19,22 @@ export default function BotaoNavegacao({ onClick, tipo, disabled = false, childr
   // Isso nos permite ter aparências diferentes para cada ação.
   const getEstiloBase = () => {
     const estiloComum = {
-      padding: "10px 20px",
-      fontSize: "16px",
-      cursor: "pointer",
-      border: "none",
-      borderRadius: "5px",
-      color: "white",
-      margin: "0 5px",
       opacity: disabled ? 0.5 : 1, // Fica semitransparente se estiver desabilitado
     };
 
     switch (tipo) {
       case "confirmar":
-        return { ...estiloComum, backgroundColor: "#28a745" }; // Verde
+        return { ...estiloComum, backgroundColor: "#3E301B" }; // Verde
       case "voltar":
-        return { ...estiloComum, backgroundColor: "#6c757d" }; // Cinza
+        return { ...estiloComum, backgroundColor: "#3E301B" }; // Marrom
       case "avancar":
       default:
-        return { ...estiloComum, backgroundColor: "#007bff" }; // Azul
+        return { ...estiloComum, backgroundColor: "#3E301B" }; // Marrom
     }
   };
 
   return (
-    <button onClick={onClick} disabled={disabled} style={getEstiloBase()}>
+    <button className="buttonNavigation" onClick={onClick} disabled={disabled} style={getEstiloBase()}>
       {children}
     </button>
   );

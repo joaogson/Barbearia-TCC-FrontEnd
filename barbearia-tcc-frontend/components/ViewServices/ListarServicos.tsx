@@ -6,12 +6,12 @@ import { getService, getServices } from "@/app/lib/types/servicosAPI";
 import "./ListarServicos.css";
 
 interface ServicesListProps {
-  onServiceSelect: (service: Servicos) => void;
+  onServiceSelect: (service: Servicos[]) => void;
+  selectedService: Servicos[];
 }
 
 export default function ListarServicos(props: ServicesListProps) {
   const [services, setServices] = useState<Servicos[]>([]);
-  const [service, setService] = useState<Servicos>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -31,10 +31,16 @@ export default function ListarServicos(props: ServicesListProps) {
     }
   };
 
-  const handleServicoClick = async (id: number) => {
-    const response = await getService(id);
-    setService(response.data);
-    props.onServiceSelect(response.data);
+  const handleServicoClick = async (servicoClicado: Servicos) => {
+    let novaSelecao: Servicos[];
+
+    const jaSelecionado = props.selectedService.some((s) => s.id === servicoClicado.id);
+    if (jaSelecionado) {
+      novaSelecao = props.selectedService.filter((s) => s.id != servicoClicado.id);
+    } else {
+      novaSelecao = [...props.selectedService, servicoClicado];
+    }
+    props.onServiceSelect(novaSelecao);
   };
 
   useEffect(() => {
@@ -53,19 +59,21 @@ export default function ListarServicos(props: ServicesListProps) {
 
   return (
     <div className="ServicesList">
-      <h2 className="Title">Lista de Serviços</h2>
       <ul className="list">
-        {services.map((services) => (
-          <li
-            className="card"
-            key={services.id}
-            onClick={() => {
-              handleServicoClick(services.id);
-            }}
-          >
-            {services.description}
-          </li>
-        ))}
+        {services.map((service) => {
+          const isSelected = props.selectedService.some((s) => s.id === service.id);
+          return (
+            <li
+              className={`card ${isSelected ? "selected" : ""}`}
+              key={service.id}
+              onClick={() => {
+                handleServicoClick(service);
+              }}
+            >
+              {service.description}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
