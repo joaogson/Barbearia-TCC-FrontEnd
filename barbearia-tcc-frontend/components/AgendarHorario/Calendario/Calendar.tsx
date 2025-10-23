@@ -1,4 +1,4 @@
-import { getServices } from "@/app/lib/types/serviceAPI";
+import { getServices } from "../../../services/serviceAPI";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./Calendar.module.css";
 interface SeletorDataHoraProps {

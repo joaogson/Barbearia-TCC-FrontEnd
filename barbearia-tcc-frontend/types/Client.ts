@@ -1,13 +1,11 @@
 import { Plan } from "./Plan";
-import { Feedback } from "./FeedBack";
+import { Feedback } from "./Feedback";
 
 export interface Client {
   id: number;
   name: string;
   email: string;
   phone: number;
-  username: string;
-  password: string;
 
   // plan | null por ser opcional
   plan?: Plan | null;

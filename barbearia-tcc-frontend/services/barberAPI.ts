@@ -1,9 +1,6 @@
 "use client";
-import axios from "axios";
 import { Barber } from "../types/Barber";
-const api = axios.create({
-  baseURL: "http://localhost:3000/barber",
-});
+import { api } from "./api";
 
 export const getBarbers = () => api.get<Barber[]>("/");
 export const getBarber = (id: number) => api.get<Barber>(`/${id}`);

@@ -1,8 +1,5 @@
-import axios from "axios";
-import { Service } from "./Service";
-const api = axios.create({
-  baseURL: "http://localhost:3000/costumer-service",
-});
+import { Service } from "../types/Service";
+import { api } from "./api";
 
 export const getServices = () => api.get<Service[]>("/");
 export const getService = (id: number) => api.get<Service>(`/${id}`);

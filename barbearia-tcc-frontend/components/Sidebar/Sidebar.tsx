@@ -1,8 +1,7 @@
 "use client";
-import imagemBarraMenu from "../../public/BarraMenu.svg";
-import Image from "next/image";
 import "./Sidebar.css";
 import Link from "next/link";
+import { RoleGuard } from "../Auth/RoleGuard";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -19,14 +18,21 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
         <Link href="/AgendeSeuHorario">
           <li>Agende seu horario</li>
         </Link>
-        <Link href="Servicos">
-          <li>Serviços</li>
-        </Link>
-        <Link href="Feedback">
-          <li>Envie seu Feedback</li>
-        </Link>
+        <RoleGuard allowedRoles={["BARBER"]}>
+          <Link href="Servicos">
+            <li>Serviços</li>
+          </Link>
+        </RoleGuard>
+        <RoleGuard allowedRoles={["CLIENT"]}>
+          <Link href="Feedback">
+            <li>Envie seu Feedback</li>
+          </Link>
+        </RoleGuard>
         <Link href="/Atendimentos">
           <li>Atendimentos</li>
+        </Link>
+        <Link href="/perfil">
+          <li>Perfil</li>
         </Link>
       </ul>
     </div>

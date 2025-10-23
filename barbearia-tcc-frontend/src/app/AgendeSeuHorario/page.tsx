@@ -6,10 +6,10 @@ import "./style.css";
 import ListarServicos from "../../../components/ViewServices/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
-import { Servicos } from "../lib/types/Servicos";
-import { createService } from "../lib/types/serviceAPI";
-import { Client } from "../lib/types/Client";
-import { Barber } from "../lib/types/Barber";
+import { Servicos } from "../../../types/Servicos";
+import { createService } from "../../../services/serviceAPI";
+import { Client } from "../../../types/Client";
+import { Barber } from "../../../types/Barber";
 import { error } from "console";
 
 export default function AgendarHorario() {
@@ -24,8 +24,6 @@ export default function AgendarHorario() {
     name: "João Gabriel",
     email: "joaogsonalio@gmail.com",
     phone: 42999945270,
-    username: "joaosonalio",
-    password: "sonalio0672",
     plan: null,
     feedBack: null,
   };
@@ -35,8 +33,6 @@ export default function AgendarHorario() {
     name: "Entoni",
     email: "entoni@gmail.com",
     phone: 42999998888,
-    username: "entoniGabriel",
-    password: "abcd1234",
   };
 
   const proximaEtapa = () => {

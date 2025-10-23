@@ -1,8 +1,8 @@
 "use client";
 
-import { Servicos } from "@/app/lib/types/Servicos";
+import { Servicos } from "../../types/Servicos";
 import { useEffect, useState } from "react";
-import { getService, getServices } from "@/app/lib/types/servicosAPI";
+import { getService, getServices } from "../../services/servicosAPI";
 import "./ListarServicos.css";
 
 interface ServicesListProps {

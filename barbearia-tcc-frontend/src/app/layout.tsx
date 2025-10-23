@@ -5,6 +5,8 @@ import { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Menubar from "../../components/Menubar/Menubar";
 import Header from "../../components/Header/Header";
+import { AuthProvider } from "../../contexts/AuthContext";
+import { AuthGuard } from "../../components/Auth/AuthGuard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,12 +32,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <div className="content-wrapper">
-          <Header />
-          <Menubar toggleSidebar={toggleSidebar} />
-          <main className="content-area">{children}</main>
-        </div>
+        <AuthProvider>
+          <AuthGuard>
+            <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+            <div className="content-wrapper">
+              <Header />
+              <Menubar toggleSidebar={toggleSidebar} />
+              <main className="content-area">{children}</main>
+            </div>
+          </AuthGuard>
+        </AuthProvider>
       </body>
     </html>
   );
