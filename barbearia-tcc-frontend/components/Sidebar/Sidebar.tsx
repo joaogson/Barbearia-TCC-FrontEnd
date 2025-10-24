@@ -1,7 +1,7 @@
 "use client";
 import "./Sidebar.css";
 import Link from "next/link";
-import { RoleGuard } from "../Auth/RoleGuard";
+import { RoleGuard } from "../Auth/Guards/RoleGuard";
 import { useAuth } from "../../contexts/AuthContext";
 
 interface SidebarProps {

@@ -6,7 +6,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Menubar from "../../components/Menubar/Menubar";
 import Header from "../../components/Header/Header";
 import { AuthProvider } from "../../contexts/AuthContext";
-import { AuthGuard } from "../../components/Auth/AuthGuard";
+import { AuthGuard } from "../../components/Auth/Guards/AuthGuard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
