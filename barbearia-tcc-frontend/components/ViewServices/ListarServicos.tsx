@@ -2,7 +2,7 @@
 
 import { Servicos } from "../../types/Servicos";
 import { useEffect, useState } from "react";
-import { getService, getServices } from "../../services/servicosAPI";
+import { getServices } from "../../services/servicosAPI";
 import "./ListarServicos.css";
 
 interface ServicesListProps {
@@ -21,6 +21,7 @@ export default function ListarServicos(props: ServicesListProps) {
       setError(null);
 
       const response = await getServices();
+      console.log("response!!", response);
       setServices(response.data);
       console.log(response.status);
     } catch (error) {

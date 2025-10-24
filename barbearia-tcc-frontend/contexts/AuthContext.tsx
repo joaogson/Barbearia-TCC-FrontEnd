@@ -42,15 +42,19 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const { access_token } = await authService.login({ email, password });
+      const { accessToken } = await authService.login({ email, password });
 
-      Cookies.set("token", access_token, { expires: 1, secure: true }); // Expira em 1 dia
-      api.defaults.headers.Authorization = `Bearer ${access_token}`;
+      if (!accessToken) {
+        throw new Error("Token não recebido da API");
+      }
+
+      Cookies.set("token", accessToken, { expires: 1, secure: true }); // Expira em 1 dia
+      api.defaults.headers.Authorization = `Bearer ${accessToken}`;
 
       const userData = await userService.getMe();
       setUser(userData);
 
-      router.push("/app");
+      router.push("/");
     } catch (error) {
       console.error("Falha no login", error);
       throw error;

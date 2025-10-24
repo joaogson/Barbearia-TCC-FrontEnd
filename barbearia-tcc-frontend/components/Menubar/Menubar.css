@@ -1,8 +1,9 @@
 .menubar {
+  flex-shrink: 0;
   background-color: #547a46;
   color: #d6d0bc;
   width: 100%;
-  height: 50px;
+  height: 65px;
   display: flex;
   align-items: center;
   text-align: right;

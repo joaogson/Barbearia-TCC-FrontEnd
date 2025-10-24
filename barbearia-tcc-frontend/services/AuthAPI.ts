@@ -7,10 +7,11 @@ interface LoginCredentials {
 }
 
 interface LoginResponse {
-  access_token: string;
+  accessToken: string;
 }
 
 export const login = async (credentials: LoginCredentials): Promise<LoginResponse> => {
-  const { data } = await api.post<LoginResponse>("/login", credentials);
+  console.log(credentials);
+  const { data } = await api.post<LoginResponse>("/auth/login", credentials);
   return data;
 };

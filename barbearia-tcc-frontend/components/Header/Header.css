@@ -1,8 +1,9 @@
 .headerContainer {
-  background-color: #d6d0bc;
-  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .headerImage {
   width: 240px;
+  text-align: center;
 }
