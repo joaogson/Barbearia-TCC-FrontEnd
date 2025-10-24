@@ -20,7 +20,7 @@ export default function AgendarHorario() {
   const [selectedServicos, setSelectedServicos] = useState<Servicos[]>([]);
   const intervalo = 60;
   const clientLogado: Client = {
-    id: 1,
+    id: 3,
     name: "João Gabriel",
     email: "joaogsonalio@gmail.com",
     phone: 42999945270,
