@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import "./login.css";
 import { useAuth } from "../../../contexts/AuthContext";
 import Link from "next/link";
@@ -9,7 +9,16 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { login } = useAuth();
+  const { login, registredEmail, clearRegistredEmail } = useAuth();
+
+  useEffect(()=> {
+    //Verifica se tem um email que veio da pagina register (função register)
+    if(registredEmail){
+      setEmail(registredEmail);
+      clearRegistredEmail();
+    }
+
+  }, [])
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -33,7 +42,7 @@ export default function Login() {
       <form className="form-login" action="">
         <div className="style">
           <label htmlFor="email">Email</label>
-          <input type="email" value={email} id="email" onChange={(e) => setEmail(e.target.value)} required />
+          <input type="email" value={(email)} id="email" onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div className="style">
           <label htmlFor="password">Senha</label>

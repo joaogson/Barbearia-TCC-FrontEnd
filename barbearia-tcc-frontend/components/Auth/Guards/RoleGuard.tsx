@@ -1,7 +1,7 @@
 // components/RoleGuard.tsx
 import { ReactNode } from "react";
-import { useAuth } from "../../contexts/AuthContext";
-import { User } from "../../types/User";
+import { useAuth } from "../../../contexts/AuthContext";
+import { User } from "../../../types/User";
 
 interface RoleGuardProps {
   children: ReactNode;

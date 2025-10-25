@@ -1,5 +1,5 @@
 // contexts/AuthContext.tsx
-import { createContext, useState, useEffect, useContext, ReactNode } from "react";
+import { createContext, useState, useEffect, useContext, ReactNode, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { AuthContextType } from "../types/AuthContextType";
@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const [registredEmail, setRegistredEmail] = useState<string | null> (null)
 
   useEffect(() => {
     async function loadUserFromCookies() {
@@ -61,6 +62,27 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  const register = async (email: string, password: string, phone: string, name: string) => {
+    try {
+      const { emailResponse } = await authService.register({ email, password, phone, name});
+
+      if(!emailResponse) throw new Error("Email não recebido da API");
+
+      setRegistredEmail(emailResponse)
+      router.push("/auth/login")
+      return emailResponse
+    } catch (error) {
+      console.error("Falha no registro:", error);
+      throw error;
+    }
+
+  }
+
+  const clearRegistredEmail = useCallback(() => {
+      setRegistredEmail(null)
+
+    }, [])
+
   const logout = () => {
     setUser(null);
     Cookies.remove("token");
@@ -68,7 +90,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     router.push("/login");
   };
 
-  return <AuthContext.Provider value={{ isAuthenticated: !!user, user, loading, login, logout }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ isAuthenticated: !!user, user, loading, clearRegistredEmail, login, register, registredEmail,  logout}}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = (): AuthContextType => {
