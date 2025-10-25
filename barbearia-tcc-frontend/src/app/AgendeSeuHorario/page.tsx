@@ -11,6 +11,8 @@ import { createService } from "../../../services/serviceAPI";
 import { Client } from "../../../types/Client";
 import { Barber } from "../../../types/Barber";
 import { error } from "console";
+import { useAuth } from "../../../contexts/AuthContext";
+import { getClient } from "../../../services/ClientAPI";
 
 export default function AgendarHorario() {
   // Estado para armazenar a data selecionada (Calendar)
@@ -19,14 +21,7 @@ export default function AgendarHorario() {
   const [selectedHorario, setSelectedHorario] = useState<string | null>(null);
   const [selectedServicos, setSelectedServicos] = useState<Servicos[]>([]);
   const intervalo = 60;
-  const clientLogado: Client = {
-    id: 3,
-    name: "João Gabriel",
-    email: "joaogsonalio@gmail.com",
-    phone: 42999945270,
-    plan: null,
-    feedBack: null,
-  };
+  const { user } = useAuth();
 
   const barber: Barber = {
     id: 1,
@@ -126,6 +121,9 @@ export default function AgendarHorario() {
     const DateFormatted = new Date(selectedDate);
     DateFormatted.setHours(horas, minutos, 0, 0);
 
+    //Define o client
+    const client = await getClient();
+
     //Armazenamento dos ids dos Serviços selecionados
     const serviceIds = selectedServicos.map((servico) => servico.id);
     console.log(serviceIds);
@@ -133,8 +131,9 @@ export default function AgendarHorario() {
     const dataAPI = {
       ServiceTime: DateFormatted.toISOString(),
       isPaid: false,
-      clientId: clientLogado.id,
-      barberId: barber.id,
+      clientId: client.data.id,
+      //Por momento somente um barbeiro
+      barberId: 1,
       servicesIds: serviceIds,
     };
     console.log(dataAPI);

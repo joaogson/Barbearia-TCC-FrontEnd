@@ -3,9 +3,7 @@ import { Feedback } from "./Feedback";
 
 export interface Client {
   id: number;
-  name: string;
-  email: string;
-  phone: number;
+  idUser: number;
 
   // plan | null por ser opcional
   plan?: Plan | null;
