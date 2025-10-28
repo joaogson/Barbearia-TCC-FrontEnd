@@ -1,7 +1,7 @@
-export interface Service {
-  ServiceTime: string;
-  isPaid: boolean;
-  clientId: number;
-  barberId: number;
-  servicesIds: number[];
+import { ServiceOnCostumerService } from "./ServiceOnCostumerService";
+
+export default interface Service {
+  id: number;
+  description: string;
+  ServiceOnCostumerService: ServiceOnCostumerService[];
 }

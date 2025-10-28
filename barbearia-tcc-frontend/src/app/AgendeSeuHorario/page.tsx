@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Calendar from "../../../components/AgendarHorario/Calendario/Calendar"; // Importe seu componente
 import "./style.css";
-import ListarServicos from "../../../components/ViewServices/ListarServicos";
+import ListarServicos from "../../../components/ListServicos/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
-import { Servicos } from "../../../types/Servicos";
+import { Servicos } from "../../../types/ServiceOnCostumerService";
 import { createService } from "../../../services/serviceAPI";
 import { Client } from "../../../types/Client";
 import { Barber } from "../../../types/Barber";

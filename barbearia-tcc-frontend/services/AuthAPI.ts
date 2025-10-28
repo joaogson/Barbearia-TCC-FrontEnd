@@ -10,15 +10,15 @@ interface LoginResponse {
   accessToken: string;
 }
 
-interface RegisterCredentials{
+interface RegisterCredentials {
   email: string;
   password: string;
   name: string;
   phone: string;
 }
 
-interface RegisterResponse{
-  emailResponse: string;
+interface RegisterResponse {
+  email: string;
 }
 
 export const login = async (credentials: LoginCredentials): Promise<LoginResponse> => {
@@ -27,8 +27,9 @@ export const login = async (credentials: LoginCredentials): Promise<LoginRespons
   return data;
 };
 
-export const register = async(credentials: RegisterCredentials): Promise<RegisterResponse> => {
-  console.log(credentials)
-  const { data } = await api.post<RegisterResponse>("/auth/register", credentials)
+export const register = async (credentials: RegisterCredentials): Promise<RegisterResponse> => {
+  console.log("Credenciais", credentials);
+  const { data } = await api.post<RegisterResponse>("/auth/register", credentials);
+  console.log("Data", data);
   return data;
-}
+};

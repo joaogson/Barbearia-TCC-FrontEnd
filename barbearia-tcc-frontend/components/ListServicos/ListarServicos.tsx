@@ -1,6 +1,6 @@
 "use client";
 
-import { Servicos } from "../../types/Servicos";
+import { Servicos } from "../../types/ServiceOnCostumerService";
 import { useEffect, useState } from "react";
 import { getServices } from "../../services/servicosAPI";
 import "./ListarServicos.css";

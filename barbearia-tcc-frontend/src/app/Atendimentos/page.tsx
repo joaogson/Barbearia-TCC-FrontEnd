@@ -1,9 +1,9 @@
-import ServicesList from "../../../components/ViewServices/ListarServicos";
+import ListServices from "../../../components/ListServices/listServices";
 
 export default function Atendimentos() {
   return (
     <div>
-      <ServicesList />
+      <ListServices />
     </div>
   );
 }

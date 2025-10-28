@@ -1,0 +1,33 @@
+.atendimentos-container {
+  border: 4px solid #3e301b;
+}
+
+.card-list {
+  border: 1px solid #547a46;
+  gap: 35px;
+}
+
+h3 {
+  color: #3e301b;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+p {
+  width: 200px;
+  color: #3e301b;
+}
+.services-list {
+  color: #3e301b;
+}

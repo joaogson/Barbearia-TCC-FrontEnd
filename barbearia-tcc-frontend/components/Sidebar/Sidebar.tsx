@@ -12,6 +12,7 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
   const { isAuthenticated, user, logout } = useAuth();
 
+ 
   return (
     <aside className={`sidebar ${isOpen ? " open" : " closed"}`}>
       <nav>

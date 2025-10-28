@@ -1,4 +1,4 @@
-import { Servicos } from "../types/Servicos";
+import { Servicos } from "../types/ServiceOnCostumerService";
 import { api } from "./api";
 
 export const getServices = async () => await api.get<Servicos[]>("/service");

@@ -1,6 +1,6 @@
+import { User } from "./User";
+
 export interface Barber {
   id: number;
-  name: string;
-  email: string;
-  phone: number;
+  user: User;
 }

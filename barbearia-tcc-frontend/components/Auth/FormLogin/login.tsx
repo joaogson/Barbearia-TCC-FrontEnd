@@ -11,14 +11,14 @@ export default function Login() {
 
   const { login, registredEmail, clearRegistredEmail } = useAuth();
 
-  useEffect(()=> {
+  useEffect(() => {
+    console.log(registredEmail);
     //Verifica se tem um email que veio da pagina register (função register)
-    if(registredEmail){
+    if (registredEmail) {
       setEmail(registredEmail);
       clearRegistredEmail();
     }
-
-  }, [])
+  }, [clearRegistredEmail, registredEmail]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ export default function Login() {
       <form className="form-login" action="">
         <div className="style">
           <label htmlFor="email">Email</label>
-          <input type="email" value={(email)} id="email" onChange={(e) => setEmail(e.target.value)} required />
+          <input type="email" value={email} id="email" onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div className="style">
           <label htmlFor="password">Senha</label>

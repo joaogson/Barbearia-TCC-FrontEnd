@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const [registredEmail, setRegistredEmail] = useState<string | null> (null)
+  const [registredEmail, setRegistredEmail] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadUserFromCookies() {
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         try {
           api.defaults.headers.Authorization = `Bearer ${token}`;
           const userData = await userService.getMe();
-          setUser(userData);
+          setUser(userData.data);
         } catch (error) {
           console.error("Token inválido ou expirado. Removendo...");
           // Se o token for inválido, limpa tudo
@@ -53,7 +53,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       api.defaults.headers.Authorization = `Bearer ${accessToken}`;
 
       const userData = await userService.getMe();
-      setUser(userData);
+      setUser(userData.data);
+      console.log("Role: ", user?.role);
 
       router.push("/");
     } catch (error) {
@@ -64,24 +65,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const register = async (email: string, password: string, phone: string, name: string) => {
     try {
-      const { emailResponse } = await authService.register({ email, password, phone, name});
+      const { email: responseEmail } = await authService.register({ email, password, phone, name });
+      console.log("Email Response: ", responseEmail);
+      if (!email) throw new Error("Email não recebido da API");
 
-      if(!emailResponse) throw new Error("Email não recebido da API");
+      setRegistredEmail(responseEmail);
+      router.push("/login");
 
-      setRegistredEmail(emailResponse)
-      router.push("/auth/login")
-      return emailResponse
+      return responseEmail;
     } catch (error) {
       console.error("Falha no registro:", error);
       throw error;
     }
-
-  }
+  };
 
   const clearRegistredEmail = useCallback(() => {
-      setRegistredEmail(null)
-
-    }, [])
+    setRegistredEmail(null);
+  }, []);
 
   const logout = () => {
     setUser(null);
@@ -90,7 +90,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     router.push("/login");
   };
 
-  return <AuthContext.Provider value={{ isAuthenticated: !!user, user, loading, clearRegistredEmail, login, register, registredEmail,  logout}}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ isAuthenticated: !!user, user, loading, clearRegistredEmail, login, register, registredEmail, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = (): AuthContextType => {

@@ -1,9 +1,10 @@
 import { Plan } from "./Plan";
 import { Feedback } from "./Feedback";
+import { User } from "./User";
 
 export interface Client {
   id: number;
-  idUser: number;
+  user: User;
 
   // plan | null por ser opcional
   plan?: Plan | null;
