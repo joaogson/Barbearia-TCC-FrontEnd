@@ -12,56 +12,87 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
   const { isAuthenticated, user, logout } = useAuth();
 
- 
   return (
-    <aside className={`sidebar ${isOpen ? " open" : " closed"}`}>
-      <nav>
-        <ul>
-          {isAuthenticated ? (
-            <>
-              <Link href="/">
-                <li>Inicio</li>
-              </Link>
-              <RoleGuard allowedRoles={["CLIENT"]}>
-                <Link href="/AgendeSeuHorario">
-                  <li>Agende seu horario</li>
-                </Link>
-              </RoleGuard>
-              <RoleGuard allowedRoles={["BARBER"]}>
-                <Link href="Servicos">
-                  <li>Serviços</li>
-                </Link>
-              </RoleGuard>
-              <RoleGuard allowedRoles={["CLIENT"]}>
-                <Link href="Feedbacks">
-                  <li>Envie seu Feedback</li>
-                </Link>
-              </RoleGuard>
-              <Link href="/Atendimentos">
-                <li>Atendimentos</li>
-              </Link>
-              <RoleGuard allowedRoles={["CLIENT", "BARBER"]}>
-                <Link href="/perfil">
-                  <li>Perfil: {user?.name}</li>
-                </Link>
-              </RoleGuard>
-              <Link href="/login" onClick={logout}>
-                <li>Sair</li>
-              </Link>
-            </>
-          ) : (
-            <>
-              {/* === ITENS PARA USUÁRIOS DESLOGADOS === */}
-              <li>
-                <Link href="/login">Entrar</Link>
-              </li>
-              <li>
-                <Link href="/register">Cadastrar</Link>
-              </li>
-            </>
-          )}
-        </ul>
-      </nav>
-    </aside>
+    <>
+      {/* 1. O OVERLAY: Aparece quando 'isOpen' é true e fecha a sidebar ao ser clicado */}
+      <div className={`sidebar-overlay ${isOpen ? "open" : ""}`} onClick={toggleSidebar} />
+
+      {/* 2. SUA SIDEBAR: A classe 'open' controla a animação de entrada/saída */}
+      <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+        <nav>
+          <ul>
+            {isAuthenticated ? (
+              <>
+                {/* ESTRUTURA HTML CORRIGIDA: <li> envolve <Link> */}
+                <li>
+                  <Link href="/" onClick={toggleSidebar}>
+                    Inicio
+                  </Link>
+                </li>
+                <RoleGuard allowedRoles={["CLIENT"]}>
+                  <li>
+                    <Link href="/AgendeSeuHorario" onClick={toggleSidebar}>
+                      Agende seu horario
+                    </Link>
+                  </li>
+                </RoleGuard>
+                <RoleGuard allowedRoles={["BARBER"]}>
+                  <li>
+                    <Link href="/Servicos" onClick={toggleSidebar}>
+                      Serviços
+                    </Link>
+                  </li>
+                </RoleGuard>
+                <RoleGuard allowedRoles={["CLIENT"]}>
+                  <li>
+                    <Link href="/Feedbacks" onClick={toggleSidebar}>
+                      Envie seu Feedback
+                    </Link>
+                  </li>
+                </RoleGuard>
+                <li>
+                  <Link href="/Atendimentos" onClick={toggleSidebar}>
+                    Atendimentos
+                  </Link>
+                </li>
+                <RoleGuard allowedRoles={["CLIENT", "BARBER"]}>
+                  <li>
+                    <Link href="/Perfil" onClick={toggleSidebar}>
+                      Perfil: {user?.name}
+                    </Link>
+                  </li>
+                </RoleGuard>
+                <RoleGuard allowedRoles={["BARBER"]}>
+                  <li>
+                    <Link href={"/Configuracoes"} onClick={toggleSidebar}>
+                      Painel de Configurações
+                    </Link>
+                  </li>
+                </RoleGuard>
+                <li>
+                  {/* LINK DE SAIR CORRIGIDO: usa a função handleLogout */}
+                  <Link href="/login" onClick={logout}>
+                    Sair
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link href="/login" onClick={toggleSidebar}>
+                    Entrar
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/register" onClick={toggleSidebar}>
+                    Cadastrar
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
+      </aside>
+    </>
   );
 }

@@ -41,4 +41,5 @@ body {
   flex-grow: 1;
   padding: 1rem;
   overflow-y: auto;
+  padding-top: 60px;
 }

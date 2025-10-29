@@ -6,11 +6,9 @@ import "./style.css";
 import ListarServicos from "../../../components/ListServicos/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
-import { Servicos } from "../../../types/ServiceOnCostumerService";
+import Service from "../../../types/Service";
 import { createService } from "../../../services/serviceAPI";
-import { Client } from "../../../types/Client";
 import { Barber } from "../../../types/Barber";
-import { error } from "console";
 import { useAuth } from "../../../contexts/AuthContext";
 import { getClient } from "../../../services/ClientAPI";
 
@@ -19,7 +17,7 @@ export default function AgendarHorario() {
   const [etapa, setEtapa] = useState(1);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedHorario, setSelectedHorario] = useState<string | null>(null);
-  const [selectedServicos, setSelectedServicos] = useState<Servicos[]>([]);
+  const [selectedServicos, setSelectedServicos] = useState<Service[]>([]);
   const intervalo = 60;
   const { user } = useAuth();
 
@@ -99,7 +97,7 @@ export default function AgendarHorario() {
     setSelectedHorario(time);
   };
 
-  const handleServiceSelection = (service: Servicos[]) => {
+  const handleServiceSelection = (service: Service[]) => {
     setSelectedServicos(service);
   };
 
@@ -130,7 +128,7 @@ export default function AgendarHorario() {
     //Juntando os dados para o envio a API
     const dataAPI = {
       ServiceTime: DateFormatted.toISOString(),
-      isPaid: false,
+      isCancelled: false,
       clientId: client.data.id,
       //Por momento somente um barbeiro
       barberId: 1,
@@ -150,19 +148,22 @@ export default function AgendarHorario() {
   };
 
   return (
-    <div className="agendarHorario-container">
-      {renderizarEtapa()}
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <h1 style={{ borderBottom: "3px solid #3e301b", width: "70%", textAlign: "start" }}>Agende Seu Atendimento</h1>
+      <div className="agendarHorario-container">
+        {renderizarEtapa()}
 
-      <div className="buttons-container">
-        <BotaoNavegacao onClick={etapaAnterior} tipo="voltar">
-          Voltar
-        </BotaoNavegacao>
-
-        {etapa <= 3 && (
-          <BotaoNavegacao onClick={etapa === 3 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
-            {etapa === 3 ? "Confirmar" : "Avançar"}
+        <div className="buttons-container">
+          <BotaoNavegacao onClick={etapaAnterior} tipo="voltar">
+            Voltar
           </BotaoNavegacao>
-        )}
+
+          {etapa <= 3 && (
+            <BotaoNavegacao onClick={etapa === 3 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
+              {etapa === 3 ? "Confirmar" : "Avançar"}
+            </BotaoNavegacao>
+          )}
+        </div>
       </div>
     </div>
   );
