@@ -1,0 +1,64 @@
+.container-page {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.inactive-periods-container {
+  background-color: #3e301b;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h3 {
+  color: #3e301b;
+  width: 100%;
+  text-align: start;
+}
+.add-period-form {
+  text-align: start;
+}
+
+.label-select-date {
+  text-align: start;
+}
+
+.input-inactive-period {
+  border-bottom: 4px solid #547a46;
+}
+
+.period-list {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.period-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #3e301b;
+  padding: 15px 0;
+}
+
+.period-text {
+  color: #3e301b;
+  background-color: #d6d0bc;
+  padding: 5px;
+  border-bottom: 4px solid #547a46;
+}
+
+@media (max-width: 768px) {
+  .container-page {
+    min-width: 80%;
+    margin: 20 auto;
+    padding: 10px;
+  }
+}

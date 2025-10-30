@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { costumerService } from "../../types/costumerService";
-import { cancelService, getServiceById } from "../../services/serviceAPI";
+import { cancelCostumerService, getCostumerServiceById } from "../../services/costumerServiceAPI";
 import { useAuth } from "../../contexts/AuthContext";
 
 import "./listServices.css";
@@ -20,7 +20,7 @@ export default function ListServices() {
     const fetchServices = async () => {
       try {
         setIsLoading(true);
-        const response = await getServiceById();
+        const response = await getCostumerServiceById();
         console.log("Resposta dos atendimentos: ", response);
         if (response && Array.isArray(response.data)) {
           setCostumerServices(response.data);
@@ -44,7 +44,7 @@ export default function ListServices() {
     }
 
     try {
-      await cancelService(serviceId);
+      await cancelCostumerService(serviceId);
 
       setCostumerServices((prevServices) => prevServices.filter((service) => service.id !== serviceId));
 

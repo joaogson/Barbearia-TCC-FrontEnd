@@ -3,6 +3,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { getMyBarberSettings, updateMyBarberSettings } from "../../services/barberAPI";
 import { useAuth } from "../../contexts/AuthContext";
+import "./workTimeForm.css";
 
 export default function WorkTimeForm() {
   const [formData, setFormData] = useState({
@@ -62,33 +63,29 @@ export default function WorkTimeForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="settings-form">
+    <div className="form-container">
       <h3>Horário de Expediente</h3>
-      <p>Defina o início e o fim do seu dia de trabalho.</p>
+      <form onSubmit={handleSubmit} className="settings-form">
+        <div className="form-group">
+          <label htmlFor="workStartTime">Início do Expediente</label>
+          <input
+            type="time" // O input 'time' oferece um seletor de horário nativo!
+            id="workStartTime"
+            name="workStartTime"
+            value={formData.workStartTime}
+            onChange={handleInputChange}
+            required
+          />
 
-      <div className="form-group">
-        <label htmlFor="workStartTime">Início do Expediente</label>
-        <input
-          type="time" // O input 'time' oferece um seletor de horário nativo!
-          id="workStartTime"
-          name="workStartTime"
-          value={formData.workStartTime}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="workEndTime">Fim do Expediente</label>
-        <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required />
-      </div>
-
-      {error && <p className="error-message">{error}</p>}
-      {success && <p className="success-message">{success}</p>}
-
-      <button type="submit" disabled={isSaving}>
-        {isSaving ? "Salvando..." : "Salvar Horário"}
-      </button>
-    </form>
+          <label htmlFor="workEndTime">Fim do Expediente</label>
+          <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required />
+        </div>
+        <button type="submit" disabled={isSaving}>
+          {isSaving ? "Salvando..." : "Salvar Horário"}
+        </button>
+        {error && <p className="error-message">{error}</p>}
+        {success && <p className="success-message">{success}</p>}
+      </form>
+    </div>
   );
 }

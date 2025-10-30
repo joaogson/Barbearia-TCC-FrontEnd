@@ -1,4 +1,4 @@
-import { getServices } from "../../../services/serviceAPI";
+import { getCostumerServices } from "../../../services/costumerServiceAPI";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./Calendar.module.css";
 interface SeletorDataHoraProps {
@@ -6,89 +6,15 @@ interface SeletorDataHoraProps {
   selectedTime: string | null;
   onDateSelect: (date: Date) => void;
   onTimeSelect: (horario: string) => void;
-  startTime: string;
-  endTime: string;
-  interval: number;
+  availableSlots: string[];
+  isLoading: boolean;
 }
 
-export default function SeletorDataHora({
-  selectedDate,
-  selectedTime,
-  onDateSelect,
-  onTimeSelect,
-  startTime,
-  endTime,
-  interval,
-}: SeletorDataHoraProps) {
+export default function SeletorDataHora({ selectedDate, selectedTime, onDateSelect, onTimeSelect, availableSlots, isLoading }: SeletorDataHoraProps) {
   // 1. GERENCIAMENTO DE ESTADO (useState)
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [horariosOcupados, setHorariosOcupados] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
 
-  // 2. CÁLCULOS MEMOIZADOS (useMemo)
-  const timeSlots = useMemo(() => {
-    const slots: string[] = [];
-    const timeToMinutes = (time: string) => {
-      const [hours, minutes] = time.split(":").map(Number);
-      return hours * 60 + minutes;
-    };
-    const startMinutes = timeToMinutes(startTime);
-    const endMinutes = timeToMinutes(endTime);
-    for (let i = startMinutes; i < endMinutes; i += interval) {
-      const hours = Math.floor(i / 60);
-      const minutes = i % 60;
-      const formattedTime = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
-      slots.push(formattedTime);
-    }
-    return slots;
-  }, [startTime, endTime, interval]);
-
-  // 3. EFEITOS COLATERAIS (useEffect)
-  const fetchHorariosOcupados = useCallback(async () => {
-    if (!selectedDate) {
-      setHorariosOcupados([]);
-      return;
-    }
-    setIsLoading(true);
-    console.log(`Buscando horários para ${selectedDate.toLocaleDateString()}`);
-    try {
-      const response = await getServices();
-      const servicosDoDia = response.data.filter((servico) => new Date(servico.ServiceTime).toDateString() === selectedDate.toDateString());
-      const horarios = servicosDoDia.map((servico) => {
-        const date = new Date(servico.ServiceTime);
-        return `${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
-      });
-      setHorariosOcupados(horarios);
-    } catch (error) {
-      console.error("Erro ao buscar horários ocupados:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [selectedDate]); // Esta função só será recriada se 'selectedDate' mudar
-
-  // Este useEffect agora chama a função de busca sempre que a data selecionada muda.
-  useEffect(() => {
-    fetchHorariosOcupados();
-  }, [fetchHorariosOcupados]);
-
-  // NOVO useEffect: Este cria o intervalo de atualização a cada 15 minutos.
-  useEffect(() => {
-    const QUINZE_MINUTOS_EM_MS = 15 * 60 * 1000;
-
-    // Inicia um "timer" que chama a função de busca repetidamente
-    const intervalId = setInterval(() => {
-      console.log("Verificação periódica (15 min) de horários...");
-      fetchHorariosOcupados();
-    }, QUINZE_MINUTOS_EM_MS);
-
-    // Função de limpeza: ESSENCIAL para parar o timer quando o componente sair da tela
-    return () => {
-      console.log("Limpando timer de verificação de horários.");
-      clearInterval(intervalId);
-    };
-  }, [fetchHorariosOcupados]); // Depende da função de busca
-
-  // 4. MANIPULADORES DE EVENTOS (Handlers)
+  // HANDLERS
   const handlePrevMonth = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
   };
@@ -145,6 +71,42 @@ export default function SeletorDataHora({
     return <div className={styles.grid}>{days}</div>;
   };
 
+  const renderTimeSlots = () => {
+    // Caso 1: Estamos esperando a resposta da API
+    if (isLoading) {
+      return <p className={styles.infoText}>Carregando horários...</p>;
+    }
+    // Caso 2: Nenhuma data foi selecionada ainda
+    if (!selectedDate) {
+      return <p className={styles.infoText}>Selecione uma data para ver os horários.</p>;
+    }
+    // Caso 3: A API respondeu, mas não há horários para os serviços/data escolhidos
+    if (availableSlots.length === 0) {
+      return <p className={styles.infoText}>Nenhum horário disponível para esta data e serviços selecionados.</p>;
+    }
+
+    // Caso 4: Exibimos os horários que recebemos!
+    return (
+      <div className={styles.timeGrid}>
+        {availableSlots.map((time) => {
+          const isSelected = selectedTime === time;
+          // Não precisamos mais de 'isOccupied' ou 'isPastTime'.
+          // Se o horário está na lista 'availableSlots', ele é válido e clicável.
+          return (
+            <button
+              key={time}
+              disabled={false} // O botão nunca está desabilitado se ele for renderizado
+              className={`${styles.timeSlot} ${isSelected ? styles.selected : ""}`}
+              onClick={() => onTimeSelect(time)}
+            >
+              {time}
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
+
   // 6. RENDERIZAÇÃO PRINCIPAL DO COMPONENTE
   return (
     <div className={styles.container}>
@@ -152,49 +114,7 @@ export default function SeletorDataHora({
       {renderWeekdays()}
       {renderDays()}
       <hr className={styles.separator} />
-      <div className={styles.horariosWrapper}>
-        {isLoading ? (
-          <p>Carregando horários...</p>
-        ) : selectedDate ? (
-          <div className={styles.timeGrid}>
-            {timeSlots.map((time) => {
-              const isSelected = selectedTime === time;
-              const isOccupied = horariosOcupados.includes(time);
-
-              // --- LÓGICA DE VALIDAÇÃO COMPLEMENTADA ---
-              let isPastTime = false;
-              const now = new Date();
-
-              // Só verifica horários passados se o dia selecionado for hoje
-              if (selectedDate.toDateString() === now.toDateString()) {
-                const [hours, minutes] = time.split(":").map(Number);
-                const timeSlotDate = new Date(selectedDate);
-                timeSlotDate.setHours(hours, minutes, 0, 0);
-
-                if (timeSlotDate < now) {
-                  isPastTime = true;
-                }
-              }
-
-              const isDisabled = isOccupied || isPastTime;
-              // --- FIM DA LÓGICA DE VALIDAÇÃO ---
-
-              return (
-                <button
-                  key={time}
-                  disabled={isDisabled}
-                  className={`${styles.timeSlot} ${isSelected ? styles.selected : ""} ${isDisabled ? styles.disabled : ""}`}
-                  onClick={() => onTimeSelect(time)}
-                >
-                  {time}
-                </button>
-              );
-            })}
-          </div>
-        ) : (
-          <p>Selecione uma data para ver os horários.</p>
-        )}
-      </div>
+      <div className={styles.horariosWrapper}>{renderTimeSlots()}</div>
     </div>
   );
 }
