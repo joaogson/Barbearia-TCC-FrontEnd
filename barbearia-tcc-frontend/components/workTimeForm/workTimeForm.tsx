@@ -9,6 +9,7 @@ export default function WorkTimeForm() {
   const [formData, setFormData] = useState({
     workStartTime: "09:00",
     workEndTime: "18:00",
+    breakBetweenAppointments: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -26,6 +27,7 @@ export default function WorkTimeForm() {
         setFormData({
           workStartTime: settings.data.workStartTime ?? "",
           workEndTime: settings.data.workEndTime ?? "",
+          breakBetweenAppointments: settings.data.breakBetweenCostumerService ?? 0,
         });
       } catch (err) {
         console.error("Erro:", err);
@@ -37,9 +39,13 @@ export default function WorkTimeForm() {
     fetchSettings();
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === "breakBetweenCostumerService") {
+      setFormData((prev) => ({ ...prev, [name]: Number(value) }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -79,7 +85,32 @@ export default function WorkTimeForm() {
 
           <label htmlFor="workEndTime">Fim do Expediente</label>
           <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required />
+          <label htmlFor="breakBetweenAppointments">Intervalo entre atendimentos</label>
+          <select
+            className="select-interval"
+            id="breakBetweenCostumerService"
+            name="breakBetweenCostumerService"
+            value={formData.breakBetweenAppointments}
+            onChange={handleInputChange} // Sua função que atualiza o estado
+          >
+            <option className="interval-option" value={0}>
+              Nenhum intervalo
+            </option>
+            <option className="interval-option" value={5}>
+              5 minutos
+            </option>
+            <option className="interval-option" value={10}>
+              10 minutos
+            </option>
+            <option className="interval-option" value={15}>
+              15 minutos
+            </option>
+            <option className="interval-option" value={30}>
+              30 minutos
+            </option>
+          </select>
         </div>
+
         <button type="submit" disabled={isSaving}>
           {isSaving ? "Salvando..." : "Salvar Horário"}
         </button>

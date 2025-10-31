@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Calendar from "../../../components/AgendarHorario/Calendario/Calendar"; // Importe seu componente
 import "./style.css";
-import ListarServicos from "../../../components/ListServicos/ListarServicos";
+import ListarServicos from "../../../components/ManagerServices/ListServicos/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
 import Service from "../../../types/Service";
@@ -11,6 +11,7 @@ import { createCostumerService } from "../../../services/costumerServiceAPI";
 import { getAvailability } from "../../../services/AvailabilityAPI";
 import { useAuth } from "../../../contexts/AuthContext";
 import { getClient } from "../../../services/ClientAPI";
+import dayjs from "dayjs";
 
 export default function AgendarHorario() {
   // Estado para armazenar a data selecionada (Calendar)
@@ -77,6 +78,9 @@ export default function AgendarHorario() {
   };
 
   const handleConfirmarAgendamento = async () => {
+    console.log("Iniciando confirmação. Estado atual:");
+    console.log("selectedDate:", selectedDate);
+    console.log("selectedHorario:", selectedHorario);
     //Validação dos preenchimentos dos campos
     //Validação dos preenchimentos dos campos
     if (!selectedDate || !selectedHorario || selectedServicos.length === 0) {
@@ -98,41 +102,7 @@ export default function AgendarHorario() {
       barberId: barberId,
       servicesIds: serviceIds,
     };
-    //Enviando para a API
 
-    // if (!selectedDate || !selectedHorario) {
-    //   console.log("Data ou horario não selecionados");
-    //   alert("Por favor selecione uma data e um horario");
-    //   return;
-    // }
-    // if (!setSelectedServicos || !selectedServicos) {
-    //   console.log("Nenhum serviço selecionado!");
-    //   alert("Por favor, selecione pelo menos um serviço");
-    //   return;
-    // }
-
-    // //Formatação da hora e data
-    // const [horas, minutos] = selectedHorario.split(":").map(Number);
-    // const DateFormatted = new Date(selectedDate);
-    // DateFormatted.setHours(horas, minutos, 0, 0);
-
-    // //Define o client
-    // const client = await getClient();
-
-    // //Armazenamento dos ids dos Serviços selecionados
-    // const serviceIds = selectedServicos.map((servico) => servico.id);
-    // console.log(serviceIds);
-    // //Juntando os dados para o envio a API
-    // const dataAPI = {
-    //   ServiceTime: DateFormatted.toISOString(),
-    //   isCancelled: false,
-    //   clientId: client.data.id,
-    //   //Por momento somente um barbeiro
-    //   barberId: 1,
-    //   servicesIds: serviceIds,
-    // };
-    // console.log(dataAPI);
-    //Enviando para a API
     try {
       console.log("Enviado os dados para a API");
       await createCostumerService(dataAPI);
@@ -169,6 +139,7 @@ export default function AgendarHorario() {
                 availableSlots={availableSlots}
                 isLoading={isLoading}
               />
+
               <div style={{ padding: "20px", textAlign: "center" }}></div>
               {selectedHorario && (
                 <div style={{ marginTop: "10px", fontSize: "1.2rem" }}>

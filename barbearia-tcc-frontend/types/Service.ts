@@ -3,5 +3,11 @@ import { ServiceOnCostumerService } from "./ServiceOnCostumerService";
 export default interface Service {
   id: number;
   description: string;
-  ServiceOnCostumerService: ServiceOnCostumerService[];
+  duration: number;
+  //ServiceOnCostumerService: ServiceOnCostumerService[];
+}
+
+export interface CreateServiceDto {
+  description: string;
+  duration: number;
 }

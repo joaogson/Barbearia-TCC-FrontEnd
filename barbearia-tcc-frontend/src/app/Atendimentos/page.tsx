@@ -1,4 +1,4 @@
-import ListServices from "../../../components/ListServices/listServices";
+import ListServices from "../../../components/ListServices/listCostumerServices";
 
 export default function Atendimentos() {
   return (

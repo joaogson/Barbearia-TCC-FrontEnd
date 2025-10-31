@@ -7,6 +7,7 @@ export interface Barber {
 export interface BarberSettings {
   workStartTime?: string;
   workEndTime?: string;
+  breakBetweenCostumerService?: number;
 }
 
 export interface InactivePeriods {

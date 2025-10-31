@@ -1,6 +1,7 @@
 import { getCostumerServices } from "../../../services/costumerServiceAPI";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./Calendar.module.css";
+import dayjs from "dayjs";
 interface SeletorDataHoraProps {
   selectedDate: Date | null;
   selectedTime: string | null;
@@ -85,10 +86,10 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
       return <p className={styles.infoText}>Nenhum horário disponível para esta data e serviços selecionados.</p>;
     }
 
-    // Caso 4: Exibimos os horários que recebemos!
     return (
       <div className={styles.timeGrid}>
         {availableSlots.map((time) => {
+          const formattedTime = dayjs(time).format("HH:mm");
           const isSelected = selectedTime === time;
           // Não precisamos mais de 'isOccupied' ou 'isPastTime'.
           // Se o horário está na lista 'availableSlots', ele é válido e clicável.
@@ -97,9 +98,9 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
               key={time}
               disabled={false} // O botão nunca está desabilitado se ele for renderizado
               className={`${styles.timeSlot} ${isSelected ? styles.selected : ""}`}
-              onClick={() => onTimeSelect(time)}
+              onClick={() => onTimeSelect(formattedTime)}
             >
-              {time}
+              {formattedTime}
             </button>
           );
         })}
