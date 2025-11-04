@@ -12,6 +12,10 @@ import { getAvailability } from "../../../services/AvailabilityAPI";
 import { useAuth } from "../../../contexts/AuthContext";
 import { getClient } from "../../../services/ClientAPI";
 import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
+import { Barber } from "../../../types/Barber";
+import { GetAllBarbers } from "../../../services/barberAPI";
+import BarberSelection from "../../../components/BarberSelection/barberSelection";
 
 export default function AgendarHorario() {
   // Estado para armazenar a data selecionada (Calendar)
@@ -19,13 +23,28 @@ export default function AgendarHorario() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [availableSlots, setAvailableSlots] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [barbers, setBarbers] = useState<Barber[]>([]);
+  const [selectedBarberId, setSelectedBarberId] = useState<number | null>(null);
   const [selectedHorario, setSelectedHorario] = useState<string | null>(null);
   const [selectedServicos, setSelectedServicos] = useState<Service[]>([]);
   const intervalo = 60;
   const { user } = useAuth();
+  const router = useRouter();
 
   //TEMPORARIO
   const barberId = 1;
+
+  useEffect(() => {
+    const fetchBarbers = async () => {
+      try {
+        const data = await GetAllBarbers();
+        setBarbers(data.data);
+      } catch (error) {
+        console.error("Erro ao carregar barbeiros:", error);
+      }
+    };
+    fetchBarbers();
+  }, []);
 
   useEffect(() => {
     const fetchAvailableSlots = async () => {
@@ -51,10 +70,10 @@ export default function AgendarHorario() {
     };
 
     fetchAvailableSlots();
-  }, [selectedServicos, selectedDate]);
+  }, [selectedServicos, selectedDate, selectedBarberId]);
 
   const proximaEtapa = () => {
-    etapa === 3 ? setEtapa(3) : setEtapa(etapa + 1);
+    etapa === 4 ? setEtapa(4) : setEtapa(etapa + 1);
     console.log(etapa);
   };
   const etapaAnterior = () => {
@@ -77,14 +96,19 @@ export default function AgendarHorario() {
     setSelectedServicos(service);
   };
 
+  const handleBarberSelection = (barberId: number) => {
+    setSelectedBarberId(barberId);
+    setSelectedHorario(null); // Reseta horários
+  };
+
   const handleConfirmarAgendamento = async () => {
     console.log("Iniciando confirmação. Estado atual:");
     console.log("selectedDate:", selectedDate);
     console.log("selectedHorario:", selectedHorario);
     //Validação dos preenchimentos dos campos
     //Validação dos preenchimentos dos campos
-    if (!selectedDate || !selectedHorario || selectedServicos.length === 0) {
-      alert("Por favor, selecione os serviços, uma data e um horário.");
+    if (!selectedDate || !selectedHorario || selectedServicos.length === 0 || !selectedBarberId) {
+      alert("Por favor, selecione os serviços, o barbeiro, uma data e um horário.");
       return;
     }
 
@@ -99,7 +123,7 @@ export default function AgendarHorario() {
       ServiceTime: dateFormatted.toISOString(),
       clientId: client.data.id,
       isCancelled: false,
-      barberId: barberId,
+      barberId: selectedBarberId,
       servicesIds: serviceIds,
     };
 
@@ -108,6 +132,7 @@ export default function AgendarHorario() {
       await createCostumerService(dataAPI);
 
       alert("Agendamento criado com sucesso!");
+      router.push("/");
     } catch (error) {
       console.error("Falha ao criar o agendamento:", error);
       alert("Não foi possível concluir o agendamento. Tente novamente.");
@@ -127,6 +152,14 @@ export default function AgendarHorario() {
         );
 
       case 2:
+        return (
+          <>
+            <h2>Selecione o profissional</h2>
+
+            <BarberSelection selectedBarberId={selectedBarberId} onBarberSelect={handleBarberSelection} />
+          </>
+        );
+      case 3:
         return (
           <>
             <h2 style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>Selecione a Data e o horario</h2>
@@ -150,7 +183,7 @@ export default function AgendarHorario() {
           </>
         );
 
-      case 3:
+      case 4:
         return (
           <>
             <h2 className="detalhesAgendamento-title" style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>

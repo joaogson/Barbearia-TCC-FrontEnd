@@ -2,7 +2,7 @@
 import { Barber, BarberSettings, createInactivePeriods } from "../types/Barber";
 import { api } from "./api";
 
-export const getBarbers = () => api.get<Barber[]>("/barber");
+export const GetAllBarbers = () => api.get<Barber[]>("/barber");
 export const getBarber = (id: number) => api.get<Barber>(`/barber/${id}`);
 export const getBarberMe = () => api.get<Barber>(`/barber/profile`);
 export const getMyBarberSettings = () => api.get<BarberSettings>("/barber/me/settings");

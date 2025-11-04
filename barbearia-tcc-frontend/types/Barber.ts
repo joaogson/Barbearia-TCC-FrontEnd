@@ -2,7 +2,11 @@ import { User } from "./User";
 
 export interface Barber {
   id: number;
-  user: User;
+  user: {
+    name: string;
+    phone: string;
+    email: string;
+  };
 }
 export interface BarberSettings {
   workStartTime?: string;

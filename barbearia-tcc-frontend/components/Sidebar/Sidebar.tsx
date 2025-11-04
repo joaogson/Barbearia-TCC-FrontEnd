@@ -36,10 +36,10 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
                     </Link>
                   </li>
                 </RoleGuard>
-                <RoleGuard allowedRoles={["BARBER"]}>
+                <RoleGuard allowedRoles={["CLIENT"]}>
                   <li>
-                    <Link href="/Servicos" onClick={toggleSidebar}>
-                      Serviços
+                    <Link href="/Barbers" onClick={toggleSidebar}>
+                      Barbeiros
                     </Link>
                   </li>
                 </RoleGuard>
