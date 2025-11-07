@@ -6,3 +6,9 @@ export interface Plan {
   clientId: number;
   client: Client;
 }
+
+export interface ClientForList {
+  id: number;
+  user: { name: string };
+  plan: { id: number; name: string } | null;
+}

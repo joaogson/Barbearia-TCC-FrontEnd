@@ -1,17 +1,17 @@
 "use client";
 
-import { Servicos } from "../../../types/ServiceOnCostumerService";
+import { Service } from "../../../types/Service";
 import { useEffect, useState } from "react";
 import { getServices } from "../../../services/serviceAPI";
 import "./ListarServicos.css";
 
 interface ServicesListProps {
-  onServiceSelect: (service: Servicos[]) => void;
-  selectedService: Servicos[];
+  onServiceSelect: (service: Service[]) => void;
+  selectedService: Service[];
 }
 
 export default function ListarServicos(props: ServicesListProps) {
-  const [services, setServices] = useState<Servicos[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,8 +32,8 @@ export default function ListarServicos(props: ServicesListProps) {
     }
   };
 
-  const handleServicoClick = async (servicoClicado: Servicos) => {
-    let novaSelecao: Servicos[];
+  const handleServicoClick = async (servicoClicado: Service) => {
+    let novaSelecao: Service[];
 
     const jaSelecionado = props.selectedService.some((s) => s.id === servicoClicado.id);
     if (jaSelecionado) {

@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { AuthContextType } from "../types/AuthContextType";
 import { api } from "../services/api";
-import * as authService from "../services/AuthAPI";
-import * as userService from "../services/UserAPI";
+import * as authService from "../services/authAPI";
+import * as userService from "../services/userAPI";
 import { User } from "../types/User";
 // Crie o contexto
 const AuthContext = createContext<AuthContextType | null>(null);

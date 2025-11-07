@@ -8,9 +8,9 @@ import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNave
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
 import Service from "../../../types/Service";
 import { createCostumerService } from "../../../services/costumerServiceAPI";
-import { getAvailability } from "../../../services/AvailabilityAPI";
+import { getAvailability } from "../../../services/availabilityAPI";
 import { useAuth } from "../../../contexts/AuthContext";
-import { getClient } from "../../../services/ClientAPI";
+import { getClient } from "../../../services/clientAPI";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { Barber } from "../../../types/Barber";
@@ -210,9 +210,9 @@ export default function AgendarHorario() {
             Voltar
           </BotaoNavegacao>
 
-          {etapa <= 3 && (
-            <BotaoNavegacao onClick={etapa === 3 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
-              {etapa === 3 ? "Confirmar" : "Avançar"}
+          {etapa <= 4 && (
+            <BotaoNavegacao onClick={etapa === 4 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
+              {etapa === 4 ? "Confirmar" : "Avançar"}
             </BotaoNavegacao>
           )}
         </div>

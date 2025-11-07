@@ -1,0 +1,47 @@
+/*
+#3e301b
+#547a46
+#d6d0bc
+*/
+
+.plan-title {
+  color: #3e301b;
+}
+
+.plan-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid #3e301b;
+  gap: 15px;
+  padding: 10px;
+}
+
+.client-table {
+  background-color: #3e301b;
+  border: 1px solid #3e301b;
+}
+
+.client-table-header {
+  height: 50px;
+  border-bottom: 6px solid #547a46;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #3e301b;
+  width: 33%;
+}
+
+tr {
+  border: 1px solid #3e301b;
+}
+
+.client-plan-content {
+  background-color: #d6d0bc;
+  color: #3e301b;
+}
+
+.modal-overlay {
+  background-color: #3e301b;
+}

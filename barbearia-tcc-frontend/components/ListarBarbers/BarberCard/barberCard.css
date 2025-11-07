@@ -1,27 +1,78 @@
 .barber-card {
-  display: block;
-  padding: 1.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  background-color: #ffffff;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: center;
-}
-.barber-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px; /* Adicionado um pouco mais de margem geral */
+  padding-bottom: 20px;
+  align-items: center;
+  width: 100%;
 }
 
-.barber-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #333;
-  margin: 0 0 0.5rem 0;
+.info-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.barber-header {
+  color: #d6d0bc;
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  background-color: #3e301b;
+  border-bottom: 6px solid #547a46;
+}
+.barber-content {
+  border: 2px solid #3e301b;
+  background-color: #3e301b;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.barber-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Fundo geral para o conteúdo */
+}
+
+.barber-label {
+  background-color: #d6d0bc;
+  height: 100%;
+  color: #3e301b;
+  padding: 5px;
+}
+
+.barber-button {
+  display: flex;
+  justify-content: flex-end; /* Alinha o botão à direita */
+  margin: 10px;
 }
 .barber-action {
   font-size: 0.9rem;
-  color: #007bff;
+  color: #d6d0bc;
   font-weight: 500;
+  background-color: #547a46;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .barber-content {
+    width: 50%;
+  }
+
+  .info-section {
+    flex-direction: row;
+  }
+
+  .barber-block {
+    border-right: 1px solid #b5a990;
+  }
+
+  .barber-block {
+    border-right: none;
+  }
 }

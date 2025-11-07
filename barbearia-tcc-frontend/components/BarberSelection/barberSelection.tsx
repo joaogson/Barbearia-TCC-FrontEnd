@@ -61,7 +61,7 @@ export default function BarberSelection({ selectedBarberId, onBarberSelect }: Ba
           type="button" // Garante que o botão não envie um formulário
           key={barber.id}
           // Aplica o estilo de "card" e também o estilo "selected" se o ID bater
-          className={`"list-card" ${selectedBarberId === barber.id ? "list-card-selected" : ""}`}
+          className={`list-card ${selectedBarberId === barber.id ? "selected" : ""}`}
           // Ao clicar, chama a função 'onBarberSelect' passada pelo pai
           onClick={() => onBarberSelect(barber.id)}
         >

@@ -24,17 +24,12 @@ h2 {
   align-items: end;
 }
 
-/* --- Botão de Ações --- */
 .button-actions {
   display: flex;
-  justify-content: flex-end; /* Alinha o botão à direita */
+  justify-content: flex-end;
   margin: 10px;
-}
-
-.button-actions {
-  /* Estilizando como um botão de verdade */
-  color: #3e301b;
-  background-color: #d6d0bc;
+  color: #d6d0bc;
+  background-color: #547a46;
   border: none;
   padding: 4px 16px;
   font-weight: bold;
@@ -59,12 +54,12 @@ h2 {
 
 .information-header {
   color: #d6d0bc;
-  font-size: 1.2rem; /* Fonte um pouco menor para compactar */
+  font-size: 1.2rem;
   font-weight: bold;
   height: 40px;
   padding: 0 10px;
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
+  align-items: center;
   background-color: #3e301b;
   border-bottom: 6px solid #547a46;
 }

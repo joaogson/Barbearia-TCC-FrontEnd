@@ -90,9 +90,8 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
       <div className={styles.timeGrid}>
         {availableSlots.map((time) => {
           const formattedTime = dayjs(time).format("HH:mm");
-          const isSelected = selectedTime === time;
-          // Não precisamos mais de 'isOccupied' ou 'isPastTime'.
-          // Se o horário está na lista 'availableSlots', ele é válido e clicável.
+          const isSelected = selectedTime === formattedTime;
+          // Se o horário está na lista availableSlots, ele é válido e clicável.
           return (
             <button
               key={time}

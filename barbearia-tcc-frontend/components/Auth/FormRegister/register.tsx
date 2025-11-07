@@ -15,8 +15,8 @@ export default function Register() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // Lógica para chamar a função de registro da sua API
-    console.log({ name, email, password });
+
+    // Lógica para chamar a função de registro da API
     try {
       const user = await register(email, password, phone, name);
       console.log("Usuario criado: ", user);

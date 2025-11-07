@@ -1,6 +1,6 @@
 import { ServiceOnCostumerService } from "./ServiceOnCostumerService";
 
-export default interface Service {
+export interface Service {
   id: number;
   description: string;
   duration: number;
