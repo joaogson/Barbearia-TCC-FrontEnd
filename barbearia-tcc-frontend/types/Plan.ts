@@ -12,3 +12,13 @@ export interface ClientForList {
   user: { name: string };
   plan: { id: number; name: string } | null;
 }
+
+export interface createPlanDto {
+  haircutNumber: number;
+  value: number;
+}
+
+export interface updatePlanDto {
+  haircutNumber?: number | null;
+  value?: number | null;
+}

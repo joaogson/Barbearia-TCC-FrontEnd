@@ -3,16 +3,21 @@
 #547a46
 #d6d0bc
 */
+.plan-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
 
 .plan-title {
   color: #3e301b;
+  font-size: 1.5rem;
 }
 
 .plan-content {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px solid #3e301b;
   gap: 15px;
   padding: 10px;
 }
@@ -20,6 +25,7 @@
 .client-table {
   background-color: #3e301b;
   border: 1px solid #3e301b;
+  width: 100%;
 }
 
 .client-table-header {
@@ -37,11 +43,55 @@ tr {
   border: 1px solid #3e301b;
 }
 
+th {
+  font-size: 1.2rem;
+}
+
 .client-plan-content {
   background-color: #d6d0bc;
   color: #3e301b;
 }
 
 .modal-overlay {
+  background-color: #d6d0bc;
+  border: 1px solid #3e301b;
+
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
   background-color: #3e301b;
+  padding: 10px;
+  height: 50px;
+  border-bottom: 6px solid #547a46;
+}
+
+.modal-title {
+  color: #d6d0bc;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.modal-block {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-content {
+  color: #3e301b;
+  font-size: 1.2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+select {
+  height: 30px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
 }

@@ -98,17 +98,21 @@ export default function ClientPlanLinker() {
             {/* MODAL DE EDIÇÃO */}
             {isModalOpen && currentClient && (
               <div className="modal-overlay">
-                <div className="modal-content">
-                  <h3>Gerenciar Plano de {currentClient.user.name}</h3>
-                  <p>Selecione um plano para vincular, trocar ou remover.</p>
-                  <select value={selectedPlanId} onChange={(e) => setSelectedPlanId(e.target.value)} className="plan-select">
-                    <option value="null">Remover Plano (Sem Plano)</option>
-                    {plans.map((plan) => (
-                      <option key={plan.id} value={plan.id}>
-                        {plan.id} (R$ {plan.value}) ({plan.haircutNumber} p/ mes)
-                      </option>
-                    ))}
-                  </select>
+                <div className="modal-header">
+                  <h3 className="modal-title">Gerenciar Plano de {currentClient.user.name}</h3>
+                </div>
+                <div className="modal-block">
+                  <div className="modal-content">
+                    <p>Selecione um plano para vincular, trocar ou remover.</p>
+                    <select value={selectedPlanId} onChange={(e) => setSelectedPlanId(e.target.value)} className="plan-select">
+                      <option value="null">Remover Plano (Sem Plano)</option>
+                      {plans.map((plan) => (
+                        <option key={plan.id} value={plan.id}>
+                          {plan.id} (R$ {plan.value}) ({plan.haircutNumber} p/ mes)
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                   <div className="modal-actions">
                     <button onClick={handleCloseModal}>Cancelar</button>
                     <button onClick={handleSavePlan}>Salvar Alterações</button>

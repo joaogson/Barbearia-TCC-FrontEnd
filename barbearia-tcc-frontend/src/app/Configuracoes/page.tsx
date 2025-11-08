@@ -2,6 +2,7 @@
 import InactivePeriodsManager from "../../../components/inactivePeriods/inactivePeriodsManager";
 import ServiceManager from "../../../components/ManagerServices/ListServicos/managerServices";
 import ClientPlanLinker from "../../../components/PlanManager/clientPlanLinker";
+import PlanManager from "../../../components/PlanManager/planManager";
 import WorkTimeForm from "../../../components/workTimeForm/workTimeForm";
 import { useAuth } from "../../../contexts/AuthContext";
 import "./config.css";
@@ -25,6 +26,10 @@ export default function Configuracoes() {
         </div>
         <div>
           <ClientPlanLinker />
+        </div>
+
+        <div>
+          <PlanManager />
         </div>
       </div>
     </div>

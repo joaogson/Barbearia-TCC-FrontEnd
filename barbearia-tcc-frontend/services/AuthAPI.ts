@@ -22,13 +22,11 @@ interface RegisterResponse {
 }
 
 export const login = async (credentials: LoginCredentials): Promise<LoginResponse> => {
-  console.log(credentials);
   const { data } = await api.post<LoginResponse>("/auth/login", credentials);
   return data;
 };
 
 export const register = async (credentials: RegisterCredentials): Promise<RegisterResponse> => {
-  console.log("Credenciais", credentials);
   const { data } = await api.post<RegisterResponse>("/auth/register", credentials);
   console.log("Data", data);
   return data;
