@@ -2,10 +2,9 @@
   justify-content: center;
   width: 50%;
   color: #3e301b;
-  margin: 20px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 h3 {

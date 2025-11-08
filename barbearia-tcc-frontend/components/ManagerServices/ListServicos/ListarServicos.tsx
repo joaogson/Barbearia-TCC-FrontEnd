@@ -59,7 +59,7 @@ export default function ListarServicos(props: ServicesListProps) {
   }
 
   return (
-    <div className="ServicesList">
+    <div className="services-list">
       <ul className="list">
         {services.map((service) => {
           const isSelected = props.selectedService.some((s) => s.id === service.id);

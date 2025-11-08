@@ -23,7 +23,7 @@ export default function ClientPlanLinker() {
         const [clientsData, plansData] = await Promise.all([getClientsForManagement(), getPlans()]);
 
         console.log("Clients", clientsData);
-
+        console.log("Plans ", plansData);
         setClients(clientsData);
         setPlans(plansData);
       } catch (error) {
@@ -33,7 +33,7 @@ export default function ClientPlanLinker() {
       }
     };
     loadData();
-  }, []);
+  }, [setClients]);
 
   // 2. Abre o modal para gerenciar um cliente
   const handleManageClick = (client: ClientForList) => {
@@ -48,12 +48,11 @@ export default function ClientPlanLinker() {
     setSelectedPlanId("");
   };
 
-  // 3. Salva a alteração (Vincular, Trocar ou Remover)
+  // 3. Salva a alteração
   const handleSavePlan = async () => {
     if (!currentClient) return;
 
     try {
-      // Converte a string "null" ou "123" para o tipo correto
       const newPlanId = selectedPlanId === "null" ? null : parseInt(selectedPlanId, 10);
 
       const updatedClient = await updateClientPlan(currentClient.id, newPlanId);
@@ -72,10 +71,10 @@ export default function ClientPlanLinker() {
 
   return (
     <div className="plan-container">
-      <h2 className="plan-title">Gerenciar Planos de Clientes</h2>
-      <div className="plan-content">
-        {clients.map((client) => (
-          <div key={client.id}>
+      <div className="plan--client-list-container">
+        <h2 className="plan-title">Gerenciar Planos de Clientes</h2>
+        <div className="plan-content">
+          <div className="table-wrapper">
             <table className="client-table">
               <thead className="client-table-header">
                 <tr>
@@ -84,23 +83,31 @@ export default function ClientPlanLinker() {
                   <th>Ações</th>
                 </tr>
               </thead>
+
               <tbody className="client-plan-content">
-                <tr>
-                  <td>{client.user.name}</td>
-                  <td>{client.plan?.name || "Sem Plano"}</td>
-                  <td>
-                    <button onClick={() => handleManageClick(client)}>{client.plan ? "Editar Plano" : "Vincular Plano"}</button>
-                  </td>
-                </tr>
+                {clients.map((client) => (
+                  <tr key={client.id}>
+                    <td>{client.user.name}</td>
+                    <td>{`${client.plan?.id} - ${client.plan?.haircutNumber} cortes por R$${client.plan?.value}` || "Sem Plano"}</td>
+                    <td>
+                      <button onClick={() => handleManageClick(client)}>{client.plan ? "Editar Plano" : "Vincular Plano"}</button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
+          </div>
 
-            {/* MODAL DE EDIÇÃO */}
-            {isModalOpen && currentClient && (
-              <div className="modal-overlay">
+          {/* MODAL DE EDIÇÃO */}
+          {isModalOpen && currentClient && (
+            // 1.Wrapper que cobre a tela
+            <div className="modal-wrapper" onClick={handleCloseModal}>
+              {/* Caixa do modal*/}
+              <div className="modal-box" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                   <h3 className="modal-title">Gerenciar Plano de {currentClient.user.name}</h3>
                 </div>
+
                 <div className="modal-block">
                   <div className="modal-content">
                     <p>Selecione um plano para vincular, trocar ou remover.</p>
@@ -108,20 +115,21 @@ export default function ClientPlanLinker() {
                       <option value="null">Remover Plano (Sem Plano)</option>
                       {plans.map((plan) => (
                         <option key={plan.id} value={plan.id}>
-                          {plan.id} (R$ {plan.value}) ({plan.haircutNumber} p/ mes)
+                          {plan.id} - (R$ {plan.value}) ({plan.haircutNumber} p/ mes)
                         </option>
                       ))}
                     </select>
                   </div>
+
                   <div className="modal-actions">
                     <button onClick={handleCloseModal}>Cancelar</button>
                     <button onClick={handleSavePlan}>Salvar Alterações</button>
                   </div>
                 </div>
               </div>
-            )}
-          </div>
-        ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

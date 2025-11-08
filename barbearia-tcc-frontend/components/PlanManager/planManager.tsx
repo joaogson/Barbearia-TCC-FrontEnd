@@ -73,7 +73,9 @@ export default function PlanManager() {
         setPlans((prev) => prev.map((s) => (s.id === editingPlanId ? updatePlanConst : s)));
       } else {
         // Criar
+
         const newPlan = await createPlan(formData);
+
         setPlans((prev) => [...prev, newPlan]);
       }
       handleCancelEdit(); // Limpa o formulário
@@ -85,9 +87,9 @@ export default function PlanManager() {
 
   return (
     <>
-      <div className="plan-container">
-        <div className="plan-form-container">
-          <h2 className="plan-title">Gerenciar Serviços</h2>
+      <div className="plan-manager-container">
+        <div className="plan-manager-form-container">
+          <h2 className="plan-title">Gerenciar Planos</h2>
           <form onSubmit={handleSubmit} className="plan-form">
             <label htmlFor="haircutNumber">{editingPlanId ? "Editar Plano" : "Adicionar Novo Plano"}</label>
             <input
@@ -96,6 +98,7 @@ export default function PlanManager() {
               value={formData.haircutNumber}
               onChange={handleInputChange}
               placeholder="Numero de Cortes"
+              type="number"
             />
             <label htmlFor="value">Valor</label>
             <input id="value" name="value" value={formData.value} onChange={handleInputChange} type="number" />
@@ -123,7 +126,8 @@ export default function PlanManager() {
                   <li key={plan.id}>
                     <div className="plan-details">
                       <div className="plan-text">
-                        <span>{plan.haircutNumber}</span>
+                        <span> {plan.id} - </span>
+                        <span>{plan.haircutNumber} Cortes</span>
                         <span> - R$ {plan.value}</span>
                       </div>
                       <div className="list-buttons">

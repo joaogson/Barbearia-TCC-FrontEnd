@@ -10,7 +10,7 @@ export interface Plan {
 export interface ClientForList {
   id: number;
   user: { name: string };
-  plan: { id: number; name: string } | null;
+  plan: { id: number; value: number; haircutNumber: number } | null;
 }
 
 export interface createPlanDto {

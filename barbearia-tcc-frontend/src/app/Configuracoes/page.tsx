@@ -10,27 +10,86 @@ import "./config.css";
 export default function Configuracoes() {
   const { user } = useAuth();
   return (
-    <div>
-      <div>
-        {user?.role === "CLIENT" && <div style={{ fontSize: "2rem", color: "#3e301b" }}> Voce não tem permissão para acessar essa página!</div>}
-        <h1 style={{ borderBottom: "3px solid #3e301b", width: "70%", textAlign: "start", color: "#3e301b", fontSize: "2rem", marginTop: "25px" }}>
-          Configurações
-        </h1>
-        <div className="config-container">
-          <WorkTimeForm />
+    <div className="page-config-container">
+      {user?.role === "CLIENT" && <div style={{ fontSize: "2rem", color: "#3e301b" }}> Voce não tem permissão para acessar essa página!</div>}
+      <h1
+        style={{
+          borderBottom: "3px solid #3e301b",
+          width: "80%",
+          textAlign: "start",
+          color: "#3e301b",
+          fontSize: "2rem",
+          marginTop: "25px",
+        }}
+      >
+        Configurações
+      </h1>
+      <div className="config-container">
+        <div className="config-content">
+          <h2
+            style={{
+              borderBottom: "3px solid #3e301b",
+              width: "80%",
+              textAlign: "start",
+              color: "#3e301b",
+              fontSize: "2rem",
+              marginTop: "25px",
+            }}
+          >
+            Horarios
+          </h2>
+          <div className="time-service-container">
+            <WorkTimeForm />
 
-          <InactivePeriodsManager />
+            <InactivePeriodsManager />
+          </div>
         </div>
-        <div>
-          <ServiceManager />
-        </div>
-        <div>
-          <ClientPlanLinker />
-        </div>
+      </div>
+      <div className="config-content">
+        <h2
+          style={{
+            borderBottom: "3px solid #3e301b",
+            width: "80%",
+            textAlign: "start",
+            color: "#3e301b",
+            fontSize: "2rem",
+            marginTop: "25px",
+          }}
+        >
+          Serviços
+        </h2>
+        <ServiceManager />
+      </div>
+      <div className="config-content">
+        <h2
+          style={{
+            borderBottom: "3px solid #3e301b",
+            width: "80%",
+            textAlign: "start",
+            color: "#3e301b",
+            fontSize: "2rem",
+            marginTop: "25px",
+          }}
+        >
+          Planos
+        </h2>
+        <PlanManager />
+      </div>
 
-        <div>
-          <PlanManager />
-        </div>
+      <div className="config-content">
+        <h2
+          style={{
+            borderBottom: "3px solid #3e301b",
+            width: "80%",
+            textAlign: "start",
+            color: "#3e301b",
+            fontSize: "2rem",
+            marginTop: "25px",
+          }}
+        >
+          Vincular Planos aos Clientes
+        </h2>
+        <ClientPlanLinker />
       </div>
     </div>
   );
