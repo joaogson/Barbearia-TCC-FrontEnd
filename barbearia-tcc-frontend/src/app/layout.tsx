@@ -1,10 +1,12 @@
 "use client";
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Menubar from "../../components/Menubar/Menubar";
+import Header from "../../components/Header/Header";
+import { AuthProvider } from "../../contexts/AuthContext";
+import { AuthGuard } from "../../components/Auth/Guards/AuthGuard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +32,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <Menubar toggleSidebar={toggleSidebar} />
+        <AuthProvider>
+          <AuthGuard>
+            <div className="page-content">
+              <Menubar toggleSidebar={toggleSidebar} />
+
+              <main className="content-area">
+                <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+                <div className="main-content">{children}</div>
+              </main>
+            </div>
+          </AuthGuard>
+        </AuthProvider>
       </body>
     </html>
   );

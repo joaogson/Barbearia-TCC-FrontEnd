@@ -1,0 +1,10 @@
+.list-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list-error {
+  color: #d9534f;
+  font-weight: 500;
+}

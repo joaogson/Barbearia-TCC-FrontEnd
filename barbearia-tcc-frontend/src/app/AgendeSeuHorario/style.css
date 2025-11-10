@@ -1,0 +1,33 @@
+.agendar-horario-container {
+  display: flex;
+  background-color: #3e301b;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 50px;
+  min-width: 400px;
+}
+
+.agendarHorario-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 25px;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.selecionar-servico-container {
+  height: 300px;
+}
+
+.detalhesAgendamento-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #3e301b;
+  padding: 15px;
+  align-items: center;
+}
