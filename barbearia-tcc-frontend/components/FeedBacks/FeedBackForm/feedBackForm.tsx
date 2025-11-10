@@ -37,8 +37,11 @@ export default function FeedbackForm({ clientId, barberId }: Props) {
   };
 
   return (
+  <div className="feedback-form-container">
     <form onSubmit={handleSubmit} className="feedback-form">
+        <div className="feedback-form-header">
       <h4>Deixe sua avaliação</h4>
+        </div>
       {error && <p className="error-message">{error}</p>}
 
       <div className="form-group">
@@ -52,12 +55,14 @@ export default function FeedbackForm({ clientId, barberId }: Props) {
           <option value={1}>1 Estrela</option>
         </select>
       </div>
-
+        <div className="feedback-form-header">
+          <label>Comentário (Opcional)</label>
+        </div>
       <div className="form-group">
-        <label>Comentário (Opcional)</label>
-        <textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Como foi sua experiência?" />
+        <textarea className="feedback-comment" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Como foi sua experiência?" />
       </div>
       <button type="submit">Enviar Avaliação</button>
     </form>
+  </div>
   );
 }

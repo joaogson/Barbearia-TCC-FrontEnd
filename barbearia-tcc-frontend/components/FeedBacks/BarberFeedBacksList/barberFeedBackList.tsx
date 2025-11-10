@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getFeedbacksForBarber } from "../../../../services/feedBackAPI";
-import { Feedback } from "../../../../types/Feedback";
+import { getFeedbacksForBarber } from "../../../services/feedBackAPI";
+import { Feedback } from "../../../types/Feedback";
 import "./barberFeedBackList.css";
 
 interface Props {

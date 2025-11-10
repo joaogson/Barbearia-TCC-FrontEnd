@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getMyFeedbacks, deleteFeedback } from "../../../../services/feedBackAPI";
-import { Feedback } from "../../../../types/Feedback";
+import { getMyFeedbacks, deleteFeedback } from "../../../services/feedBackAPI";
+import { Feedback } from "../../../types/Feedback";
 import "./clientFeedBackList.css"; // Pode reutilizar o CSS
 
 export default function ClientFeedbackList() {
