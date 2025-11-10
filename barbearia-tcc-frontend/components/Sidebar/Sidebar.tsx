@@ -45,7 +45,7 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
                 </RoleGuard>
                 <RoleGuard allowedRoles={["CLIENT"]}>
                   <li>
-                    <Link href="/Feedbacks" onClick={toggleSidebar}>
+                    <Link href="/Feedback" onClick={toggleSidebar}>
                       Envie seu Feedback
                     </Link>
                   </li>

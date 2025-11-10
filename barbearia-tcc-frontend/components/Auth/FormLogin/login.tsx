@@ -38,7 +38,7 @@ export default function Login() {
 
   return (
     <div className="container-login">
-      <h1>Entrar</h1>
+      <h1 className="login-title">Entrar</h1>
       <form className="form-login" action="">
         <div className="style">
           <label htmlFor="email">Email</label>
