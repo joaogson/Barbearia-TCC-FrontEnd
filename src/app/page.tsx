@@ -1,12 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
-
 export default function Home() {
-  useEffect(() => {
-    console.log("VERCEL ESTÁ USANDO ESTA URL DE API:", process.env.NEXT_PUBLIC_API_URL);
-  }, []);
-
   return (
     <div className="home" style={{ color: "#3E301B", fontSize: "1.6rem" }}>
       {" "}
