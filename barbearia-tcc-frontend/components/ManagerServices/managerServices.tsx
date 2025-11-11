@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect, FormEvent } from "react";
-import { getServices, createService, updateService, deleteService } from "../../../services/serviceAPI";
+import { getServices, createService, updateService, deleteService } from "../../services/serviceAPI";
 import "./managerService.css";
-import { Service, CreateServiceDto } from "../../../types/Service";
+import { Service, CreateServiceDto } from "../../types/Service";
 
 const initialState: CreateServiceDto = { description: "", duration: 0 };
 

@@ -49,13 +49,13 @@ export default function ClientFeedbackList() {
             <div className="feedBack-header">
               {/* Mostra o nome do barbeiro que ele avaliou */}
               <strong>{fb.barber.user.name}</strong>
-              <span>{fb.rating} Estrelas</span>
+              <span>{fb.rating} Estrelas ⭐</span>
             </div>
             {fb.comment && <p className="comment">{fb.comment}</p>}
 
             <div className="feedBack-actions">
               {/* Ações de Editar (chama o Form) e Excluir */}
-              <button onClick={() => alert("TODO: Editar")}>Editar</button>
+
               <button onClick={() => handleDelete(fb.id)} className="feedBack-delete-button">
                 Excluir
               </button>

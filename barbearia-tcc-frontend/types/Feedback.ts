@@ -15,5 +15,4 @@ export interface CreateFeedBackDto {
   rating: number;
   comment?: string;
   barberId: number;
-  clientId: number;
 }
