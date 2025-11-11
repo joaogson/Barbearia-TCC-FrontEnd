@@ -32,8 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          {children}
-        {/* <AuthProvider>
+         <AuthProvider>
           <AuthGuard>
             <div className="page-content">
               <Menubar toggleSidebar={toggleSidebar} />
@@ -44,7 +43,7 @@ export default function RootLayout({
               </main>
             </div>
           </AuthGuard>
-        </AuthProvider> */}
+        </AuthProvider>
       </body>
     </html>
   );
