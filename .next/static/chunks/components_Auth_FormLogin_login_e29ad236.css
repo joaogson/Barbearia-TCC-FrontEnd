@@ -1,0 +1,63 @@
+/* [project]/components/Auth/FormLogin/login.css [app-client] (css) */
+.container-login {
+  background-color: #3e301b;
+  border-bottom: 4px solid #547a46;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  display: flex;
+}
+
+.style {
+  flex-direction: column;
+  align-items: stretch;
+  height: 80px;
+  display: flex;
+}
+
+.form-login {
+  width: 90%;
+}
+
+input {
+  color: #3e301b;
+  background-color: #d6d0bc;
+  border-bottom: 4px solid #547a46;
+  height: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  font-weight: 400;
+}
+
+h1 {
+  text-align: center;
+  color: #d6d0bc;
+  font-size: 1.5rem;
+}
+
+button {
+  background-color: #547a46;
+  width: 100%;
+  padding: 10px;
+}
+
+.submit-button {
+  cursor: pointer;
+}
+
+.sem-conta {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.link-cadastrar {
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  padding: 5px;
+}
+
+/*# sourceMappingURL=components_Auth_FormLogin_login_e29ad236.css.map*/
