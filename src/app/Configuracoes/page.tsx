@@ -1,6 +1,6 @@
 "use client";
 import InactivePeriodsManager from "../../../components/inactivePeriods/inactivePeriodsManager";
-import ServiceManager from "../../../components/ManagerServices/ListServicos/managerServices";
+import ServiceManager from "../../../components/ManagerServices/managerServices";
 import ClientPlanLinker from "../../../components/PlanManager/clientPlanLinker";
 import PlanManager from "../../../components/PlanManager/planManager";
 import WorkTimeForm from "../../../components/workTimeForm/workTimeForm";

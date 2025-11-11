@@ -8,9 +8,9 @@ import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNave
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
 import Service from "../../../types/Service";
 import { createCostumerService } from "../../../services/costumerServiceAPI";
-import { getAvailability } from "../../../services/availabilityAPI";
+import { getAvailability } from "../../../services/AvailabilityAPI";
 import { useAuth } from "../../../contexts/AuthContext";
-import { getClient } from "../../../services/clientAPI";
+import { getClient } from "../../../services/ClientAPI";
 import { useRouter } from "next/navigation";
 import { Barber } from "../../../types/Barber";
 import { GetAllBarbers } from "../../../services/barberAPI";
