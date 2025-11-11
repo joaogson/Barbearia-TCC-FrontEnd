@@ -5,7 +5,7 @@ export function middleware(req: NextRequest) {
   const token = req.cookies.get('token')?.value;
   const { pathname } = req.nextUrl;
 
-  // Lista de rotas que são consideradas públicas
+  // Lista publicas
   const publicRoutes = ['/login', '/register', '/'];
 
   //Verifica se o caminho da requisição é uma publicRoute
@@ -13,7 +13,7 @@ export function middleware(req: NextRequest) {
 
   // Se o usuário tenta acessar uma rota protegida sem token, redireciona para o login
   if (!token && !isPublicRoute) {
-    return NextResponse.redirect(new URL('/login', req.url));
+    return NextResponse.redirect(new URL("/login", req.url));
   }
 
   return NextResponse.next();

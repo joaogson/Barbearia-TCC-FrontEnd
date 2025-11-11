@@ -1,7 +1,7 @@
 import BarberFeedbackList from "../../../components/FeedBacks/BarberFeedBacksList/barberFeedBackList";
 import ClientFeedbackList from "../../../components/FeedBacks/ClientFeedBackList/clientFeedBackList";
 import FeedbackForm from "../../../components/FeedBacks/FeedBackForm/feedBackForm";
-import { useAuth } from "../../../contexts/AuthContext";
+
 
 export default function FeedBack() {
   return (
