@@ -10,8 +10,10 @@ interface Props {
 }
 
 export default function WhatsappButton({ phone, message, label }: Props) {
+  const phoneFormatted = `+55${phone}`;
+
   const link = () => {
-    let url = `https://wa.me/${phone}`;
+    let url = `https://wa.me/${phoneFormatted}`;
 
     if (message) {
       // Codifica a mensagem para que funcione na URL

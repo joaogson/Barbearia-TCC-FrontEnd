@@ -7,6 +7,10 @@
   padding: 15px;
 }
 
+.login-title {
+  color: #d6d0bc;
+}
+
 .style {
   display: flex;
   flex-direction: column;

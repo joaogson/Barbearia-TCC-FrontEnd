@@ -18,13 +18,14 @@ h1 {
 
 .list-card {
   height: 50px;
-  width: 80%;
+  width: 100%;
   background-color: #3e301b;
   color: #d6d0bc;
   text-align: center;
   align-content: center;
   border-bottom: 4px solid #547a46;
   cursor: pointer;
+  padding: 5px;
 
   transition: transform 0.1s ease-in-out, background-color 0.1s;
 }
@@ -41,4 +42,6 @@ h1 {
 }
 
 .card-name {
+  text-align: center;
+  color: #d6d0bc;
 }

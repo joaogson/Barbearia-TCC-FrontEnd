@@ -1,6 +1,6 @@
 .form-container {
   justify-content: center;
-  width: 50%;
+
   color: #3e301b;
   display: flex;
   flex-direction: column;
@@ -59,8 +59,9 @@ button {
 
 @media (max-width: 768px) {
   .form-container {
-    min-width: 80%;
-    margin: 20 auto;
+    flex-wrap: wrap;
+    min-width: 100%;
+    margin: 20px auto;
     padding: 10px;
   }
 }

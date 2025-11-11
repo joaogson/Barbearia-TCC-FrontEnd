@@ -11,7 +11,6 @@ import { createCostumerService } from "../../../services/costumerServiceAPI";
 import { getAvailability } from "../../../services/availabilityAPI";
 import { useAuth } from "../../../contexts/AuthContext";
 import { getClient } from "../../../services/clientAPI";
-import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { Barber } from "../../../types/Barber";
 import { GetAllBarbers } from "../../../services/barberAPI";
