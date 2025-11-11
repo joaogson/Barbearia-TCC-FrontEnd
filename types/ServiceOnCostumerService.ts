@@ -1,5 +1,5 @@
 import { costumerService } from "./costumerService";
-import Service from "./Service";
+import { Service } from "./Service";
 
 export interface ServiceOnCostumerService {
   costumerService: costumerService;
