@@ -75,7 +75,7 @@ export default function FeedbackForm() {
     <div className="feedback-form-container">
       <form onSubmit={handleSubmit} className="feedback-form">
         <div className="feedback-form-header">
-          <h4>Deixe sua avaliação</h4>
+          <h4 className="feedback-title">Deixe sua avaliação</h4>
         </div>
         {error && <p className="error-message">{error}</p>}
 
