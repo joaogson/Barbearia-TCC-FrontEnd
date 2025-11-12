@@ -13,7 +13,7 @@
   font-size: 2rem;
 }
 
-.list {
+.list-servicos {
   display: flex;
   height: 90%;
   flex-direction: column;
