@@ -3,7 +3,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { getPlans, createPlan, deletePlan, updatePlan } from "../../services/planAPI";
 import "./managerPlan.css";
-import { Plan, ClientForList, createPlanDto } from "../../types/Plan";
+import { Plan, createPlanDto } from "../../types/Plan";
 
 const initialState: createPlanDto = { haircutNumber: 0, value: 0 };
 

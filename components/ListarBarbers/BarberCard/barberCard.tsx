@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Barber } from "../../../types/Barber";
 import "./barberCard.css";
 import WhatsappButton from "../../whatsAppButton/whatsAppbutton";

@@ -13,8 +13,6 @@ export default function ListServices() {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
 
-  // 1. PRIMEIRO EFEITO: Busca a lista principal de atendimentos
-  // Você só precisa de UM useEffect
   useEffect(() => {
     console.log("Usuário atual: ", user);
     const fetchServices = async () => {

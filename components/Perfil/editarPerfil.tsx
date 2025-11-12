@@ -60,6 +60,7 @@ export default function EditarPerfil() {
       router.push("/Perfil"); // Redireciona para a página de perfil
     } catch (err) {
       setError("Erro ao salvar as alterações.");
+      console.error(err);
     } finally {
       setIsSaving(false);
     }

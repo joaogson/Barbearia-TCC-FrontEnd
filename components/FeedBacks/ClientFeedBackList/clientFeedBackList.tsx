@@ -30,9 +30,10 @@ export default function ClientFeedbackList() {
     }
     try {
       await deleteFeedback(feedbackId);
-      // Remove o feedback da lista localmente (melhor UX)
+
       setMyFeedbacks((prev) => prev.filter((fb) => fb.id !== feedbackId));
     } catch (error) {
+      console.error(error);
       alert("Falha ao excluir. Tente novamente.");
     }
   };

@@ -63,8 +63,9 @@ export default function FeedbackForm() {
       setComment("");
       setRating(5);
       setSelectedBarberId("");
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Ocorreu um erro ao enviar o feedback.");
+    } catch (err) {
+      console.error(err);
+      alert("Não foi possivel enviar o feedBack");
     } finally {
       setIsSubmitting(false);
     }
