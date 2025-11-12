@@ -7,13 +7,7 @@ import { createFeedback } from "../../../services/feedBackAPI";
 import { GetAllBarbers } from "../../../services/barberAPI";
 import { Barber } from "../../../types/Barber";
 
-interface Props {
-  // Opcional: para recarregar a lista de feedbacks
-  onSuccess?: () => void;
-}
-
-// ✅ Note que NÃO recebemos 'clientId' ou 'barberId'
-export default function FeedbackForm({ onSuccess }: Props) {
+export default function FeedbackForm() {
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
   const [error, setError] = useState("");
@@ -64,7 +58,6 @@ export default function FeedbackForm({ onSuccess }: Props) {
       });
 
       alert("Feedback Enviado com sucesso!");
-      if (onSuccess) onSuccess(); // Avisa o pai (se houver)
 
       // Limpa o formulário
       setComment("");
