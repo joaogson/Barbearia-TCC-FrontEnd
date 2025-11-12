@@ -47,7 +47,9 @@ export default function Login() {
         <div className="style">
           <label htmlFor="password">Senha</label>
           <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <Link href={"../forgot-password"}>esqueci minha senha!</Link>
+          <Link style={{ padding: "5px" }} href={"../forgot-password"}>
+            esqueci minha senha!
+          </Link>
         </div>
         {error && <p className="error">{error}</p>}
         <button className="submit-button" type="submit" disabled={isSubmitting} onClick={handleSubmit}>

@@ -6,7 +6,7 @@ import "./style.css";
 import ListarServicos from "../../../components/ManagerServices/ListServicos/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
-import { Service } from "types/Service";
+import { Service } from "../../../types/Service";
 import { createCostumerService } from "../../../services/costumerServiceAPI";
 import { getAvailability } from "../../../services/AvailabilityAPI";
 import { useAuth } from "../../../contexts/AuthContext";
@@ -15,7 +15,6 @@ import { useRouter } from "next/navigation";
 import { Barber } from "../../../types/Barber";
 import { GetAllBarbers } from "../../../services/barberAPI";
 import BarberSelection from "../../../components/BarberSelection/barberSelection";
-import { error } from "console";
 
 export default function AgendarHorario() {
   // Estado para armazenar a data selecionada (Calendar)
@@ -27,8 +26,12 @@ export default function AgendarHorario() {
   const [selectedBarberId, setSelectedBarberId] = useState<number | null>(null);
   const [selectedHorario, setSelectedHorario] = useState<string | null>(null);
   const [selectedServicos, setSelectedServicos] = useState<Service[]>([]);
+  const intervalo = 60;
   const { user } = useAuth();
   const router = useRouter();
+
+  //TEMPORARIO
+  const barberId = 1;
 
   useEffect(() => {
     const fetchBarbers = async () => {
@@ -53,12 +56,8 @@ export default function AgendarHorario() {
         const serviceIds = selectedServicos.map((servico) => servico.id);
         const dateString = selectedDate.toISOString().split("T")[0]; // Formato "YYYY-MM-DD"
 
-        // 2. Chama a nova API com os dados necessário
-
-        if (!selectedBarberId) {
-          throw new Error("barbeiro não selecionado");
-        }
-        const times = await getAvailability(selectedBarberId, dateString, serviceIds);
+        // 2. Chama a nova API com os dados necessários
+        const times = await getAvailability(barberId, dateString, serviceIds);
 
         setAvailableSlots(times);
       } catch (error) {

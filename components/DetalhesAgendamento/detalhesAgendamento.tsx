@@ -1,5 +1,4 @@
-
-import { Service } from "types/Service";
+import { Service } from "../../types/Service";
 import "./detalhesAgendamento.css";
 
 interface detalhesProps {
