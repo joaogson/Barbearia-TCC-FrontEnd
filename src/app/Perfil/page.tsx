@@ -1,5 +1,5 @@
 "use client";
-import ClientFeedbackList from "components/FeedBacks/ClientFeedBackList/clientFeedBackList";
+import FeedbackList from "components/FeedBacks/ClientFeedBackList/clientFeedBackList";
 import ListPerfil from "../../../components/Perfil/listPerfil";
 
 export default function Perfil() {
@@ -10,7 +10,7 @@ export default function Perfil() {
           Informações do Perfil
         </h2>
         <ListPerfil />
-        <ClientFeedbackList />
+        <FeedbackList />
       </div>
     </>
   );

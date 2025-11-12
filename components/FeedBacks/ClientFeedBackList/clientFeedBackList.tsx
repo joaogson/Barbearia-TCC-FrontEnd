@@ -4,7 +4,7 @@ import { getMyFeedbacks, deleteFeedback } from "../../../services/feedBackAPI";
 import { Feedback } from "../../../types/Feedback";
 import "./clientFeedBackList.css"; // Pode reutilizar o CSS
 
-export default function ClientFeedbackList() {
+export default function FeedbackList() {
   const [myFeedbacks, setMyFeedbacks] = useState<Feedback[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
