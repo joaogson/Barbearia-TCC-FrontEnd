@@ -1,0 +1,33 @@
+footer{
+
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 350px;
+}
+
+.footer-container{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+
+}
+
+.footer-block{
+
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: start;
+}
+
+.rodape{
+    height: 100px;
+    width: 100%;
+    text-align: center;
+
+}
