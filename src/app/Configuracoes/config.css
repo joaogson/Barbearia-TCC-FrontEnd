@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   gap: 50px;
+  align-items: center;
 }
 
 .config-content {
