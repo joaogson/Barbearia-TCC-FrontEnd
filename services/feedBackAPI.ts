@@ -6,7 +6,7 @@ export const createFeedback = (data: CreateFeedBackDto) => {
 };
 
 export const getFeedbacksForBarber = async (barberId: number): Promise<Feedback[]> => {
-  const response = await api.get(`/barbers/${barberId}/feedback`);
+  const response = await api.get(`/barber/${barberId}/feedback`);
   return response.data;
 };
 
