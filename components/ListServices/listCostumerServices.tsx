@@ -65,7 +65,7 @@ export default function ListServices() {
   if (costumerServices.length === 0) {
     return (<div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
       <p className="sem-atendimentos-service">Não existem atendimentos</p>;
-      <button style={{backgroundColor: "#547a46", padding: "5px", margin: "5px", width:"60px", height:"25px"}}><Link href="/AgendeSeuHorario"> Agendar Horario </Link></button>
+      <button style={{backgroundColor: "#547a46", padding: "10px"}}><Link href="/AgendeSeuHorario"> Agendar Horario </Link></button>
     </div>)
   }
 
