@@ -7,6 +7,7 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting] = useState(false);
@@ -18,8 +19,10 @@ export default function Register() {
 
     // Lógica para chamar a função de registro da API
     try {
+      if(confirmPassword === password){
       const user = await register(email, password, phone, name);
       console.log("Usuario criado: ", user);
+      }
     } catch (err) {
       console.error("Erro: ", err);
       setError("Falha ao registrar. Tente outro e-mail.");
@@ -34,12 +37,12 @@ export default function Register() {
           <label htmlFor="name">Nome Completo</label>
           <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
-        <div className="style">
+        <div className="register-style">
           <label htmlFor="phone">Celular</label>
           <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         </div>
 
-        <div className="style">
+        <div className="register-style">
           <label htmlFor="email">Email</label>
           <input
             id="email"
@@ -50,13 +53,25 @@ export default function Register() {
             style={{ width: "100%", padding: "8px" }}
           />
         </div>
-        <div className="style">
+        <div className="register-style">
           <label htmlFor="password">Senha</label>
           <input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+            style={{ width: "100%", padding: "8px" }}
+          />
+        </div>
+
+        <div className="register-style">
+          <label htmlFor="Confirmpassword">Senha</label>
+          <input
+            id="Confirmpassword"
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             required
             style={{ width: "100%", padding: "8px" }}
           />
