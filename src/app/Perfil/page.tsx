@@ -24,7 +24,7 @@ export default function Perfil() {
         return (
           <>
             <h2 className="feedback-title">Avaliações Recebidas</h2>
-            <BarberFeedbackList barberId={1} />
+            <ClientFeedbackList/>
           </>
         );
       default:
