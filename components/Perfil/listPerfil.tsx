@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./perfil.css";
 import { useAuth } from "../../contexts/AuthContext";
-import { getClient } from "../../services/clientAPI";
+import { getClient } from "../../services/ClientAPI";
 import { useEffect, useState } from "react";
 import { Client } from "../../types/Client";
 
