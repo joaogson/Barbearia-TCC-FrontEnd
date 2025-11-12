@@ -18,6 +18,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
 }
 
 .form-group {
@@ -45,13 +46,9 @@ select {
 
 .feedback-comment {
   border: 1px solid #3e301b;
-  width: 80%;
+  width: 100%;
   background-color: #d6d0bc;
   border-bottom: 6px solid #547a46;
-}
-
-textarea {
-  width: 100%;
 }
 
 button {
