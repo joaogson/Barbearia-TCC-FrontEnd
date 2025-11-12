@@ -28,9 +28,10 @@ export default function Register() {
     } catch (err) {
       if(confirmPassword != password){
         setError("As senhas não batem")
-      }
+      } else{
       console.error("Erro: ", err);
       setError("Falha ao registrar. Tente outro e-mail.");
+      }
     }
   };
 
