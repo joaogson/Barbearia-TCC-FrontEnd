@@ -26,18 +26,19 @@ h1 {
   border-bottom: 4px solid #547a46;
   cursor: pointer;
   padding: 5px;
-
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
   transition: transform 0.1s ease-in-out, background-color 0.1s;
 }
 
 .list-card:active {
   transform: scale(0.7);
   background-color: #547a46;
+    
 }
 
 .list-card.selected {
   background-color: #3e301b;
-  box-shadow: 0 4px 8px black;
+  box-shadow: 5px 5px 10px black;
   transform: scale(1.1);
 }
 

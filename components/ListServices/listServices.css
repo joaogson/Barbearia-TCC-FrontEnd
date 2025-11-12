@@ -29,6 +29,7 @@ h1 {
   background-color: #3e301b;
   gap: 15px;
   margin: 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
 }
 
 .card-header-service {
