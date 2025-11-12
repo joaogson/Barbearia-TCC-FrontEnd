@@ -81,7 +81,9 @@ export default function FeedbackForm() {
 
         {/* 5. O <select> para escolher o barbeiro */}
         <div className="form-group">
-          <label>Profissional</label>
+          <div className="feedback-form-header">
+            <label>Profissional</label>
+          </div>
           <select value={selectedBarberId} onChange={(e) => setSelectedBarberId(e.target.value)} disabled={isLoadingBarbers}>
             <option value="">{isLoadingBarbers ? "Carregando..." : "Selecione um profissional"}</option>
             {barbers.map((barber) => (
@@ -94,7 +96,9 @@ export default function FeedbackForm() {
 
         {/* ... (O resto do seu formulário: Nota e Comentário) ... */}
         <div className="form-group">
-          <label>Nota (de 1 a 5)</label>
+          <div className="feedback-form-header">
+            <label>Nota (de 1 a 5)</label>
+          </div>
           <select value={rating} onChange={(e) => setRating(Number(e.target.value))}>
             <option value={5}>⭐⭐⭐⭐⭐</option>
             <option value={4}>⭐⭐⭐⭐</option>
@@ -106,8 +110,6 @@ export default function FeedbackForm() {
 
         <div className="feedback-form-header">
           <label>Comentário (Opcional)</label>
-        </div>
-        <div className="form-group">
           <textarea
             className="feedback-comment"
             value={comment}
