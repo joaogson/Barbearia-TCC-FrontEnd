@@ -18,7 +18,7 @@ h2 {
 .information-details {
   border: 2px solid #3e301b;
   background-color: #3e301b;
-  width: 50%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: end;

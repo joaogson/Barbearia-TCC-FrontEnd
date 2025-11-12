@@ -17,8 +17,8 @@ h1 {
 }
 
 .list-card {
-  height: 50px;
-  width: 100%;
+  height: auto;
+  width: 80%;
   background-color: #3e301b;
   color: #d6d0bc;
   text-align: center;
