@@ -21,6 +21,7 @@ h3 {
   color: #d6d0bc;
   border-bottom: 6px solid #547a46;
   gap: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
 }
 
 .form-group {
