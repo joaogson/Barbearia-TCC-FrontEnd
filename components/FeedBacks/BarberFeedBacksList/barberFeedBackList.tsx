@@ -28,7 +28,7 @@ export default function BarberFeedbackList({ barberId }: Props) {
   }, [barberId]);
 
   if (isLoading) return <p>Carregando avaliações...</p>;
-  if (feedbacks.length === 0) return <p>Este profissional ainda não tem avaliações.</p>;
+  if (feedbacks.length === 0) return <p style={{ color: "3e301b" }}>Este profissional ainda não tem avaliações.</p>;
 
   return (
     <div className="feedBack-list-container">

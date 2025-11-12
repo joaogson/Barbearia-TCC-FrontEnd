@@ -39,7 +39,7 @@ export default function FeedbackList() {
   };
 
   if (isLoading) return <p>Carregando suas avaliações...</p>;
-  if (myFeedbacks.length === 0) return <p>Você ainda não fez nenhuma avaliação.</p>;
+  if (myFeedbacks.length === 0) return <p style={{ color: "#3e301b" }}>Você ainda não fez nenhuma avaliação.</p>;
 
   return (
     <div className="feedBack-list-container">
