@@ -33,7 +33,7 @@ export default function Register() {
     <div className="container-register">
       <h1>Cadastrar</h1>
       <form className="form-register" action="">
-        <div className="style">
+        <div className="register-style">
           <label htmlFor="name">Nome Completo</label>
           <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
@@ -66,7 +66,7 @@ export default function Register() {
         </div>
 
         <div className="register-style">
-          <label htmlFor="Confirmpassword">Senha</label>
+          <label htmlFor="Confirmpassword">Confirme a senha</label>
           <input
             id="Confirmpassword"
             type="password"
