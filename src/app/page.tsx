@@ -3,6 +3,7 @@ import Image from "next/image";
 import ImagemBarbeariaLogo from "../../public/barbearia.png";
 
 import "./inicio.css";
+import BarberFeedbackList from "components/FeedBacks/BarberFeedBacksList/barberFeedBackList";
 export default function Home() {
   return (
     <div className="home" style={{ color: "#3E301B", fontSize: "1.6rem" }}>
@@ -21,6 +22,11 @@ export default function Home() {
         Inicio
       </h2>
       <Image className="image" src={ImagemBarbeariaLogo} alt="Header logo"></Image>
+
+        <div className="feedback-public"> 
+        <BarberFeedbackList barberId={2}/>
+
+        </div>
     </div>
   );
 }
