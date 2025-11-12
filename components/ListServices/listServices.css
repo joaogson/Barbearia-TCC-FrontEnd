@@ -25,6 +25,8 @@ h1 {
   border: 1px solid #3e301b;
   display: flex;
   flex-direction: column;
+  background-color: #3e301b;
+  gap: 15px;
   margin: 0;
 }
 
@@ -35,7 +37,6 @@ h1 {
   align-items: center;
   background-color: #3e301b;
   width: 100%;
-  padding-bottom: 15px;
 }
 
 .card-title-service {
