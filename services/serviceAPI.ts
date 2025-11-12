@@ -1,4 +1,4 @@
-import Service, { CreateServiceDto } from "../types/Service";
+import { Service, CreateServiceDto } from "../types/Service";
 import { api } from "./api";
 
 export const getServices = async () => await api.get<Service[]>("/service");
