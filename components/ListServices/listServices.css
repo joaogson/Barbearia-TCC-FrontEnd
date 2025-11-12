@@ -113,3 +113,9 @@ h1 {
   font-size: 2rem;
   color: #7c0202;
 }
+
+@media (min-width: 768px) {
+  .costumer-services-container-service {
+    width: 80%;
+  }
+}
