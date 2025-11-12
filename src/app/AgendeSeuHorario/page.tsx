@@ -162,6 +162,7 @@ export default function AgendarHorario() {
           <>
             <h2 style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>Selecione a Data e o horario</h2>
             <div className="agendar-horario-container">
+              <p>Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
               <Calendar
                 onDateSelect={handleDateSelection}
                 selectedDate={selectedDate}
