@@ -21,7 +21,7 @@ h1 {
   gap: 25px;
 }
 
-.card-service-service {
+.card-service {
   border: 1px solid #3e301b;
   display: flex;
   flex-direction: column;
