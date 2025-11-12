@@ -23,9 +23,12 @@ export default function Register() {
       const user = await register(email, password, phone, name);
       console.log("Usuario criado: ", user);
       } else {
-        alert("As senhas não batem!")
+       throw error
       }
     } catch (err) {
+      if(confirmPassword != password){
+        setError("As senhas não batem!")
+      }
       console.error("Erro: ", err);
       setError("Falha ao registrar. Tente outro e-mail.");
     }
