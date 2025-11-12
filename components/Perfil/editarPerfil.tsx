@@ -4,7 +4,7 @@
 import { useRouter } from "next/navigation";
 import { useAuth } from "../../contexts/AuthContext";
 import { useEffect, useState } from "react";
-import { getMe, updateUser } from "../../services/userAPI";
+import { getMe, updateUser } from "../../services/UserAPI";
 import "./editarPerfil.css";
 
 export default function EditarPerfil() {
