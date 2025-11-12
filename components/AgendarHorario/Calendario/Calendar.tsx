@@ -73,6 +73,7 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
 
   const renderTimeSlots = () => {
     // Caso 1: Estamos esperando a resposta da API
+    <p>Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
     if (isLoading) {
       return <p className={styles.infoText}>Carregando horários...</p>;
     }
@@ -87,7 +88,7 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
 
     return (
       <div>
-        <p>Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
+        
       <div className={styles.timeGrid}>
         {availableSlots.map((time) => {
           const formattedTime = dayjs(time).format("HH:mm");
