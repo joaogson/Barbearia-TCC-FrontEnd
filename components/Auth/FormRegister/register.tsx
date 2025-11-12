@@ -23,7 +23,7 @@ export default function Register() {
       const user = await register(email, password, phone, name);
       console.log("Usuario criado: ", user);
       } else {
-        return( <p> As senhas não batem! </p>)
+        alert("As senhas não batem!")
       }
     } catch (err) {
       console.error("Erro: ", err);
