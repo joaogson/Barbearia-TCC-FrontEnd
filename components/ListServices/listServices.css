@@ -26,7 +26,6 @@ h1 {
   display: flex;
   flex-direction: column;
   margin: 0;
-  gap: 15px;
 }
 
 .card-header-service {
@@ -36,6 +35,7 @@ h1 {
   align-items: center;
   background-color: #3e301b;
   width: 100%;
+  padding-bottom: 15px;
 }
 
 .card-title-service {
