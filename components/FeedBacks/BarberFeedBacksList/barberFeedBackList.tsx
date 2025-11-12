@@ -16,7 +16,7 @@ export default function BarberFeedbackList({ barberId }: Props) {
     const loadFeedbacks = async () => {
       try {
         setIsLoading(true);
-        const data = await getFeedbacksForBarber();
+        const data = await getFeedbacksForBarber(barberId);
         setFeedbacks(data);
       } catch (error) {
         console.error("Falha ao carregar feedbacks", error);
