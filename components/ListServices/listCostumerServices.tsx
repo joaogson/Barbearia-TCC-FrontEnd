@@ -58,52 +58,52 @@ export default function ListServices() {
   }
 
   if (error) {
-    return <p className="erro">{error}</p>;
+    return <p className="erro-service">{error}</p>;
   }
 
   if (costumerServices.length === 0) {
-    return <p className="sem-atendimentos">Não existem atendimentos</p>;
+    return <p className="sem-atendimentos-service">Não existem atendimentos</p>;
   }
 
   // 3. RENDERIZAÇÃO: Mapeia a lista JÁ FORMATADA
   return (
     <>
-      <div className="costumer-services-container">
+      <div className="costumer-services-container-service">
         <h1>Seus Atendimentos</h1>
-        <ul className="atendimentos-list">
+        <ul className="atendimentos-list-service">
           {costumerServices.map((service) => {
             const serviceDate = service.ServiceTime ? new Date(service.ServiceTime) : null;
             const isDateValid = serviceDate && !isNaN(serviceDate.getTime());
 
             return (
-              <li key={service.id} className="card">
-                <div className="card-header">
-                  <h3 className="card-title">Atendimento {service.id}</h3>
+              <li key={service.id} className="card-service">
+                <div className="card-header-service">
+                  <h3 className="card-title-service">Atendimento {service.id}</h3>
 
-                  <button className="cancel-button" onClick={() => handleCancel(service.id)}>
+                  <button className="cancel-button-service" onClick={() => handleCancel(service.id)}>
                     Cancelar Atendimento
                   </button>
                 </div>
 
-                <div className="details-grid">
-                  <div className="detail-block">
-                    <div className="detail-title">Barbeiro</div>
-                    <p className="detail-content">{service.barber.user.name}</p>
+                <div className="details-grid-service">
+                  <div className="detail-block-service">
+                    <div className="detail-title-service">Barbeiro</div>
+                    <p className="detail-content-service">{service.barber.user.name}</p>
                   </div>
 
-                  <div className="detail-block">
-                    <div className="detail-title">Cliente</div>
-                    <p className="detail-content">{service.client.user.name}</p>
+                  <div className="detail-block-service">
+                    <div className="detail-title-service">Cliente</div>
+                    <p className="detail-content-service">{service.client.user.name}</p>
                   </div>
 
-                  <div className="detail-block">
-                    <div className="detail-title">Data</div>
-                    <p className="detail-content">{isDateValid ? serviceDate.toLocaleDateString("pt-BR") : "N/A"}</p>
+                  <div className="detail-block-service">
+                    <div className="detail-title-service">Data</div>
+                    <p className="detail-content-service">{isDateValid ? serviceDate.toLocaleDateString("pt-BR") : "N/A"}</p>
                   </div>
 
-                  <div className="detail-block">
-                    <div className="detail-title">Horário</div>
-                    <p className="detail-content">
+                  <div className="detail-block-service">
+                    <div className="detail-title-service">Horário</div>
+                    <p className="detail-content-service">
                       {isDateValid
                         ? serviceDate.toLocaleTimeString("pt-BR", {
                             hour: "2-digit",
@@ -113,10 +113,10 @@ export default function ListServices() {
                     </p>
                   </div>
 
-                  <div className="detail-block full-width-block">
-                    <div className="detail-title">Serviços Realizados</div>
-                    <div className="detail-content">
-                      <ul className="services-list">
+                  <div className="detail-block-service full-width-block-service">
+                    <div className="detail-title-service">Serviços Realizados</div>
+                    <div className="detail-content-service">
+                      <ul className="services-list-service">
                         {service.Services.map((servicoDetalhe) => (
                           <li className="detail-service" key={servicoDetalhe.service.id}>
                             {servicoDetalhe.service.description}
