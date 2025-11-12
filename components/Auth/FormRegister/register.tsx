@@ -67,7 +67,7 @@ export default function Register() {
             {error}
           </p>
         )}
-        <button className="submit-button" type="submit" disabled={isSubmitting} style={{ width: "100%", padding: "10px" }} onClick={handleSubmit}>
+        <button className="submit-button-register" type="submit" disabled={isSubmitting} style={{ width: "100%", padding: "10px" }} onClick={handleSubmit}>
           {isSubmitting ? "Criando conta..." : "Cadastrar"}
         </button>
       </form>

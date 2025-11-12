@@ -52,7 +52,7 @@ export default function Login() {
           </Link>
         </div>
         {error && <p className="error">{error}</p>}
-        <button className="submit-button" type="submit" disabled={isSubmitting} onClick={handleSubmit}>
+        <button className="submit-button-login" type="submit" disabled={isSubmitting} onClick={handleSubmit}>
           {isSubmitting ? "Entrando..." : "Entrar"}
         </button>
         <p className="sem-conta">
