@@ -41,13 +41,13 @@ export default function RootLayout({
               <main className="content-area">
                 <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
                 <div className="main-content">{children}</div>
-                <Footer/>
+                
               </main>
               
             </div>
           </AuthGuard>
         </AuthProvider>
-          
+          <Footer/>
       </body>
     </html>
   );
