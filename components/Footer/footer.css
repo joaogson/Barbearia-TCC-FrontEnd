@@ -4,7 +4,7 @@
     position: static;
     bottom: 0;
     width: 100%;
-    height: 350px;
+    height: auto;
     background-color: #547a46;
     z-index: 1001;
 }
@@ -16,6 +16,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     color: #d6d0bc;
+    padding: 10px;
 
 }
 
@@ -26,11 +27,13 @@
     flex-wrap: wrap;
     text-align: start;
     color: #d6d0bc;
+    width: 50%;
 }
 
 .rodape{
-    height: 100px;
+    height: 15px;
     width: 100%;
     text-align: center;
     color: #d6d0bc;
+    font-size: 10px;
 }
