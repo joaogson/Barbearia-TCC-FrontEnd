@@ -3,7 +3,7 @@ import BarberFeedbackList from "../../../components/FeedBacks/BarberFeedBacksLis
 import ClientFeedbackList from "../../../components/FeedBacks/ClientFeedBackList/clientFeedBackList";
 import ListPerfil from "../../../components/Perfil/listPerfil";
 import { useAuth } from "../../../contexts/AuthContext";
-import "./perfil.css";
+import "./page-perfil.css";
 export default function Perfil() {
   const { user } = useAuth();
 
@@ -36,7 +36,7 @@ export default function Perfil() {
   return (
     <>
       <div style={{ textAlign: "center", marginTop: "20px" }}>
-        <h2 className="feedback-title">Informações do Perfil</h2>
+        <h2 className="perfil-title">Informações do Perfil</h2>
         <ListPerfil />
 
         {/* 3. Chama a função de renderização condicional */}

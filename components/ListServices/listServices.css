@@ -37,7 +37,7 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   background-color: #3e301b;
-  padding-right: 10px;
+  padding: 10px;
   width: 100%;
 }
 
@@ -60,6 +60,8 @@ h1 {
   height: 100%;
   padding: 7px;
   cursor: pointer;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .details-grid-service {

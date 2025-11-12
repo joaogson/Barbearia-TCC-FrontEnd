@@ -83,7 +83,7 @@ h2 {
 /* Esta regra será aplicada APENAS em telas com 768px de largura ou mais */
 @media (min-width: 768px) {
   .information-details {
-    width: 50%;
+    width: 80%;
   }
 
   .information-card {
