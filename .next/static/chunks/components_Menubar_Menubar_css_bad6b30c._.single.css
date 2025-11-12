@@ -1,0 +1,27 @@
+/* [project]/components/Menubar/Menubar.css [app-client] (css) */
+.menubar {
+  color: #d6d0bc;
+  text-align: right;
+  z-index: 1001;
+  background-color: #547a46;
+  flex-shrink: 0;
+  align-items: center;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.menubar .toggleSidebar {
+  width: 45px;
+}
+
+.menubar .nomeLocal {
+  background-color: #547a46;
+  width: 85%;
+  padding-right: 15px;
+}
+
+/*# sourceMappingURL=components_Menubar_Menubar_css_bad6b30c._.single.css.map*/

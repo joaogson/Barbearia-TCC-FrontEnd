@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/joaog/OneDrive/Documentos/GitHub/Barbearia-TCC-FrontEnd/barbearia-tcc-frontend/src/app/page.tsx"],"sourcesContent":["\"use client\";\r\n\r\nexport default function Home() {\r\n  return (\r\n    <div className=\"home\" style={{ color: \"#3E301B\", fontSize: \"1.6rem\" }}>\r\n      {\" \"}\r\n      Pagina Inicial{\" \"}\r\n    </div>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;;AAAA;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;QAAO,OAAO;YAAE,OAAO;YAAW,UAAU;QAAS;;YACjE;YAAI;YACU;;;;;;;AAGrB","debugId":null}}]
+}

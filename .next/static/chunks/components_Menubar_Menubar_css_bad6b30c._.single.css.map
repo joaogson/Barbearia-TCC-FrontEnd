@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/components/Menubar/Menubar.css"],"sourcesContent":[".menubar {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n\r\n  flex-shrink: 0;\r\n  background-color: #547a46;\r\n  color: #d6d0bc;\r\n  width: 100%;\r\n  height: 65px;\r\n  display: flex;\r\n  align-items: center;\r\n  text-align: right;\r\n  z-index: 1001;\r\n}\r\n\r\n.menubar .toggleSidebar {\r\n  width: 45px;\r\n}\r\n\r\n.menubar .nomeLocal {\r\n  width: 85%;\r\n  padding-right: 15px;\r\n  \r\n  background-color: #547a46;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;AAgBA;;;;AAIA"}}]
+}

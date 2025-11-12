@@ -16,7 +16,7 @@ export default function BarberFeedbackList({ barberId }: Props) {
     const loadFeedbacks = async () => {
       try {
         setIsLoading(true);
-        const data = await getFeedbacksForBarber(barberId);
+        const data = await getFeedbacksForBarber();
         setFeedbacks(data);
       } catch (error) {
         console.error("Falha ao carregar feedbacks", error);
@@ -32,13 +32,12 @@ export default function BarberFeedbackList({ barberId }: Props) {
 
   return (
     <div className="feedBack-list-container">
-      <h3>O que os clientes dizem</h3>
       <ul className="feedBack-list">
         {feedbacks.map((fb) => (
           <li key={fb.id} className="feedBack-card">
             <div className="feedBack-header">
               <strong>{fb.client.user.name}</strong>
-              <span>{fb.rating} Estrelas</span> {/* TODO: Mostrar estrelas */}
+              <span>{fb.rating} Estrelas ⭐</span> {/* TODO: Mostrar estrelas */}
             </div>
             {/* Só renderiza o parágrafo se o comentário existir */}
             {fb.comment && <p className="comment">{fb.comment}</p>}

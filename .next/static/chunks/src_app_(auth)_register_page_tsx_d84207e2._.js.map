@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/joaog/OneDrive/Documentos/GitHub/Barbearia-TCC-FrontEnd/barbearia-tcc-frontend/src/app/%28auth%29/register/page.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport { useState, FormEvent } from \"react\";\r\n// import { useAuth } from '@/contexts/AuthContext'; // Descomente quando tiver a função register\r\nimport Link from \"next/link\";\r\n\r\nexport default function RegisterPage() {\r\n\r\n    \r\n  \r\n}\r\n"],"names":[],"mappings":";;;;AAAA;AAMe,SAAS,gBAIxB;KAJwB","debugId":null}}]
+}
