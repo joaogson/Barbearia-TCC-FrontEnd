@@ -1,10 +1,8 @@
 "use client";
 import Image from "next/image";
 import ImagemBarbeariaLogo from "../../public/barbearia.png";
-
 import "./inicio.css";
 import BarberFeedbackList from "components/FeedBacks/BarberFeedBacksList/barberFeedBackList";
-import Footer from "components/Footer/footer";
 export default function Home() {
   return (
     <div className="home" style={{ color: "#3E301B", fontSize: "1.6rem" }}>
@@ -35,9 +33,7 @@ export default function Home() {
           marginBottom: "25px",
         }}>Feedbacks dos Clientes</h2>
         <BarberFeedbackList barberId={2}/>
-
         </div>
-        <Footer/>
     </div>
   );
 }
