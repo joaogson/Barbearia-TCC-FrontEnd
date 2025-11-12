@@ -34,7 +34,7 @@
   color: #d6d0bc;
   font-size: 1.3rem;
   font-weight: bold;
-  height: 80px;
+  height: auto;
   padding: 10px;
   display: flex;
   gap: 15px;
