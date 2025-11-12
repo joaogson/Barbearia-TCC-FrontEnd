@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Calendar from "../../../components/AgendarHorario/Calendario/Calendar"; // Importe seu componente
 import "./style.css";
-import ListarServicos from "../../../components/ManagerServices/ListServicos/ListarServicos";
+import ListarServicos from "../../../components/ManagerServices/ListServicosSelection/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
 import { Service } from "../../../types/Service";
