@@ -28,6 +28,7 @@ export default function BarberSelection({ selectedBarberId, onBarberSelect }: Ba
         setIsLoading(true);
         const data = await GetAllBarbers();
         setBarbers(data.data);
+        console.log(data.data);
       } catch (error) {
         console.error("Erro ao carregar barbeiros:", error);
         setError("Não foi possível carregar os profissionais no momento.");

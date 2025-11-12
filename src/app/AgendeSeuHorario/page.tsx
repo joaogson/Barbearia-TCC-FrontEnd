@@ -26,7 +26,6 @@ export default function AgendarHorario() {
   const [selectedBarberId, setSelectedBarberId] = useState<number | null>(null);
   const [selectedHorario, setSelectedHorario] = useState<string | null>(null);
   const [selectedServicos, setSelectedServicos] = useState<Service[]>([]);
-  const intervalo = 60;
   const { user } = useAuth();
   const router = useRouter();
 
