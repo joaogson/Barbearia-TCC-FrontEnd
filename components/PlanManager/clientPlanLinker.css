@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-self: center;
   width: 60%;
+  margin-bottom: 50px;
 }
 
 .plan-client-list-container {
@@ -33,6 +34,7 @@
 .table-wrapper {
   overflow-x: auto; /* Mostra a barra de rolagem horizontal apenas se for necessário */
   width: 100%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
 }
 
 .client-table {
@@ -40,7 +42,7 @@
   border: 1px solid #3e301b;
   width: 100%;
   max-height: 400px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+
 }
 .client-table-header {
   height: 50px;

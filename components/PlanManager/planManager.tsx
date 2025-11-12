@@ -123,7 +123,7 @@ export default function PlanManager() {
             ) : (
               <ul className="plan-ul">
                 {plans.map((plan) => (
-                  <li key={plan.id}>
+                  <li key={plan.id} style={{boxShadow:"5px 5px 10px rgba(0, 0, 0.5)"}}>
                     <div className="plan-details">
                       <div className="plan-text">
                         <span> {plan.id} - </span>

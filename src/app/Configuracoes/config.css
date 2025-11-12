@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: row;
   justify-self: center;
-  align-items: center;
+  align-items: baseline;
   justify-self: center;
   gap: 100px;
 }

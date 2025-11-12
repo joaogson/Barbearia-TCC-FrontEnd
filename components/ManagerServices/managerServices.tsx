@@ -115,7 +115,7 @@ export default function ServiceManager() {
             ) : (
               <ul className="services-ul">
                 {services.map((service) => (
-                  <li key={service.id}>
+                  <li key={service.id} style={{boxShadow:"5px 5px 10px rgba(0, 0, 0.5)"}}>
                     {/* ✅ Exibição da lista simplificada, sem 'price' */}
                     <div className="services-details">
                       <div className="services-text">
