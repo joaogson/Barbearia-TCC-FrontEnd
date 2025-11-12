@@ -22,6 +22,8 @@ export default function Register() {
       if(confirmPassword === password){
       const user = await register(email, password, phone, name);
       console.log("Usuario criado: ", user);
+      } else {
+        return( <p> As senhas não batem! </p>)
       }
     } catch (err) {
       console.error("Erro: ", err);
