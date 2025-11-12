@@ -5,6 +5,7 @@ import { cancelCostumerService, getCostumerServiceById } from "../../services/co
 import { useAuth } from "../../contexts/AuthContext";
 
 import "./listServices.css";
+import Link from "next/link";
 
 export default function ListServices() {
   // Estado para a lista inicial de atendimentos vinda da API
@@ -62,7 +63,10 @@ export default function ListServices() {
   }
 
   if (costumerServices.length === 0) {
-    return <p className="sem-atendimentos-service">Não existem atendimentos</p>;
+    return (<div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+      <p className="sem-atendimentos-service">Não existem atendimentos</p>;
+      <button style={{backgroundColor: "#547a46", padding: "5px", margin: "5px", width:"60px", height:"25px"}}><Link href="/AgendeSeuHorario"> Agendar Horario </Link></button>
+    </div>)
   }
 
   // 3. RENDERIZAÇÃO: Mapeia a lista JÁ FORMATADA

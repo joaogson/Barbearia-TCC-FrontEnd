@@ -73,7 +73,6 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
 
   const renderTimeSlots = () => {
     // Caso 1: Estamos esperando a resposta da API
-    <p>Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
     if (isLoading) {
       return <p className={styles.infoText}>Carregando horários...</p>;
     }
