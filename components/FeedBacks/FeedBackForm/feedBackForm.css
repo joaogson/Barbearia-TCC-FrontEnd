@@ -46,6 +46,10 @@
   border-bottom: 6px solid #547a46;
 }
 
+textarea {
+  width: 100%;
+}
+
 button {
   display: flex;
   gap: 30px;

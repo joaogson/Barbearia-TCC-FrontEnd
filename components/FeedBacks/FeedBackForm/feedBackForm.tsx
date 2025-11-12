@@ -107,9 +107,10 @@ export default function FeedbackForm() {
             <option value={1}>⭐</option>
           </select>
         </div>
-
-        <div className="feedback-form-header">
-          <label>Comentário (Opcional)</label>
+        <div className="form-group">
+          <div className="feedback-form-header">
+            <label>Comentário (Opcional)</label>
+          </div>
           <textarea
             className="feedback-comment"
             value={comment}
