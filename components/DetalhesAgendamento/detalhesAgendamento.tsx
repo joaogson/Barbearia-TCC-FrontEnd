@@ -1,8 +1,8 @@
-import { Servicos } from "../../types/ServiceOnCostumerService";
+import { Service } from "../../types/Service";
 import "./detalhesAgendamento.css";
 
 interface detalhesProps {
-  servico: Servicos[] | null;
+  servico: Service[] | null;
   horario: string | null;
   data: Date | null;
 }

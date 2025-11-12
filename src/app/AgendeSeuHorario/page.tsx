@@ -6,7 +6,7 @@ import "./style.css";
 import ListarServicos from "../../../components/ManagerServices/ListServicos/ListarServicos";
 import BotaoNavegacao from "../../../components/AgendarHorario/Button/ButtonNavegacao";
 import DetalhesAgendamento from "../../../components/DetalhesAgendamento/detalhesAgendamento";
-import Service from "../../../types/Service";
+import { Service } from "../../../types/Service";
 import { createCostumerService } from "../../../services/costumerServiceAPI";
 import { getAvailability } from "../../../services/AvailabilityAPI";
 import { useAuth } from "../../../contexts/AuthContext";

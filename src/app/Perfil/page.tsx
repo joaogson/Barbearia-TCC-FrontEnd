@@ -36,7 +36,7 @@ export default function Perfil() {
   return (
     <>
       <div style={{ textAlign: "center", marginTop: "20px" }}>
-        <h2 className="feedback-title" >Informações do Perfil</h2>
+        <h2 className="feedback-title">Informações do Perfil</h2>
         <ListPerfil />
 
         {/* 3. Chama a função de renderização condicional */}
