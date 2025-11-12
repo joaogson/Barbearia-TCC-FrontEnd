@@ -41,6 +41,7 @@
   align-items: end;
   background-color: #3e301b;
   border-bottom: 6px solid #547a46;
+    text-align: start;
 }
 
 .comment {
