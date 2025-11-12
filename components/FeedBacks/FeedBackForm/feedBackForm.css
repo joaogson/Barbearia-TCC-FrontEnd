@@ -28,6 +28,10 @@
   gap: 10px;
 }
 
+select {
+  width: 100%;
+}
+
 .feedback-form-header {
   color: #d6d0bc;
   font-size: 1.2rem;
