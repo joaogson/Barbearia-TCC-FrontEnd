@@ -11,7 +11,7 @@ export default function Home() {
       <h2
         style={{
           borderBottom: "3px solid #3e301b",
-          width: "70%",
+          width: "80%",
           textAlign: "start",
           color: "#3e301b",
           fontSize: "2rem",
@@ -24,6 +24,15 @@ export default function Home() {
       <Image className="image" src={ImagemBarbeariaLogo} alt="Header logo"></Image>
 
         <div className="feedback-public"> 
+            <h2 style={{
+          borderBottom: "3px solid #3e301b",
+          width: "80%",
+          textAlign: "start",
+          color: "#3e301b",
+          fontSize: "2rem",
+          marginTop: "25px",
+          marginBottom: "25px",
+        }}>Feedbacks dos Clientes</h2>
         <BarberFeedbackList barberId={2}/>
 
         </div>

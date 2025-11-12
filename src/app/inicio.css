@@ -9,3 +9,8 @@
   text-align: center;
   box-shadow: 1px black;
 }
+
+.feedback-public{
+  margin-top: 20px;
+  width: 100%;
+}
