@@ -86,6 +86,8 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
     }
 
     return (
+      <div>
+        <p>Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
       <div className={styles.timeGrid}>
         {availableSlots.map((time) => {
           const formattedTime = dayjs(time).format("HH:mm");
@@ -102,7 +104,9 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
             </button>
           );
         })}
-          <p>Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
+          
+      </div>
+      
       </div>
     );
   };
