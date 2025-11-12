@@ -102,6 +102,7 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
             </button>
           );
         })}
+          <p>Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
       </div>
     );
   };

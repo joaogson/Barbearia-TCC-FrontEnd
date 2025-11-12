@@ -30,8 +30,6 @@ export default function AgendarHorario() {
   const { user } = useAuth();
   const router = useRouter();
 
-  //TEMPORARIO
-  const barberId = 1;
 
   useEffect(() => {
     const fetchBarbers = async () => {
@@ -57,7 +55,8 @@ export default function AgendarHorario() {
         const dateString = selectedDate.toISOString().split("T")[0]; // Formato "YYYY-MM-DD"
 
         // 2. Chama a nova API com os dados necessários
-        const times = await getAvailability(barberId, dateString, serviceIds);
+          if(!selectedBarberId) throw new Error("Barbeiro não selecionado")
+        const times = await getAvailability(selectedBarberId, dateString, serviceIds);
 
         setAvailableSlots(times);
       } catch (error) {
