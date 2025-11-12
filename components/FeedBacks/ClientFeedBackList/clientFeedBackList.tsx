@@ -43,7 +43,7 @@ export default function FeedbackList() {
 
   return (
     <div className="feedBack-list-container">
-      <h3>Minhas Avaliações</h3>
+      <h3 className="feedback-title">Minhas Avaliações</h3>
       <ul className="feedBack-list">
         {myFeedbacks.map((fb) => (
           <li key={fb.id} className="feedBack-card">

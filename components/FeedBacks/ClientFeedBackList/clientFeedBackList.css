@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+.feedback-title {
+  color: #3e301b;
+  font-size: 1.5rem;
+  text-align: start;
+}
+
 .feedBack-list {
   width: 80%;
   display: flex;

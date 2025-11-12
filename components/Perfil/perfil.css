@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin: 20px; /* Adicionado um pouco mais de margem geral */
+  margin-top: 20px; /* Adicionado um pouco mais de margem geral */
   padding-bottom: 20px;
   align-items: center;
 }
