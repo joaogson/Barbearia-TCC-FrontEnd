@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { Barber } from "../../../types/Barber";
 import { GetAllBarbers } from "../../../services/barberAPI";
 import BarberSelection from "../../../components/BarberSelection/barberSelection";
+import { error } from "console";
 
 export default function AgendarHorario() {
   // Estado para armazenar a data selecionada (Calendar)
@@ -28,9 +29,6 @@ export default function AgendarHorario() {
   const [selectedServicos, setSelectedServicos] = useState<Service[]>([]);
   const { user } = useAuth();
   const router = useRouter();
-
-  //TEMPORARIO
-  const barberId = 1;
 
   useEffect(() => {
     const fetchBarbers = async () => {
@@ -55,8 +53,12 @@ export default function AgendarHorario() {
         const serviceIds = selectedServicos.map((servico) => servico.id);
         const dateString = selectedDate.toISOString().split("T")[0]; // Formato "YYYY-MM-DD"
 
-        // 2. Chama a nova API com os dados necessários
-        const times = await getAvailability(barberId, dateString, serviceIds);
+        // 2. Chama a nova API com os dados necessário
+
+        if (!selectedBarberId) {
+          throw new Error("barbeiro não selecionado");
+        }
+        const times = await getAvailability(selectedBarberId, dateString, serviceIds);
 
         setAvailableSlots(times);
       } catch (error) {
