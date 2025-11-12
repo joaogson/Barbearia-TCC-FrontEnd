@@ -16,6 +16,11 @@
   gap: 25px;
 }
 
+.agendar-horario-alert{
+  padding: 5px;
+
+}
+
 .buttons-container {
   display: flex;
 }
