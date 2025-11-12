@@ -7,6 +7,7 @@ import Menubar from "../../components/Menubar/Menubar";
 import Header from "../../components/Header/Header";
 import { AuthProvider } from "../../contexts/AuthContext";
 import { AuthGuard } from "../../components/Auth/Guards/AuthGuard";
+import Footer from "components/Footer/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,7 @@ export default function RootLayout({
             </div>
           </AuthGuard>
         </AuthProvider>
+          <Footer/>
       </body>
     </html>
   );
