@@ -1,6 +1,6 @@
 
 import Link from "next/link"
-import "./footer.css"
+import "./Footer.css"
 
 export default function Footer(){
 
@@ -21,7 +21,7 @@ export default function Footer(){
                 <p>42987654321</p>
             </div>
         </div>
-            <p>Criado por Joao Gabriel Menegassio Sonalio</p>
+            <p className="rodape">Criado por Joao Gabriel Menegassio Sonalio</p>
     </div>
     )
 }
