@@ -40,15 +40,14 @@ h1 {
   font-size: 1.5rem;
 }
 
-button {
+.submit-button-login {
+  cursor: pointer;
   background-color: #547a46;
   padding: 10px;
   width: 100%;
   cursor: pointer;
-}
-
-.submit-button-login {
-  cursor: pointer;
+  justify-self: center;
+  text-align: center;
 }
 .sem-conta {
   margin-top: 1rem;
