@@ -91,7 +91,7 @@ export default function WorkTimeForm() {
             className="select-interval"
             id="breakBetweenCostumerService"
             name="breakBetweenCostumerService"
-            value={formData.breakBetweenAppointments}
+            value={formData.breakBetweenCostumerService}
             onChange={handleInputChange} // Sua função que atualiza o estado
           >
             <option className="interval-option" value={0}>
