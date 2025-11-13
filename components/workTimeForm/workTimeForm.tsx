@@ -10,7 +10,7 @@ export default function WorkTimeForm() {
   const [formData, setFormData] = useState({
     workStartTime: "09:00",
     workEndTime: "18:00",
-    breakBetweenAppointments: 0,
+    breakBetweenCostumerService: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -28,7 +28,7 @@ export default function WorkTimeForm() {
         setFormData({
           workStartTime: settings.data.workStartTime ?? "",
           workEndTime: settings.data.workEndTime ?? "",
-          breakBetweenAppointments: settings.data.breakBetweenCostumerService ?? 0,
+          breakBetweenCostumerService: settings.data.breakBetweenCostumerService ?? 0,
         });
       } catch (err) {
         console.error("Erro:", err);
