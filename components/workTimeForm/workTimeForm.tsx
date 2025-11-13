@@ -4,7 +4,6 @@ import { useState, useEffect, FormEvent } from "react";
 import { getMyBarberSettings, updateMyBarberSettings } from "../../services/barberAPI";
 import { useAuth } from "../../contexts/AuthContext";
 import "./workTimeForm.css";
-import { constructFromSymbol } from "date-fns/constants";
 
 export default function WorkTimeForm() {
   const [formData, setFormData] = useState({
@@ -24,7 +23,7 @@ export default function WorkTimeForm() {
     const fetchSettings = async () => {
       try {
         const settings = await getMyBarberSettings();
-
+        console.log(settings.data);
         setFormData({
           workStartTime: settings.data.workStartTime ?? "",
           workEndTime: settings.data.workEndTime ?? "",
