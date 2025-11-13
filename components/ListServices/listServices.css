@@ -123,9 +123,10 @@ h1 {
   .costumer-services-container-service {
     width: 80%;
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  background-color: #d6d0bc;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #d6d0bc;
+    margin: 0 auto;
   }
 }
