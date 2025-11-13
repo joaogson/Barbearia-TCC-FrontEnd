@@ -115,7 +115,7 @@ export default function ClientPlanLinker() {
                       <option value="null">Remover Plano (Sem Plano)</option>
                       {plans.map((plan) => (
                         <option key={plan.id} value={plan.id}>
-                          {plan.id} - (R$ {plan.value}) ({plan.haircutNumber} p/ mes)
+                          {plan.id ? `${plan.id} - R$${plan.value} - ${plan.haircutNumber} p/mes` : "Sem plano"}
                         </option>
                       ))}
                     </select>
