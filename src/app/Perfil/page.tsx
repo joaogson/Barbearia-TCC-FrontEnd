@@ -16,7 +16,7 @@ export default function Perfil() {
         return (
           <>
             <h2 className="feedback-title">Minhas Avaliações</h2>
-            <ClientFeedbackList />
+            <ClientFeedbackList user={user.name} />
           </>
         );
       case "BARBER":

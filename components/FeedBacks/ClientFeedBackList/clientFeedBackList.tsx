@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { getMyFeedbacks, deleteFeedback } from "../../../services/feedBackAPI";
 import { Feedback } from "../../../types/Feedback";
 import "./clientFeedBackList.css"; // Pode reutilizar o CSS
+import { useAuth } from "contexts/AuthContext";
 
 export default function FeedbackList() {
   const [myFeedbacks, setMyFeedbacks] = useState<Feedback[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useAuth();
 
   useEffect(() => {
     loadMyFeedbacks();
@@ -48,7 +50,7 @@ export default function FeedbackList() {
           <li key={fb.id} className="feedBack-card">
             <div className="feedBack-header">
               {/* Mostra o nome do barbeiro que ele avaliou */}
-              <strong>{fb.barber.user.name}</strong>
+              <strong>{user?.role === "CLIENT" ? fb.barber.user.name : fb.client.user.name}</strong>
               <span>{fb.rating} Estrelas ⭐</span>
             </div>
             {fb.comment && <p className="comment">{fb.comment}</p>}
