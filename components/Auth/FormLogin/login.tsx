@@ -47,7 +47,7 @@ export default function Login() {
         <div className="style">
           <label htmlFor="password">Senha</label>
           <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <Link style={{ padding:"5px", width:"100%", textAlign:"end" }} href={"../forgot-password"}>
+          <Link style={{ padding: "5px", width: "170px", alignSelf: "end", textAlign: "end" }} href={"../forgot-password"}>
             esqueci minha senha!
           </Link>
         </div>
