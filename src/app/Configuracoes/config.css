@@ -4,6 +4,7 @@
   width: 100%;
   gap: 50px;
   align-items: center;
+  padding: 1rem;
 }
 
 .config-content {
