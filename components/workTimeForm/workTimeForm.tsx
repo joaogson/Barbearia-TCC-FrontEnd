@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from "react";
 import { getMyBarberSettings, updateMyBarberSettings } from "../../services/barberAPI";
 import { useAuth } from "../../contexts/AuthContext";
 import "./workTimeForm.css";
+import { constructFromSymbol } from "date-fns/constants";
 
 export default function WorkTimeForm() {
   const [formData, setFormData] = useState({
@@ -85,7 +86,7 @@ export default function WorkTimeForm() {
 
           <label htmlFor="workEndTime">Fim do Expediente</label>
           <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required />
-          <label htmlFor="breakBetweenAppointments">Intervalo entre atendimentos</label>
+          <label htmlFor="breakBetweenCostumerService">Intervalo entre atendimentos</label>
           <select
             className="select-interval"
             id="breakBetweenCostumerService"
