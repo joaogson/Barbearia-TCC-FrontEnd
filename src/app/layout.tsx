@@ -33,21 +33,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-         <AuthProvider>
-          <AuthGuard>
-            <div className="page-content">
+        <div className="page-content">
+          <AuthProvider>
+            <AuthGuard>
               <Menubar toggleSidebar={toggleSidebar} />
 
               <main className="content-area">
                 <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
                 <div className="main-content">{children}</div>
-                
               </main>
-              
-            </div>
-          </AuthGuard>
-        </AuthProvider>
-          <Footer/>
+            </AuthGuard>
+          </AuthProvider>
+          <Footer />
+        </div>
       </body>
     </html>
   );
