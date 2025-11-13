@@ -13,7 +13,7 @@ interface SeletorDataHoraProps {
 export default function SeletorDataHora({ selectedDate, selectedTime, onDateSelect, onTimeSelect, availableSlots, isLoading }: SeletorDataHoraProps) {
   // 1. GERENCIAMENTO DE ESTADO (useState)
   const [currentDate, setCurrentDate] = useState(new Date());
-
+  console.log(availableSlots);
   // HANDLERS
   const handlePrevMonth = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
@@ -87,26 +87,23 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
 
     return (
       <div>
-        
-      <div className={styles.timeGrid}>
-        {availableSlots.map((time) => {
-          const formattedTime = dayjs(time).format("HH:mm");
-          const isSelected = selectedTime === formattedTime;
-          // Se o horário está na lista availableSlots, ele é válido e clicável.
-          return (
-            <button
-              key={time}
-              disabled={false} // O botão nunca está desabilitado se ele for renderizado
-              className={`${styles.timeSlot} ${isSelected ? styles.selected : ""}`}
-              onClick={() => onTimeSelect(formattedTime)}
-            >
-              {formattedTime}
-            </button>
-          );
-        })}
-          
-      </div>
-      
+        <div className={styles.timeGrid}>
+          {availableSlots.map((time) => {
+            const formattedTime = dayjs(time).format("HH:mm");
+            const isSelected = selectedTime === formattedTime;
+            // Se o horário está na lista availableSlots, ele é válido e clicável.
+            return (
+              <button
+                key={time}
+                disabled={false} // O botão nunca está desabilitado se ele for renderizado
+                className={`${styles.timeSlot} ${isSelected ? styles.selected : ""}`}
+                onClick={() => onTimeSelect(formattedTime)}
+              >
+                {formattedTime}
+              </button>
+            );
+          })}
+        </div>
       </div>
     );
   };
