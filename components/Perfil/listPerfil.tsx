@@ -54,7 +54,7 @@ export default function ListPerfil() {
       <div className="information-block">
         <div className="information-header">Plano</div>
 
-        <p className="label">{`Plano ${client?.plan?.id} - ${client?.plan?.haircutNumber} cortes por R$${client?.plan?.value}` || "Sem Plano"}</p>
+        <p className="label">{ client?.plan ? `Plano ${client?.plan?.id} - ${client?.plan?.haircutNumber} cortes por R$${client?.plan?.value}`: "Sem Plano"}</p>
       </div>
     );
   };
