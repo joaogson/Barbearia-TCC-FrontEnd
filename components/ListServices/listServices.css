@@ -122,5 +122,10 @@ h1 {
 @media (min-width: 768px) {
   .costumer-services-container-service {
     width: 80%;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #d6d0bc;
   }
 }
