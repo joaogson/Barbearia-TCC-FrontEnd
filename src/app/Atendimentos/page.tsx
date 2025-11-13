@@ -1,5 +1,5 @@
 import ListServices from "../../../components/ListServices/listCostumerServices";
-
+import "./atendimentos.css"
 export default function Atendimentos() {
   return (
     <div className="page-config-container">

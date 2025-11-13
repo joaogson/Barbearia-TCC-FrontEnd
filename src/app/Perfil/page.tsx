@@ -15,7 +15,7 @@ export default function Perfil() {
         // Se for cliente, mostra os feedbacks que ele FEZ
         return (
           <>
-            <h2 className="feedback-title">Minhas Avaliações</h2>
+            <h2 className="perfil-title">Minhas Avaliações</h2>
             <ClientFeedbackList />
           </>
         );
@@ -23,7 +23,7 @@ export default function Perfil() {
         // Se for barbeiro, mostra os feedbacks que ele RECEBEU
         return (
           <>
-            <h2 className="feedback-title">Avaliações Recebidas</h2>
+            <h2 className="perfil-title">Avaliações Recebidas</h2>
             <ClientFeedbackList/>
           </>
         );
