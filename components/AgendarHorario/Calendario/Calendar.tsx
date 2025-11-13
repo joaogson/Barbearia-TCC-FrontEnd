@@ -1,6 +1,13 @@
 import { useState } from "react";
 import styles from "./Calendar.module.css";
 import dayjs from "dayjs";
+
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 interface SeletorDataHoraProps {
   selectedDate: Date | null;
   selectedTime: string | null;
