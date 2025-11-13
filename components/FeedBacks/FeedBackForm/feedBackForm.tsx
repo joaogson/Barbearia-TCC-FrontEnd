@@ -54,9 +54,9 @@ export default function FeedbackForm() {
       await createFeedback({
         rating,
         comment: comment.trim() || undefined,
-        barberId: parseInt(selectedBarberId, 10),
+        barberId: parseInt(selectedBarberId),
       });
-
+      console.log(`Feedback: ${rating}, ${comment}, ${selectedBarberId}`);
       alert("Feedback Enviado com sucesso!");
 
       // Limpa o formulário
