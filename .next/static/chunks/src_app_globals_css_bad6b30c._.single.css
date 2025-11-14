@@ -391,12 +391,14 @@ body {
 .content-area {
   flex-direction: row;
   flex-grow: 1;
+  padding-bottom: 60px;
   display: flex;
 }
 
 .main-content {
   flex-grow: 1;
-  padding: 60px 1rem 1rem;
+  padding-top: 60px;
+  padding-bottom: 60px;
   overflow-y: auto;
 }
 

@@ -6,12 +6,17 @@
   align-items: center;
   padding: 15px;
   display: flex;
+  box-shadow: 5px 5px 10px #000001;
+}
+
+.login-title {
+  color: #d6d0bc;
 }
 
 .style {
   flex-direction: column;
   align-items: stretch;
-  height: 80px;
+  height: 90px;
   display: flex;
 }
 
@@ -36,14 +41,14 @@ h1 {
   font-size: 1.5rem;
 }
 
-button {
+.submit-button-login {
+  cursor: pointer;
+  cursor: pointer;
+  text-align: center;
   background-color: #547a46;
+  justify-self: center;
   width: 100%;
   padding: 10px;
-}
-
-.submit-button {
-  cursor: pointer;
 }
 
 .sem-conta {
