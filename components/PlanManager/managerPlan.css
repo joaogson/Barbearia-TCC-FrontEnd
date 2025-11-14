@@ -1,112 +1,133 @@
+/*
+Cores Base:
+Marrom Escuro: #3e301b
+Verde: #547a46
+Bege: #d6d0bc
+*/
+
+/* --- 1. LAYOUT GERAL (MOBILE-FIRST) --- */
+
+.plan-manager-container {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: system-ui, sans-serif;
+  color: #3e301b;
+  align-items: center;
+}
+
+.plan-manager-form-container,
+.plan-list-container {
+  width: 80%;
+}
+
+/* --- 2. FORMULÁRIO DE PLANOS (SEM ALTERAÇÕES) --- */
+
 .plan-title {
   color: #3e301b;
   font-size: 1.5rem;
-  background-color: #d6d0bc;
-  width: 100%;
+  font-weight: 600;
+  border-bottom: 3px solid #3e301b;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.plan-manager-container {
-  color: #3e301b;
-  display: flex;
-  gap: 100px;
-  width: 80%;
-  justify-self: center;
-  justify-content: space-between;
-}
-
-.plan-manager-form-container {
-  width: 50%;
+.plan-form-details{
+  padding: 20px;
 }
 
 .plan-form {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  padding: 15px;
-  width: 100%;
   background-color: #3e301b;
   color: #d6d0bc;
-  border-bottom: 6px solid #547a46;
-  gap: 5px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
-}
-input {
-  background-color: #d6d0bc;
-  color: #3e301b;
-  padding: 5px;
-  width: 100%;
-  border-bottom: 4px solid #547a46;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  
 }
 
+.plan-form label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.plan-form input[type="number"] {
+  background-color: #d6d0bc;
+  color: #3e301b;
+  border: none;
+  border-bottom: 4px solid #547a46;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ... (todo o CSS anterior) ... */
+
+/* Container dos botões do formulário */
 .plan-button {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.plan-services {
-  background-color: #547a46;
-  width: 100%;
-  padding: 5px;
+ 
   margin-top: 10px;
-  color: #d6d0bc;
 }
 
-.plan-list-container {
-  width: 50%;
+/* Botões genéricos do formulário */
+.button-plan {
+  padding: 12px 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  border-left: 1px solid rgba(62, 48, 27, 0.3); /* Linha sutil marrom */
 }
 
-.plan-ul {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* Botão de Ação (Salvar/Adicionar) */
+.plan-button button[type="submit"] {
+  background-color: #547a46; /* Verde */
+  color: #d6d0bc; /* Bege */
+  
 }
 
-.plan-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-x: auto;
-  max-height: 450px;
+/* ✅ Botão Secundário (Cancelar Edição) */
+.plan-button button[type="button"] {
+  background-color: #547a46; /* Fundo Bege */
+  color: #d6d0bc; /* Texto Marrom */  
 }
 
-.plan-details {
-  background-color: #3e301b;
-  color: #d6d0bc;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+/* ... (resto do CSS, incluindo o @media) ... */
 
-.plan-text {
-  color: #3e301b;
-  background-color: #d6d0bc;
-  padding: 5px;
-  border-bottom: 4px solid #547a46;
-}
 
-.plan-buttons {
-  display: flex;
-  gap: 30px;
-}
 
-@media (max-width: 768px) {
+
+
+/* --- 4. LAYOUT DESKTOP (Telas Maiores) --- */
+
+@media (min-width: 768px) {
   .plan-manager-container {
-    min-width: 80%;
-    flex-wrap: wrap;
-    margin: 20 auto;
-    padding: 10px;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 100px;
   }
+
   .plan-manager-form-container {
-    width: 100%;
+    width: 50%;
   }
-  .plan-list-container {
-    width: 100%;
+
+  .list-container {
+    width: 50%;
   }
-  .plan-button {
-    width: 100%;
+  
+  .list {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .list-button {
+    flex-direction: row;
   }
 }

@@ -3,7 +3,7 @@
 import { Service } from "../../../types/Service";
 import { useEffect, useState } from "react";
 import { getServices } from "../../../services/serviceAPI";
-import "./ListarServicos.css";
+import "./listServicosSelection.css";
 
 interface ServicesListProps {
   onServiceSelect: (service: Service[]) => void;
@@ -59,13 +59,13 @@ export default function ListarServicos(props: ServicesListProps) {
   }
 
   return (
-    <div className="services-list">
-      <ul className="list-servicos">
+    <div className="list-servicos-selection-grid-container">
+      <ul className="list-servicos-selection">
         {services.map((service) => {
           const isSelected = props.selectedService.some((s) => s.id === service.id);
           return (
             <li
-              className={`card ${isSelected ? "selected" : ""}`}
+              className={`service-card-selection ${isSelected ? "selected" : ""}`}
               key={service.id}
               onClick={() => {
                 handleServicoClick(service);

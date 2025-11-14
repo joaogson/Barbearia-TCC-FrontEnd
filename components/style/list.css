@@ -1,0 +1,136 @@
+/* --- 3. LISTA DE PLANOS (BOTÕES ESTICADOS) --- */
+
+
+.list-container h3 {
+  color: #3e301b;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-bottom: 3px solid #3e301b;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: none;
+  
+}
+
+.list-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.list-ul li {
+  background-color: #3e301b;
+  color: #d6d0bc;
+  /* Removendo a borda de baixo daqui para que os botões se estiquem */
+  border-bottom: none; 
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  list-style: none;
+  overflow: hidden;
+}
+
+.list-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* ✅ Remove o gap aqui para que o texto e botões fiquem colados */
+  
+}
+
+.list-text {
+  color: #d6d0bc;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  
+  padding: 15px;
+  background-color: #3e301b;
+  /* ✅ Adiciona a borda verde aqui, para separar o texto dos botões */
+}
+
+.list-buttons {
+  display: flex;
+  /* ✅ Fundo bege para os botões */
+  background-color: #d6d0bc;
+  /* ✅ Remove o gap, os botões vão se esticar */
+  gap: 0; 
+  
+}
+
+/* ... (todo o CSS anterior) ... */
+
+/* Container dos botões (Editar/Remover) */
+.list-buttons {
+  display: flex;
+  background-color: #547a46;
+  gap: 0;
+  /* ✅ Adiciona um 'gap' de 1px com a cor de fundo para a linha */
+  /* gap: 1px; */ 
+  /* Vamos remover a borda e o gap */
+}
+
+/* Botões (Editar/Remover) */
+.list-buttons button {
+  padding: 15px 0;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  flex-grow: 1;
+  
+  
+  /* ✅ CORREÇÃO: Remove a borda direita que fazia a linha */
+  border-right: none; 
+
+  /* ✅ CORREÇÃO: Ambos os botões verdes */
+  background-color: #547a46;
+  color: #d6d0bc;
+}
+
+/* ✅ CORREÇÃO: Adiciona uma borda sutil no botão da direita
+   para diferenciá-los (opcional, mas recomendado) */
+.list-buttons button:last-child {
+  border-left: 1px solid rgba(62, 48, 27, 0.3); /* Linha sutil marrom */
+}
+
+/* Botão Editar (Ação) */
+.list-buttons button:first-child {
+  /* (A cor verde já foi definida acima) */
+  /* ✅ Remove a borda que existia aqui */
+  border-right: none; 
+}
+.list-buttons button:first-child:hover {
+  background-color: #6a9a5a; /* Hover verde claro */
+}
+
+/* Botão Remover (Secundário) */
+.list-buttons button:last-child {
+  /* (A cor verde já foi definida acima) */
+  /* (A cor da borda já foi definida acima) */
+}
+.list-buttons button:last-child:hover {
+  background-color: #6a9a5a; /* Hover verde claro */
+}
+
+@media (min-width:768px) {
+     .list-container {
+    width: 60%;
+  }
+  
+  .list {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .list-button {
+    flex-direction: row;
+  }
+}

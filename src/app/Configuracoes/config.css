@@ -16,14 +16,33 @@
   align-items: center;
 }
 
-.time-service-container {
+.config-container{
   width: 80%;
+}
+
+.time-service-container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-self: center;
   align-items: baseline;
-  justify-self: center;
   gap: 100px;
+}
+
+.time-service-manager{
+
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: start;
+  width: 100%;
+  justify-content: center;  
+}
+
+.list-periods{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -37,5 +56,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-self: center;
+  }
+  .time-service-manager{
+    flex-wrap: wrap;
   }
 }

@@ -354,6 +354,10 @@
 @layer components;
 
 @layer utilities {
+  .block {
+    display: block;
+  }
+
   .flex {
     display: flex;
   }

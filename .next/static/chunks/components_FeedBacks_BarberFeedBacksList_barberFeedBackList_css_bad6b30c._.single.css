@@ -2,43 +2,79 @@
 .feedBack-list-container {
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 80%;
   display: flex;
 }
 
-.feedBack-list {
-  flex-direction: column;
+.feedBack-barber-list {
+  flex-flow: wrap;
+  justify-content: center;
   gap: 35px;
-  width: 80%;
+  width: 100%;
   max-height: 500px;
   display: flex;
-  overflow-y: auto;
 }
 
 .feedBack-card {
+  background-color: #3e301b;
   border: 2px solid #3e301b;
+  border-bottom: 6px solid #547a46;
+  width: 300px;
+  height: auto;
   box-shadow: 5px 5px 10px #000001;
 }
 
 .feedBack-header {
   color: #d6d0bc;
   background-color: #3e301b;
-  border-bottom: 6px solid #547a46;
-  align-items: end;
-  gap: 15px;
-  height: 80px;
-  padding: 10px;
+  flex-direction: column;
+  align-items: center;
   font-size: 1.3rem;
   font-weight: bold;
   display: flex;
 }
 
+.feedback-rating {
+  padding: 3px;
+  font-size: 1rem;
+}
+
 .comment {
-  color: #3e301b;
+  color: #d6d0bc;
   text-align: start;
-  background-color: #d6d0bc;
+  text-align: center;
+  height: 150px;
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .feedBack-list-container {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .feedBack-barber-list {
+    flex-wrap: nowrap;
+    max-width: 500px;
+    overflow-x: auto;
+  }
+
+  .feedBack-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feedBack-barber-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    margin: 15px;
+  }
+
+  .feedBack-card {
+    flex-shrink: 0;
+  }
 }
 
 /*# sourceMappingURL=components_FeedBacks_BarberFeedBacksList_barberFeedBackList_css_bad6b30c._.single.css.map*/

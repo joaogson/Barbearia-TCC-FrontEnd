@@ -1,129 +1,185 @@
 /*
-#3e301b
-#547a46
-#d6d0bc
+Cores Base:
+Marrom Escuro: #3e301b
+Verde: #547a46
+Bege: #d6d0bc
 */
 
-/* --- ESTILOS DA PÁGINA (Seus estilos) --- */
+/* --- 1. ESTILOS GERAIS (MOBILE-FIRST) --- */
 
 .plan-container {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  width: 60%;
-  margin-bottom: 50px;
-}
-
-.plan-client-list-container {
-  color: #3e301b;
-  width: 100%;
+  width: 95%;
+  margin: 20px auto 50px auto;
+  font-family: system-ui, sans-serif;
 }
 
 .plan-title {
   color: #3e301b;
   font-size: 1.5rem;
+  font-weight: 600;
+  border-bottom: 3px solid #3e301b;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
+
+.plan--client-list-container {
+  color: #3e301b;
+  width: 100%;
+}
+
 .plan-content {
-  color: #d6d0bc;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   gap: 15px;
 }
 
+/* --- 2. LAYOUT DE "CARDS" (MOBILE) --- */
+
 .table-wrapper {
-  overflow-x: auto; /* Mostra a barra de rolagem horizontal apenas se for necessário */
   width: 100%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+  /* Remove a sombra do wrapper, pois o card terá a sua */
 }
 
-.client-table {
-  background-color: #3e301b;
-  border: 1px solid #3e301b;
-  width: 100%;
-  max-height: 400px;
-
-}
+/* Esconde o cabeçalho da tabela no mobile */
 .client-table-header {
-  height: 50px;
+  display: none;
+}
+
+/* Remove a formatação de tabela no mobile */
+.client-table,
+.client-plan-content,
+.client-table tr {
+  display: block;
+  width: 100%;
+}
+
+/* ✅ CADA LINHA vira um CARD (Estilo .feedBack-card aplicado) */
+.client-table tr {
+  /* Fundo Marrom Escuro */
+  background-color: #3e301b;
+  /* Texto Bege */
+  color: #d6d0bc;
+  
+  margin-bottom: 15px;
+  
+  /* Sombra (do feedback) */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  
+  /* Borda Verde (do feedback) */
+  border: none; /* Limpa a borda antiga */
   border-bottom: 6px solid #547a46;
-}
-td {
-  padding: 10px;
-  border: 1px solid #3e301b;
-  width: 33%;
-}
-tr {
-  border: 1px solid #3e301b;
-}
-th {
-  font-size: 1.2rem;
-}
-.client-plan-content {
-  background-color: #d6d0bc;
-  color: #3e301b;
+  
+  overflow: hidden;
 }
 
-/* --- ESTILOS DO MODAL (CORRIGIDOS) --- */
+/* Células empilhadas verticalmente */
+.client-table td {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  text-align: right;
+  
+  /* ✅ Separador bege (para o fundo marrom) */
+  border-bottom: 1px solid rgba(214, 208, 188, 0.3); /* Bege 30% */
+  box-sizing: border-box;
+}
 
-/* 1. O "Fundo" flutuante que cobre a tela */
+/* Adiciona o "label" (Cliente, Plano, etc.) à esquerda */
+.client-table td::before {
+  content: attr(data-label);
+  float: left;
+  font-weight: bold;
+  /* ✅ Texto do label (Bege) */
+  color: #d6d0bc;
+  opacity: 0.8; /* Levemente mais sutil que o valor */
+}
+
+.client-table tr td:last-child {
+  border-bottom: none;
+  /* ✅ Remove o padding do botão para ele encostar no fundo */
+  padding: 0; 
+}
+
+/* Estilo do Botão (Moderno) */
+.client-plan-content button {
+  background-color: #547a46;
+  color: #d6d0bc;
+  border: none;
+  padding: 12px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  
+  /* ✅ Adiciona um hover sutil */
+  transition: background-color 0.2s ease;
+}
+.client-plan-content button:hover {
+  background-color: #6a9a5a; /* Tom de verde mais claro */
+}
+
+/* --- 3. ESTILOS DO MODAL --- */
+/* (Estes já combinam com a paleta de cores, sem mudanças) */
+
 .modal-wrapper {
-  position: fixed; /* A MÁGICA ESTÁ AQUI */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro transparente */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1005;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-/* 2. "A Caixa" do modal, usando seus estilos de .modal-overlay */
 .modal-box {
   background-color: #d6d0bc;
   border: 1px solid #3e301b;
-  min-width: 450px;
-  max-width: 90%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  /* Remove display e flex-direction, o wrapper já centraliza */
+  width: 95%;
+  max-width: 500px;
 }
-
-/* 3. O resto dos seus estilos, aplicados dentro da .modal-box */
 .modal-header {
   background-color: #3e301b;
   padding: 10px;
   height: 50px;
   border-bottom: 6px solid #547a46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .modal-title {
   color: #d6d0bc;
   font-size: 1.2rem;
   text-align: center;
+  margin: 0;
 }
 .modal-block {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .modal-content {
   color: #3e301b;
-  font-size: 1rem; /* Diminuído para caber melhor */
-  display: flex;
-  flex-wrap: wrap;
 }
 .modal-content p {
   margin: 0 0 10px 0;
   width: 100%;
 }
 select.plan-select {
-  height: 35px;
+  height: 40px;
   width: 100%;
   background-color: #fff;
   color: #3e301b;
   border: 1px solid #3e301b;
+  border-bottom: 4px solid #547a46;
+  font-size: 1rem;
 }
 .modal-actions {
   display: flex;
@@ -131,23 +187,94 @@ select.plan-select {
   justify-content: flex-end;
   margin-top: 10px;
 }
-
-/* Estilo para os botões do modal (opcional, mas recomendado) */
 .modal-actions button {
   padding: 10px 15px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
 }
 .modal-actions button:first-child {
-  /* Cancelar */
   background-color: #d6d0bc;
   color: #3e301b;
   border: 1px solid #3e301b;
 }
 .modal-actions button:last-child {
-  /* Salvar */
   background-color: #547a46;
   color: #d6d0bc;
+}
+
+
+/* --- 4. ESTILOS DESKTOP (Telas Maiores) --- */
+@media (min-width: 769px) {
+  
+  .plan-container {
+    width: 80%;
+  }
+
+  /* REVERTE TUDO PARA A VISUALIZAÇÃO DE TABELA */
+  
+  .client-table-header {
+    display: table-header-group;
+    background-color: #3e301b;
+    color: #d6d0bc;
+  }
+
+  .client-table {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* 'fixed' é essencial para as larguras funcionarem */
+    border-collapse: collapse;
+  }
+
+  .client-plan-content {
+    display: table-row-group;
+    background-color: #3e301b;
+    color: #3e301b;
+    margin-bottom: 0;
+    box-shadow: none;
+    border: none;
+  }
+  
+  .client-table tr {
+    display: table-row;
+    margin-bottom: 0;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+  }
+
+  .client-table td {
+    display: table-cell;
+    text-align: left;
+    border-top: 1px solid #a19a86;
+    padding: 12px 15px;
+    /* ✅ Remove a largura de 33% daqui */
+  }
+
+  /* ✅ CORREÇÃO: Define a largura de CADA coluna (Cabeçalho e Célula) */
+  /* Coluna 1 (Cliente) */
+  .client-table th:nth-child(1),
+  .client-table td:nth-child(1) {
+    width: 40%;
+  }
+  /* Coluna 2 (Plano Atual) */
+  .client-table th:nth-child(2),
+  .client-table td:nth-child(2) {
+    width: 40%;
+  }
+  /* Coluna 3 (Ações) - Menor */
+  .client-table th:nth-child(3),
+  .client-table td:nth-child(3) {
+    width: 20%;
+    text-align: center; /* Centraliza o botão na coluna estreita */
+  }
+
+  .client-table td::before {
+    display: none;
+  }
+
+  .client-plan-content button {
+    width: 100%; /* O botão se ajusta ao texto */
+    font-size: 0.85rem;
+  }
 }

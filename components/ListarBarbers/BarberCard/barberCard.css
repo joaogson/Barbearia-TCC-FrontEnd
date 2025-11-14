@@ -1,7 +1,6 @@
 .barber-card {
   display: flex;
   flex-direction: column;
-  gap: 15px;
   margin: 20px; /* Adicionado um pouco mais de margem geral */
   align-items: center;
   width: 100%;

@@ -1,7 +1,7 @@
 /* [project]/components/Sidebar/Sidebar.css [app-client] (css) */
 .sidebar {
   color: #d6d0bc;
-  z-index: 1000;
+  z-index: 1001;
   background-color: #547a46;
   flex-shrink: 0;
   width: 250px;

@@ -1,4 +1,8 @@
 /* [project]/components/Auth/FormRegister/register.css [app-client] (css) */
+.register-box {
+  box-shadow: 5px 5px 10px #000001;
+}
+
 .container-register {
   background-color: #3e301b;
   border-bottom: 4px solid #547a46;
@@ -6,7 +10,6 @@
   align-items: center;
   padding: 15px;
   display: flex;
-  box-shadow: 5px 5px 10px #000001;
 }
 
 .register-style {

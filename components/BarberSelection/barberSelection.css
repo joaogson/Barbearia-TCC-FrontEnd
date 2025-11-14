@@ -1,5 +1,5 @@
-.list-container {
-  width: 300px;
+.list-barber-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -7,18 +7,9 @@
   gap: 25px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #3e301b;
-  text-align: center;
-  margin-bottom: 20px;
-  min-width: 400px;
-  border-bottom: 3px solid #3e301b;
-}
-
-.list-card {
+.list-barber-card {
   height: auto;
-  width: 80%;
+  width: 300px;
   background-color: #3e301b;
   color: #d6d0bc;
   text-align: center;
@@ -39,10 +30,10 @@ h1 {
 .list-card.selected {
   background-color: #3e301b;
   box-shadow: 5px 5px 10px black;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
-.card-name {
+.card-barber-name {
   text-align: center;
   color: #d6d0bc;
 }

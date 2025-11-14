@@ -1,10 +1,11 @@
 .form-container {
   justify-content: center;
-
   color: #3e301b;
   display: flex;
   flex-direction: column;
   height: 100%;
+  
+  width: 50%;
 }
 
 h3 {
@@ -12,39 +13,59 @@ h3 {
 }
 
 .settings-form {
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+}
+
+.workTime-form{
+  text-align: start;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  padding: 15px;
-  width: 100%;
+  gap: 10px; /* Espaço entre label e input */
   background-color: #3e301b;
-  color: #d6d0bc;
-  border-bottom: 6px solid #547a46;
-  gap: 15px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+  width: 100%;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  text-align: start;
+  align-items: start;
   width: 100%;
-  gap: 3px;
+  background-color: #3e301b;
+  color: #d6d0bc;
+  border-bottom: 6px solid #547a46;
+  padding: 10px;
+}
+
+.form-group label{
+  text-align: start;
+  font-weight: 600;
+  font-size: 1.1rem;
+  
 }
 
 input {
   background-color: #d6d0bc;
   color: #3e301b;
-  padding: 5px;
-  width: 100%;
+  border: none;
   border-bottom: 4px solid #547a46;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .select-interval {
   background-color: #d6d0bc;
   color: #3e301b;
-  padding: 5px;
+  border: none;
   border-bottom: 4px solid #547a46;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .interval-option {
@@ -52,17 +73,24 @@ input {
 }
 
 button {
-  background-color: #547a46;
+  /* Estilo do botão principal */
+  background-color: #547a46; /* Verde */
+  color: #d6d0bc; /* Bege */
+  
+  /* Estilo genérico */
+  padding: 12px 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
   width: 100%;
-  padding: 5px;
-  color: #d6d0bc;
 }
+
 
 @media (max-width: 768px) {
   .form-container {
     flex-wrap: wrap;
-    min-width: 100%;
-    margin: 20px auto;
-    padding: 10px;
+    width: 80%;
+  
   }
 }

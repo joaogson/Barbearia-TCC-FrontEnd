@@ -1,20 +1,35 @@
-.agendar-horario-container {
+.agendar-horario-block {
   display: flex;
   background-color: #3e301b;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
   margin-bottom: 50px;
-  min-width: 400px;
+  max-width: 450px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
 }
 
-.agendarHorario-container {
+.barber-selection-title{
+
+  font-size: 1.5rem;
+  color: #3e301b;
+  text-align: center;
+  margin-bottom: 20px;
+  min-width: 400px;
+  border-bottom: 3px solid #3e301b;
+
+}
+
+.selecionar-servico-container{
+  width: 100%;
+}
+
+.agendar-horario-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
   gap: 25px;
+  width: 80%;
 }
 
 .agendar-horario-alert{
@@ -24,10 +39,6 @@
 
 .buttons-container {
   display: flex;
-}
-
-.selecionar-servico-container {
-  height: 300px;
 }
 
 .detalhesAgendamento-container {

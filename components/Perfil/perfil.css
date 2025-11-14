@@ -2,7 +2,6 @@
 .informations-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
   margin-top: 20px; /* Adicionado um pouco mais de margem geral */
   padding-bottom: 20px;
   align-items: center;
@@ -28,14 +27,19 @@ h2 {
 .button-actions {
   display: flex;
   justify-content: flex-end;
-  margin: 10px;
+  width: 100%;
   color: #d6d0bc;
   background-color: #547a46;
   border: none;
-  padding: 4px 16px;
+  padding: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+
+.button-actions p{
+  width: 100%;
+  text-align: center;
 }
 
 /* --- O Container dos Cards de Informação (A parte principal) --- */

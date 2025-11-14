@@ -1,44 +1,96 @@
+/* --- Configuração Geral do Footer --- */
 .footer {
-  display: block;
-  position: static;
-  bottom: 0;
   width: 100%;
   height: auto;
   background-color: #547a46;
-  z-index: 1001;
+  color: #d6d0bc; /* Cor padrão */
+  z-index: 1000;
+  padding: 30px 15px;
+  box-sizing: border-box;
 }
 
+/* --- Container Principal (Layout) --- */
 .footer-containter {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  color: #d6d0bc;
-  padding: 10px;
-  gap: 15px;
+  flex-direction: column; /* PADRÃO (MOBILE): 1 coluna */
+  align-items: center;
+  gap: 25px;
+
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; /* Centraliza o container */
 }
 
+/* --- Blocos de Conteúdo (As Colunas) --- */
 .footer-block {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   text-align: center;
   color: #d6d0bc;
-  width: 50%;
+  width: 100%;
+  gap: 10px;
 }
 
+.footer-block h3 {
+  /* Garante que o título tenha um bom espaçamento */
+  margin-bottom: 15px;
+}
+
+/* --- NOVO: Classe para os Itens de Contato (Ícone + Texto) --- */
+.footer-contact-item {
+  display: flex;
+  flex-direction: row; /* Coloca ícone e texto lado a lado */
+  justify-content: center; /* Alinha no centro (por causa do text-align) */
+  align-items: center;
+  gap: 10px; /* Espaço entre o ícone e o texto */
+
+  /* Remove margens de <p> ou <Link> dentro dele */
+  margin-top: -10px; /* Puxa para perto do "Instagram" / "WhatsApp" */
+}
+
+/* Remove a margem padrão do <p> do número */
+.footer-contact-item .whatsapp-number {
+  margin: 0;
+}
+
+/* Garante a cor correta no Link */
+.footer-contact-item a {
+  color: #d6d0bc;
+  text-decoration: none;
+}
+.footer-contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* --- Texto do Rodapé (Copyright) --- */
 .rodape {
-  height: 15px;
   width: 100%;
   text-align: center;
   color: #d6d0bc;
   font-size: 10px;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(214, 208, 188, 0.5); /* Linha sutil */
 }
 
+/* --- DESKTOP (Telas 768px ou maiores) --- */
 @media (min-width: 768px) {
   .footer-containter {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 30%;
+    /* Muda para Grid de 2 colunas */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 80%;
+  }
+
+  .footer-block {
+    width: auto;
+    /* Alinha o conteúdo dos blocos à esquerda no desktop */
+    text-align: left;
+  }
+
+  /* Faz o alinhamento dos ícones mudar para a esquerda */
+  .footer-contact-item {
+    justify-content: flex-start;
   }
 }
