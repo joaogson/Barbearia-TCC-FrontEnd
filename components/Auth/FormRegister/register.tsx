@@ -19,18 +19,18 @@ export default function Register() {
 
     // Lógica para chamar a função de registro da API
     try {
-      if(confirmPassword === password){
-      const user = await register(email, password, phone, name);
-      console.log("Usuario criado: ", user);
+      if (confirmPassword === password) {
+        const user = await register(email, password, phone, name);
+        console.log("Usuario criado: ", user);
       } else {
-       throw error
+        throw error;
       }
-    } catch (err) {
-      if(confirmPassword != password){
-        setError("As senhas não batem.")
-      } else{
-      console.error("Erro: ", err);
-      setError("Falha ao registrar. Tente outro e-mail.");
+    } catch (error) {
+      if (confirmPassword != password) {
+        setError("As senhas não batem.");
+      } else {
+        console.error("Erro: ", error);
+        setError("Falha ao registrar. Tente outro e-mail.");
       }
     }
   };
@@ -88,7 +88,13 @@ export default function Register() {
             {error}
           </p>
         )}
-        <button className="submit-button-register" type="submit" disabled={isSubmitting} style={{ width: "100%", padding: "10px" }} onClick={handleSubmit}>
+        <button
+          className="submit-button-register"
+          type="submit"
+          disabled={isSubmitting}
+          style={{ width: "100%", padding: "10px" }}
+          onClick={handleSubmit}
+        >
           {isSubmitting ? "Criando conta..." : "Cadastrar"}
         </button>
       </form>

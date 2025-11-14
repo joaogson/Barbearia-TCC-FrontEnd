@@ -13,7 +13,7 @@ export default function Login() {
 
   useEffect(() => {
     console.log(registredEmail);
-    //Verifica se tem um email que veio da pagina register (função register)
+    //Verifica se tem um email que veio da pagina register
     if (registredEmail) {
       setEmail(registredEmail);
       clearRegistredEmail();
