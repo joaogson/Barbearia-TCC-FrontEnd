@@ -37,6 +37,7 @@ export default function Login() {
   };
 
   return (
+    <div className="login-box">
     <div className="container-login">
       <h1 className="login-title">Entrar</h1>
       <form className="form-login" action="">
@@ -52,9 +53,6 @@ export default function Login() {
           </Link>
         </div>
         {error && <p className="error">{error}</p>}
-        <button className="submit-button-login" type="submit" disabled={isSubmitting} onClick={handleSubmit}>
-          {isSubmitting ? "Entrando..." : "Entrar"}
-        </button>
         <p className="sem-conta">
           Não tem uma conta?{" "}
           <Link className="link-cadastrar" href="/register">
@@ -62,6 +60,10 @@ export default function Login() {
           </Link>
         </p>
       </form>
+    </div>
+    <button className="submit-button-login" type="submit" disabled={isSubmitting} onClick={handleSubmit}>
+          {isSubmitting ? "Entrando..." : "Entrar"}
+        </button>
     </div>
   );
 }

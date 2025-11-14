@@ -4,7 +4,7 @@
   height: auto;
   background-color: #547a46;
   color: #d6d0bc; /* Cor padrão */
-  z-index: 1001;
+  z-index: 1000;
   padding: 30px 15px;
   box-sizing: border-box;
 }

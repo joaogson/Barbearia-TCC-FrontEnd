@@ -12,7 +12,7 @@
   transform: translateX(-100%); /* Esconde a sidebar fora da tela por padrão */
   transition: transform 0.3s ease-in-out; /* Adiciona uma transição suave */
   box-shadow: 7px 0 5px -5px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .sidebar-overlay {

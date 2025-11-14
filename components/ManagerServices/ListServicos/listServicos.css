@@ -17,7 +17,7 @@
 
 .list-servicos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   font-size: 1.1rem;
   width: 60%;
@@ -29,8 +29,7 @@
   background-color: #3e301b;
   align-items: center;
   width: 150px;
-  height: 70px;
-  padding: 10px;
+  padding: 5px;
   margin: 0 auto;
   border-bottom: 6px solid #547a46;
   color: #d6d0bc;

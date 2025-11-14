@@ -51,134 +51,143 @@ function Login() {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "container-login",
+        className: "login-box",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                className: "login-title",
-                children: "Entrar"
-            }, void 0, false, {
-                fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                lineNumber: 41,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                className: "form-login",
-                action: "",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "container-login",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "style",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "login-title",
+                        children: "Entrar"
+                    }, void 0, false, {
+                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                        lineNumber: 42,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                        className: "form-login",
+                        action: "",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "email",
-                                children: "Email"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "style",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        htmlFor: "email",
+                                        children: "Email"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                        lineNumber: 45,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "email",
+                                        value: email,
+                                        id: "email",
+                                        onChange: (e)=>setEmail(e.target.value),
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                        lineNumber: 46,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/components/Auth/FormLogin/login.tsx",
                                 lineNumber: 44,
-                                columnNumber: 11
+                                columnNumber: 9
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "email",
-                                value: email,
-                                id: "email",
-                                onChange: (e)=>setEmail(e.target.value),
-                                required: true
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "style",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        htmlFor: "password",
+                                        children: "Senha"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                        lineNumber: 49,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        id: "password",
+                                        type: "password",
+                                        value: password,
+                                        onChange: (e)=>setPassword(e.target.value),
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                        lineNumber: 50,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        style: {
+                                            padding: "5px",
+                                            width: "170px",
+                                            alignSelf: "end",
+                                            textAlign: "end"
+                                        },
+                                        href: "../forgot-password",
+                                        children: "esqueci minha senha!"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                        lineNumber: 51,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                lineNumber: 48,
+                                columnNumber: 9
+                            }, this),
+                            error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "error",
+                                children: error
                             }, void 0, false, {
                                 fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                                lineNumber: 45,
-                                columnNumber: 11
+                                lineNumber: 55,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "sem-conta",
+                                children: [
+                                    "Não tem uma conta?",
+                                    " ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        className: "link-cadastrar",
+                                        href: "/register",
+                                        children: "Cadastre-se"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                        lineNumber: 58,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                                lineNumber: 56,
+                                columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Auth/FormLogin/login.tsx",
                         lineNumber: 43,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "style",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "password",
-                                children: "Senha"
-                            }, void 0, false, {
-                                fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                                lineNumber: 48,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                id: "password",
-                                type: "password",
-                                value: password,
-                                onChange: (e)=>setPassword(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                                lineNumber: 49,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                style: {
-                                    padding: "5px",
-                                    width: "170px",
-                                    alignSelf: "end",
-                                    textAlign: "end"
-                                },
-                                href: "../forgot-password",
-                                children: "esqueci minha senha!"
-                            }, void 0, false, {
-                                fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                                lineNumber: 50,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                        lineNumber: 47,
-                        columnNumber: 9
-                    }, this),
-                    error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "error",
-                        children: error
-                    }, void 0, false, {
-                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                        lineNumber: 54,
-                        columnNumber: 19
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "submit-button-login",
-                        type: "submit",
-                        disabled: isSubmitting,
-                        onClick: handleSubmit,
-                        children: isSubmitting ? "Entrando..." : "Entrar"
-                    }, void 0, false, {
-                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                        lineNumber: 55,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "sem-conta",
-                        children: [
-                            "Não tem uma conta?",
-                            " ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                className: "link-cadastrar",
-                                href: "/register",
-                                children: "Cadastre-se"
-                            }, void 0, false, {
-                                fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                                lineNumber: 60,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                        lineNumber: 58,
-                        columnNumber: 9
+                        columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/Auth/FormLogin/login.tsx",
-                lineNumber: 42,
-                columnNumber: 7
+                lineNumber: 41,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                className: "submit-button-login",
+                type: "submit",
+                disabled: isSubmitting,
+                onClick: handleSubmit,
+                children: isSubmitting ? "Entrando..." : "Entrar"
+            }, void 0, false, {
+                fileName: "[project]/components/Auth/FormLogin/login.tsx",
+                lineNumber: 64,
+                columnNumber: 5
             }, this)
         ]
     }, void 0, true, {

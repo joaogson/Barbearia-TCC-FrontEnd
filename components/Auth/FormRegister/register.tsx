@@ -36,8 +36,9 @@ export default function Register() {
   };
 
   return (
+    <div className="register-box">
     <div className="container-register">
-      <h1>Cadastrar</h1>
+      <h1 className="register-title">Cadastrar</h1>
       <form className="form-register" action="">
         <div className="register-style">
           <label htmlFor="name">Nome Completo</label>
@@ -88,7 +89,16 @@ export default function Register() {
             {error}
           </p>
         )}
-        <button
+        
+      </form>
+      <p className="sem-conta" style={{ marginTop: "1rem", textAlign: "center" }}>
+        Já tem uma conta?{" "}
+        <Link className="link-cadastrar" href="/login">
+          Faça login
+        </Link>
+      </p>
+    </div>
+    <button
           className="submit-button-register"
           type="submit"
           disabled={isSubmitting}
@@ -97,13 +107,6 @@ export default function Register() {
         >
           {isSubmitting ? "Criando conta..." : "Cadastrar"}
         </button>
-      </form>
-      <p className="sem-conta" style={{ marginTop: "1rem", textAlign: "center" }}>
-        Já tem uma conta?{" "}
-        <Link className="link-cadastrar" href="/login">
-          Faça login
-        </Link>
-      </p>
     </div>
   );
 }

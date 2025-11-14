@@ -1,4 +1,8 @@
 /* [project]/components/Auth/FormRegister/register.css [app-client] (css) */
+.register-box {
+  box-shadow: 5px 5px 10px #000001;
+}
+
 .container-register {
   background-color: #3e301b;
   border-bottom: 4px solid #547a46;
@@ -8,7 +12,7 @@
   display: flex;
 }
 
-.style {
+.register-style {
   flex-direction: column;
   align-items: stretch;
   width: 100%;
@@ -37,14 +41,11 @@ h1 {
   font-size: 1.5rem;
 }
 
-button {
+.submit-button-register {
+  cursor: pointer;
   background-color: #547a46;
   width: 100%;
   padding: 10px;
-}
-
-.submit-button {
-  cursor: pointer;
 }
 
 .sem-conta {
