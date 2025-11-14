@@ -1,4 +1,52 @@
 /* [project]/components/FeedBacks/BarberFeedBacksList/barberFeedBackList.css [app-client] (css) */
+.feedBack-list-container {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
 
+.feedBack-list {
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 35px;
+  width: 80%;
+  max-height: 500px;
+  display: flex;
+}
+
+.feedBack-card {
+  background-color: #3e301b;
+  border: 2px solid #3e301b;
+  border-bottom: 6px solid #547a46;
+  width: 300px;
+  height: auto;
+  box-shadow: 5px 5px 10px #000001;
+}
+
+.feedBack-header {
+  color: #d6d0bc;
+  background-color: #3e301b;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.feedback-rating {
+  padding: 3px;
+  font-size: 1rem;
+}
+
+.comment {
+  color: #d6d0bc;
+  text-align: start;
+  text-align: center;
+  height: 150px;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-style: italic;
+}
 
 /*# sourceMappingURL=components_FeedBacks_BarberFeedBacksList_barberFeedBackList_css_bad6b30c._.single.css.map*/

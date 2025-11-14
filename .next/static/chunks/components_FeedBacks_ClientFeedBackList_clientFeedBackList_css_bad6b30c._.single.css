@@ -1,4 +1,85 @@
 /* [project]/components/FeedBacks/ClientFeedBackList/clientFeedBackList.css [app-client] (css) */
+.feedBack-list-container {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
 
+.feedBack-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  width: 80%;
+  max-height: 500px;
+  margin: 0 auto;
+  font-size: 2.3rem;
+  display: flex;
+}
+
+.feedBack-card {
+  background-color: #3e301b;
+  border: 2px solid #3e301b;
+  border-bottom: 6px solid #547a46;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: auto;
+  display: flex;
+  box-shadow: 5px 5px 10px #000001;
+}
+
+.feedBack-header {
+  color: #d6d0bc;
+  background-color: #3e301b;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.feedback-rating {
+  padding: 3px;
+  font-size: 1rem;
+}
+
+.comment {
+  color: #d6d0bc;
+  text-align: start;
+  text-align: center;
+  height: 150px;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.feedBack-actions {
+  justify-content: end;
+  display: flex;
+}
+
+.feedBack-delete-button {
+  color: #d6d0bc;
+  cursor: pointer;
+  text-align: center;
+  background-color: #547a46;
+  border: none;
+  justify-content: flex-end;
+  margin: 10px;
+  padding: 4px 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color .2s;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .feedBack-list {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
+}
 
 /*# sourceMappingURL=components_FeedBacks_ClientFeedBackList_clientFeedBackList_css_bad6b30c._.single.css.map*/

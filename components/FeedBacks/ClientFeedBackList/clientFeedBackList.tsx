@@ -48,20 +48,17 @@ export default function FeedbackList() {
       <ul className="feedBack-list">
         {myFeedbacks.map((fb) => (
           <li key={fb.id} className="feedBack-card">
-            <div className="feedBack-header">
-              {/* Mostra o nome do barbeiro que ele avaliou */}
-              <strong>{user?.role === "CLIENT" ? fb.barber.user.name : fb.client.user.name}</strong>
-              <span>{fb.rating} Estrelas ⭐</span>
-            </div>
+            {/* Só renderiza o parágrafo se o comentário existir */}
             {fb.comment && <p className="comment">{fb.comment}</p>}
+            <div className="feedBack-header">
+              <strong className="feedback-user">{user?.role === "CLIENT" ? fb.barber.user.name : fb.client.user.name}</strong>
+              <span className="feedback-rating">{fb.rating} Estrelas ⭐</span>
 
-            <div className="feedBack-actions">
-              {/* Ações de Editar (chama o Form) e Excluir */}
-
-              <button onClick={() => handleDelete(fb.id)} className="feedBack-delete-button">
-                Excluir
-              </button>
+              {/* TODO: Mostrar estrelas */}
             </div>
+            <button onClick={() => handleDelete(fb.id)} className="feedBack-delete-button">
+              Excluir
+            </button>
           </li>
         ))}
       </ul>

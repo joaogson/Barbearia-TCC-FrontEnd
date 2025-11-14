@@ -3,7 +3,7 @@
 import { Service } from "../../../types/Service";
 import { useEffect, useState } from "react";
 import { getServices } from "../../../services/serviceAPI";
-import "./ListarServicos.css";
+import "../ListServicos/listServicos.css";
 
 interface ServicesListProps {
   onServiceSelect: (service: Service[]) => void;
