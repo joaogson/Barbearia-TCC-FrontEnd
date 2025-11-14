@@ -4,6 +4,7 @@ import { Service } from "../../../types/Service";
 import { useEffect, useState } from "react";
 import { getServices } from "../../../services/serviceAPI";
 import "./listServicos.css";
+import "../../style/list.css"
 
 export default function ServiceList() {
   const [services, setServices] = useState<Service[]>([]);
@@ -42,7 +43,7 @@ export default function ServiceList() {
   }
 
   return (
-    <div className="services-container">
+    <div className="list-servicos-grid-container">
       <ul className="list-servicos">
         {services.map((service) => {
           return (

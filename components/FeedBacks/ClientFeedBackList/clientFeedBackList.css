@@ -11,24 +11,22 @@
 */
 
 .feedBack-list-container {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 }
 
 .feedBack-list {
-  width: 80%;
-  display: flex; /* Mude para flex */
-  flex-wrap: wrap; /* Para quebrar a linha */
-  justify-content: center; /* Centraliza os itens na linha */
-
-  gap: 35px; /* (Limpei o gap duplicado) */
-
-  font-size: 2.3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 35px;
   max-height: 500px;
-
-  margin: 0 auto; /* Adicionado para centralizar o container de 80% */
+  justify-content: center;
+  
 }
 
 .feedBack-card {
@@ -38,9 +36,6 @@
   border-bottom: 6px solid #547a46;
   height: auto;
   width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .feedBack-header {
@@ -76,7 +71,7 @@
 .feedBack-delete-button {
   display: flex;
   justify-content: flex-end;
-  margin: 10px;
+  
   color: #d6d0bc;
   background-color: #547a46;
   border: none;

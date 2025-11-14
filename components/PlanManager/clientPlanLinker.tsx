@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "./clientPlanLinker.css";
+
 import { ClientForList, Plan } from "../../types/Plan";
 import { getClientsForManagement, getPlans, updateClientPlan } from "../../services/planAPI";
 
@@ -83,15 +84,25 @@ export default function ClientPlanLinker() {
                   <th>Ações</th>
                 </tr>
               </thead>
-
               <tbody className="client-plan-content">
                 {clients.map((client) => (
                   <tr key={client.id}>
-                    <td>{client.user.name}</td>
-                    <td>{`${client.plan?.id} - ${client.plan?.haircutNumber} cortes por R$${client.plan?.value}` || "Sem Plano"}</td>
-                    <td>
-                      <button onClick={() => handleManageClick(client)}>{client.plan ? "Editar Plano" : "Vincular Plano"}</button>
+                    
+                    {/* ✅ ADICIONE OS 'data-label's */}
+                    <td data-label="Cliente">{client.user.name}</td>
+                    <td data-label="Plano Atual">
+                      {/* Lógica ternária corrigida para "Sem Plano" */}
+                      {client.plan
+                        ? `${client.plan.id} - ${client.plan.haircutNumber} cortes por R$${client.plan.value}`
+                        : "Sem Plano"
+                      }
                     </td>
+                    <td >
+                      <button onClick={() => handleManageClick(client)}>
+                        {client.plan ? "Editar Plano" : "Vincular Plano"}
+                      </button>
+                    </td>
+
                   </tr>
                 ))}
               </tbody>

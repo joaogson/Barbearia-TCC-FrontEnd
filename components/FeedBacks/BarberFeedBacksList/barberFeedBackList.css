@@ -5,14 +5,14 @@
 */
 
 .feedBack-list-container {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .feedBack-list {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -53,4 +53,32 @@
   height: 150px;
   text-align: center;
   font-style: italic;
+}
+
+@media (max-width:768px) {
+
+  .feedBack-list-container{
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+    .feedBack-list{
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      max-width: 350px;
+    }
+
+    .feedBack-list::-webkit-scrollbar {
+    display: none; 
+  }
+    .feedBack-list {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+    justify-content: flex-start;
+    margin: 15px;
+  }
+
+  .feedBack-card{
+    flex-shrink: 0;
+  }
 }

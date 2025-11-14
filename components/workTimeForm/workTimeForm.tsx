@@ -69,11 +69,12 @@ export default function WorkTimeForm() {
   }
 
   return (
+    
     <div className="form-container">
       <h3>Horário de Expediente</h3>
       <form onSubmit={handleSubmit} className="settings-form">
         <div className="form-group">
-          <label htmlFor="workStartTime">Início do Expediente</label>
+            <div className="workTime-form"><label htmlFor="workStartTime">Início do Expediente</label>
           <input
             type="time" // O input 'time' oferece um seletor de horário nativo!
             id="workStartTime"
@@ -82,10 +83,10 @@ export default function WorkTimeForm() {
             onChange={handleInputChange}
             required
           />
-
-          <label htmlFor="workEndTime">Fim do Expediente</label>
-          <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required />
-          <label htmlFor="breakBetweenCostumerService">Intervalo entre atendimentos</label>
+</div>
+            <div className="workTime-form"><label htmlFor="workEndTime">Fim do Expediente</label>
+          <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required /></div>
+            <div className="workTime-form"><label htmlFor="breakBetweenCostumerService">Intervalo entre atendimentos</label>
           <select
             className="select-interval"
             id="breakBetweenCostumerService"
@@ -108,7 +109,10 @@ export default function WorkTimeForm() {
             <option className="interval-option" value={30}>
               30 minutos
             </option>
-          </select>
+          </select></div>
+          
+          
+          
         </div>
 
         <button type="submit" disabled={isSaving}>

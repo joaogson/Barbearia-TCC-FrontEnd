@@ -1,3 +1,9 @@
+.list-servicos-grid-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .services-container {
   color: #d6d0bc;
   width: 80%;
@@ -14,18 +20,20 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   font-size: 2.3rem;
+  width: 80%;
 }
 
 .service-card {
   display: flex;
   flex-direction: column;
   background-color: #3e301b;
-
   align-items: center;
-  width: 350px;
+  width: 250px;
+  height: 120px;
   padding: 10px;
   margin: 0 auto;
   border-bottom: 6px solid #547a46;
+  color: #d6d0bc;
 }
 
 .service-card-content {
@@ -44,6 +52,7 @@
 
 .service-description {
   width: auto;
+  font-size: 1.5rem;
 }
 
 .service-duration-container {
@@ -54,11 +63,11 @@
 }
 
 .service-duration {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 span {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -74,6 +83,6 @@ span {
   }
 
   .service-description {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }

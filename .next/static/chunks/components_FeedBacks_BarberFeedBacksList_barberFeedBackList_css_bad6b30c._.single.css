@@ -2,7 +2,7 @@
 .feedBack-list-container {
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 80%;
   display: flex;
 }
 
@@ -10,7 +10,7 @@
   flex-flow: wrap;
   justify-content: center;
   gap: 35px;
-  width: 80%;
+  width: 100%;
   max-height: 500px;
   display: flex;
 }
@@ -47,6 +47,34 @@
   padding: 10px;
   font-size: 1.5rem;
   font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .feedBack-list-container {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .feedBack-list {
+    flex-wrap: nowrap;
+    max-width: 350px;
+    overflow-x: auto;
+  }
+
+  .feedBack-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feedBack-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    margin: 15px;
+  }
+
+  .feedBack-card {
+    flex-shrink: 0;
+  }
 }
 
 /*# sourceMappingURL=components_FeedBacks_BarberFeedBacksList_barberFeedBackList_css_bad6b30c._.single.css.map*/

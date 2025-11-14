@@ -1,4 +1,9 @@
 {
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/Atendimentos/page": "app/Atendimentos/page.js",
+  "/Configuracoes/page": "app/Configuracoes/page.js",
+  "/Perfil/page": "app/Perfil/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
 }

@@ -83,10 +83,6 @@ export default function ListServices() {
               <li key={service.id} className="card-service">
                 <div className="card-header-service">
                   <h3 className="card-title-service">Atendimento {service.id}</h3>
-
-                  <button className="cancel-button-service" onClick={() => handleCancel(service.id)}>
-                    Cancelar Atendimento
-                  </button>
                 </div>
 
                 <div className="details-grid-service">
@@ -130,6 +126,9 @@ export default function ListServices() {
                     </div>
                   </div>
                 </div>
+                <button className="cancel-button-service" onClick={() => handleCancel(service.id)}>
+                    Cancelar Atendimento
+                  </button>
               </li>
             );
           })}

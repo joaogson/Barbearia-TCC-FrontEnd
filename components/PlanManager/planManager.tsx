@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, FormEvent, useRef } from "react";
 import { getPlans, createPlan, deletePlan, updatePlan } from "../../services/planAPI";
 import "./managerPlan.css";
+import "../style/list.css"
 import { Plan, createPlanDto } from "../../types/Plan";
 
 const initialState: createPlanDto = { haircutNumber: 0, value: 0 };
@@ -13,6 +14,7 @@ export default function PlanManager() {
   const [editingPlanId, setEditingPlanId] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const formRef = useRef<HTMLFormElement>(null);
   // Busca inicial dos serviços (sem mudanças)
   useEffect(() => {
     async function loadPlans() {
@@ -40,6 +42,7 @@ export default function PlanManager() {
   const handleEdit = (plan: Plan) => {
     setEditingPlanId(plan.id);
     setFormData({ haircutNumber: plan.haircutNumber, value: plan.value });
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const handleCancelEdit = () => {
@@ -90,7 +93,8 @@ export default function PlanManager() {
       <div className="plan-manager-container">
         <div className="plan-manager-form-container">
           <h2 className="plan-title">Gerenciar Planos</h2>
-          <form onSubmit={handleSubmit} className="plan-form">
+          <form ref={formRef} onSubmit={handleSubmit} className="plan-form">
+            <div className="plan-form-details">
             <label htmlFor="haircutNumber">{editingPlanId ? "Editar Plano" : "Adicionar Novo Plano"}</label>
             <input
               id="haircutNumber"
@@ -102,12 +106,13 @@ export default function PlanManager() {
             />
             <label htmlFor="value">Valor</label>
             <input id="value" name="value" value={formData.value} onChange={handleInputChange} type="number" />
-            <div className="plan-button">
-              <button className="button-plan" type="submit">
+            </div>
+            <div className="list-buttons">
+              <button type="submit">
                 {editingPlanId ? "Salvar Alterações" : "Adicionar Plano"}
               </button>
               {editingPlanId && (
-                <button className="button-plan" type="button" onClick={handleCancelEdit}>
+                <button type="button" onClick={handleCancelEdit}>
                   Cancelar Edição
                 </button>
               )}
@@ -117,15 +122,15 @@ export default function PlanManager() {
 
         <div className="plan-list-container">
           <h3>Planos Cadastrados</h3>
-          <div className="plan-list">
+          <div className="list">
             {isLoading ? (
               <p>Carregando...</p>
             ) : (
-              <ul className="plan-ul">
+              <ul className="list-ul">
                 {plans.map((plan) => (
                   <li key={plan.id} style={{boxShadow:"5px 5px 10px rgba(0, 0, 0.5)"}}>
-                    <div className="plan-details">
-                      <div className="plan-text">
+                    <div className="list-details">
+                      <div className="list-text">
                         <span> {plan.id} - </span>
                         <span>{plan.haircutNumber} Cortes</span>
                         <span> - R$ {plan.value}</span>
