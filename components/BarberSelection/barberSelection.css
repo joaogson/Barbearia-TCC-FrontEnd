@@ -21,12 +21,12 @@
   transition: transform 0.1s ease-in-out, background-color 0.1s;
 }
 
-.list-card:active {
+.list-barber-card:active {
   transform: scale(0.7);
   background-color: #547a46;
 }
 
-.list--barber-card.selected {
+.list-barber-card.selected {
   background-color: #3e301b;
   box-shadow: 5px 5px 10px black;
   transform: scale(1.2);
