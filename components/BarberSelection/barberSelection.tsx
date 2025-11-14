@@ -52,7 +52,6 @@ export default function BarberSelection({ selectedBarberId, onBarberSelect }: Ba
   if (barbers.length === 0) {
     return <p>Nenhum profissional encontrado.</p>;
   }
-  
 
   // 5. Renderização de Sucesso
   // Mapeia a lista de barbeiros e renderiza um <button> para cada um.
@@ -63,15 +62,14 @@ export default function BarberSelection({ selectedBarberId, onBarberSelect }: Ba
           type="button" // Garante que o botão não envie um formulário
           key={barber.id}
           // Aplica o estilo de "card" e também o estilo "selected" se o ID bater
-          className={`list-barber-card ${selectedBarberId === barber.id ? "selected" : ""}`}
+          className={`list-barber-card${selectedBarberId === barber.id ? "selected" : ""}`}
           // Ao clicar, chama a função 'onBarberSelect' passada pelo pai
           onClick={() => {
-            if(selectedBarberId === barber.id){
-              onBarberSelect(null)
-            } else{
-              onBarberSelect(barber.id)
+            if (selectedBarberId === barber.id) {
+              onBarberSelect(null);
+            } else {
+              onBarberSelect(barber.id);
             }
-            
           }}
         >
           {/* Aqui você pode adicionar a imagem do barbeiro:
