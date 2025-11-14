@@ -1,0 +1,48 @@
+.list-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #3e301b;
+  text-align: center;
+  margin-bottom: 20px;
+  min-width: 400px;
+  border-bottom: 3px solid #3e301b;
+}
+
+.list-card {
+  height: auto;
+  width: 80%;
+  background-color: #3e301b;
+  color: #d6d0bc;
+  text-align: center;
+  align-content: center;
+  border-bottom: 4px solid #547a46;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+  transition: transform 0.1s ease-in-out, background-color 0.1s;
+}
+
+.list-card:active {
+  transform: scale(0.7);
+  background-color: #547a46;
+    
+}
+
+.list-card.selected {
+  background-color: #3e301b;
+  box-shadow: 5px 5px 10px black;
+  transform: scale(1.1);
+}
+
+.card-name {
+  text-align: center;
+  color: #d6d0bc;
+}

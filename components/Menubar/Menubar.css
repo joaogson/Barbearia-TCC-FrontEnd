@@ -1,0 +1,26 @@
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  flex-shrink: 0;
+  background-color: #547a46;
+  color: #d6d0bc;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  z-index: 1001;
+}
+
+.menubar .toggleSidebar {
+  width: 45px;
+}
+
+.menubar .nomeLocal {
+  width: 85%;
+  padding-right: 15px;
+  
+  background-color: #547a46;
+}

@@ -1,0 +1,15 @@
+.lista-detalhes {
+  color: #3e301b;
+  font-size: 1.5rem;
+}
+
+.card-detalhes {
+  color: #3e301b;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 300px;
+  text-align: justify;
+  padding: 10px;
+}

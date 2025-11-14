@@ -1,0 +1,8 @@
+.page-config-container{
+    display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
+  padding: 1rem;
+}

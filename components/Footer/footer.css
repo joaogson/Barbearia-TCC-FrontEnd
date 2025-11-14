@@ -1,0 +1,44 @@
+.footer {
+  display: block;
+  position: static;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background-color: #547a46;
+  z-index: 1001;
+}
+
+.footer-containter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #d6d0bc;
+  padding: 10px;
+  gap: 15px;
+}
+
+.footer-block {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  color: #d6d0bc;
+  width: 50%;
+}
+
+.rodape {
+  height: 15px;
+  width: 100%;
+  text-align: center;
+  color: #d6d0bc;
+  font-size: 10px;
+}
+
+@media (min-width: 768px) {
+  .footer-containter {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 30%;
+  }
+}

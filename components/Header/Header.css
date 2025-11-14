@@ -1,0 +1,9 @@
+.headerContainer {
+  display: block;
+  margin: 0 auto;
+}
+
+.headerImage {
+  width: 240px;
+  text-align: center;
+}

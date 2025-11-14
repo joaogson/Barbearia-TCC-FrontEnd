@@ -1,0 +1,16 @@
+.buttonNavigation {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-bottom: 4px solid #547a46;
+  color: #d6d0bc;
+  margin: 0 5px;
+  transition: transform 0.1s ease-in-out, background-color 0.1s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+}
+
+.buttonNavigation:active {
+  transform: scale(0.7);
+  background-color: #547a46;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+}

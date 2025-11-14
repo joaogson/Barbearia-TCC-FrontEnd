@@ -1,0 +1,53 @@
+/* [project]/components/FeedBacks/FeedBackForm/feedBackForm.css [app-client] (css) */
+.feedback-form-container {
+  background-color: #3e301b;
+  border: 1px solid #3e301b;
+  border-bottom: 6px solid #547a46;
+  width: 50%;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.feedback-form {
+  color: #d6d0bc;
+  flex-direction: column;
+  gap: 20px;
+  display: flex;
+}
+
+.form-group {
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 10px;
+  display: flex;
+}
+
+.feedback-form-header {
+  color: #d6d0bc;
+  background-color: #3e301b;
+  align-items: center;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.feedback-comment {
+  background-color: #d6d0bc;
+  border: 1px solid #3e301b;
+  border-bottom: 6px solid #547a46;
+  width: 80%;
+}
+
+button {
+  text-align: center;
+  background-color: #547a46;
+  align-self: center;
+  gap: 30px;
+  max-width: 150px;
+  padding: 10px;
+  display: flex;
+}
+
+/*# sourceMappingURL=components_FeedBacks_FeedBackForm_feedBackForm_css_bad6b30c._.single.css.map*/

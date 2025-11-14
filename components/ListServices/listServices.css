@@ -1,0 +1,133 @@
+.costumer-services-container-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #d6d0bc;
+  min-height: 100vh;
+}
+h1 {
+  font-size: 2.5rem;
+  color: #3e301b;
+  text-align: center;
+  margin-bottom: 20px;
+  min-width: 400px;
+  border-bottom: 3px solid #3e301b;
+}
+
+.atendimentos-list-service {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 80%;
+}
+
+.card-service {
+  border: 1px solid #3e301b;
+  display: flex;
+  flex-direction: column;
+  background-color: #3e301b;
+  gap: 15px;
+  margin: 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+}
+
+.card-header-service {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #3e301b;
+  padding: 10px;
+  width: 100%;
+}
+
+.card-title-service {
+  display: flex;
+  background-color: #3e301b;
+  color: #d6d0bc;
+  height: 60px;
+  font-size: 1.7rem;
+  align-items: center;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.cancel-button-service {
+  color: #ffffff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background-color: #7c0202;
+  height: 100%;
+  padding: 7px;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.details-grid-service {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.detail-block-service {
+  box-sizing: border-box;
+  flex: 1 1 0;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.detail-title-service {
+  display: flex;
+  align-items: center;
+  background-color: #3e301b;
+  color: #d6d0bc;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  border-bottom: 6px solid #547a46;
+}
+
+.detail-content-service {
+  background-color: #d6d0bc;
+  height: 100%;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #3e301b;
+}
+
+.detail-service-service {
+  font-size: 1.2rem;
+  color: #3e301b;
+}
+
+.carregando-atendimentos-service {
+  font-size: 2rem;
+  color: #3e301b;
+}
+
+.sem-atendimentos-service {
+  font-size: 2rem;
+  color: #3e301b;
+}
+
+.erro-service {
+  font-size: 2rem;
+  color: #7c0202;
+}
+
+@media (min-width: 768px) {
+  .costumer-services-container-service {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #d6d0bc;
+    margin: 0 auto;
+  }
+}

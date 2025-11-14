@@ -1,0 +1,41 @@
+.page-config-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
+  padding: 1rem;
+}
+
+.config-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 50px;
+  width: 100%;
+  align-items: center;
+}
+
+.time-service-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  align-items: baseline;
+  justify-self: center;
+  gap: 100px;
+}
+
+@media (max-width: 768px) {
+  .config-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .time-service-container {
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-self: center;
+  }
+}
