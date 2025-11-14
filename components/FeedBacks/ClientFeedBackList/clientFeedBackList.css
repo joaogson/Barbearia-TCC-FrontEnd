@@ -29,8 +29,7 @@
   
 }
 
-.feedBack-card {
-  border: 2px solid #3e301b;
+.feedBack-card {  
   background-color: #3e301b;
   box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
   border-bottom: 6px solid #547a46;
@@ -40,7 +39,7 @@
 
 .feedBack-header {
   color: #d6d0bc;
-  font-size: 1.3rem;
+  font-size: 1.0rem;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -69,9 +68,9 @@
 }
 
 .feedBack-delete-button {
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  
+  justify-content: center;  
   color: #d6d0bc;
   background-color: #547a46;
   border: none;

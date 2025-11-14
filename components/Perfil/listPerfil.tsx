@@ -63,9 +63,6 @@ export default function ListPerfil() {
     <>
       <div className="informations-container">
         <div className="information-details">
-          <Link className="button-actions" href="/Perfil/editar">
-            editar
-          </Link>
           <div className="information-card">
             <div className="information-block">
               <div className="information-header">Nome</div>
@@ -83,7 +80,11 @@ export default function ListPerfil() {
             </div>
             {renderPlanBlock()}
           </div>
+          <Link className="button-actions" href="/Perfil/editar">
+          <p>editar</p>
+          </Link>
         </div>
+        
       </div>
     </>
   );

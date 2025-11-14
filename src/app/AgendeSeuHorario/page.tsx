@@ -93,7 +93,7 @@ export default function AgendarHorario() {
     setSelectedServicos(service);
   };
 
-  const handleBarberSelection = (barberId: number) => {
+  const handleBarberSelection = (barberId: number | null) => {
     setSelectedBarberId(barberId);
     setSelectedHorario(null); // Reseta horários
   };
@@ -143,7 +143,7 @@ export default function AgendarHorario() {
           <>
             <h2 style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>Selecione o serviço</h2>
             <div className="selecionar-servico-container">
-              <ListarServicos onServiceSelect={handleServiceSelection} selectedService={selectedServicos} />;
+              <ListarServicos onServiceSelect={handleServiceSelection} selectedService={selectedServicos} />
             </div>
           </>
         );
@@ -151,8 +151,7 @@ export default function AgendarHorario() {
       case 2:
         return (
           <>
-            <h2>Selecione o profissional</h2>
-
+            <h2 className="barber-selection-title">Selecione o profissional</h2>
             <BarberSelection selectedBarberId={selectedBarberId} onBarberSelect={handleBarberSelection} />
           </>
         );
@@ -160,7 +159,7 @@ export default function AgendarHorario() {
         return (
           <>
             <h2 style={{ color: "#3e301b", fontSize: "2rem", alignItems: "center", textAlign: "center" }}>Selecione a Data e o horario</h2>
-            <div className="agendar-horario-container">
+            <div className="agendar-horario-block">
               <p className="agendar-horario-alert">Selecione os serviços e o barbeiro para poder selecionar o horario!</p>
               <Calendar
                 onDateSelect={handleDateSelection}
@@ -196,11 +195,11 @@ export default function AgendarHorario() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h1 style={{ borderBottom: "3px solid #3e301b", width: "70%", textAlign: "start", color: "#3e301b", fontSize: "2rem", marginTop: "25px" }}>
+    <div style={{display:"flex", flexDirection:"column",alignItems:"center"}}>
+      <h1 style={{ borderBottom: "3px solid #3e301b", width: "80%", textAlign: "start", color: "#3e301b", fontSize: "2rem", marginTop: "25px" }}>
         Agende Seu Atendimento
       </h1>
-      <div className="agendarHorario-container">
+      <div className="agendar-horario-container">
         {renderizarEtapa()}
 
         <div className="buttons-container">

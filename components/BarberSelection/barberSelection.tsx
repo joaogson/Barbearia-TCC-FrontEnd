@@ -9,7 +9,7 @@ import "./barberSelection.css";
 // e precisa de uma função para informar o pai quando a seleção mudar.
 interface BarberSelectionProps {
   selectedBarberId: number | null;
-  onBarberSelect: (id: number) => void;
+  onBarberSelect: (id: number | null) => void;
 }
 
 export default function BarberSelection({ selectedBarberId, onBarberSelect }: BarberSelectionProps) {
@@ -52,19 +52,27 @@ export default function BarberSelection({ selectedBarberId, onBarberSelect }: Ba
   if (barbers.length === 0) {
     return <p>Nenhum profissional encontrado.</p>;
   }
+  
 
   // 5. Renderização de Sucesso
   // Mapeia a lista de barbeiros e renderiza um <button> para cada um.
   return (
-    <div className="list-container">
+    <div className="list-barber-container">
       {barbers.map((barber) => (
         <button
           type="button" // Garante que o botão não envie um formulário
           key={barber.id}
           // Aplica o estilo de "card" e também o estilo "selected" se o ID bater
-          className={`list-card ${selectedBarberId === barber.id ? "selected" : ""}`}
+          className={`list-barber-card ${selectedBarberId === barber.id ? "selected" : ""}`}
           // Ao clicar, chama a função 'onBarberSelect' passada pelo pai
-          onClick={() => onBarberSelect(barber.id)}
+          onClick={() => {
+            if(selectedBarberId === barber.id){
+              onBarberSelect(null)
+            } else{
+              onBarberSelect(barber.id)
+            }
+            
+          }}
         >
           {/* Aqui você pode adicionar a imagem do barbeiro:
             <Image
@@ -75,7 +83,7 @@ export default function BarberSelection({ selectedBarberId, onBarberSelect }: Ba
               className={cardStyles.avatar}
             /> 
           */}
-          <h3 className="card-name">{barber.user?.name || "Barbeiro"}</h3>
+          <p className="card-barber-name">{barber.user?.name || "Barbeiro"}</p>
         </button>
       ))}
     </div>

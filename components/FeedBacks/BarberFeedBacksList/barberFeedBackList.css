@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.feedBack-list {
+.feedBack-barber-list {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -62,16 +62,17 @@
     box-sizing: border-box;
   }
 
-    .feedBack-list{
+    .feedBack-barber-list{
       flex-wrap: nowrap;
       overflow-x: auto;
-      max-width: 350px;
+      max-width: 500px;
+    
     }
 
     .feedBack-list::-webkit-scrollbar {
     display: none; 
   }
-    .feedBack-list {
+    .feedBack-barber-list {
     -ms-overflow-style: none;  
     scrollbar-width: none; 
     justify-content: flex-start;

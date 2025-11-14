@@ -11,7 +11,6 @@ export default function BarberCard({ barber }: Props) {
   return (
     <div className="barber-card">
       <div className="barber-content">
-        <WhatsappButton phone={barber.user?.phone} label="Entrar em contato" message="Opa!" />
         <div className="info-section">
           <div className="barber-block">
             <p className="barber-header">Barbeiro</p>
@@ -27,6 +26,7 @@ export default function BarberCard({ barber }: Props) {
           </div>
         </div>
       </div>
+      <WhatsappButton phone={barber.user?.phone} label="Entrar em contato" message="Opa!" />
     </div>
   );
 }

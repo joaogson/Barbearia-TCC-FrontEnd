@@ -25,7 +25,7 @@ export default function WhatsappButton({ phone, message, label }: Props) {
   };
 
   return (
-    <a href={link()} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "#547a46", padding: "5px", margin: "5px" }}>
+    <a href={link()} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "#547a46", padding: "10px", width:"100%"}}>
       {label}
     </a>
   );

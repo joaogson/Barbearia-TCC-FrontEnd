@@ -2,7 +2,7 @@ import FeedbackForm from "../../../components/FeedBacks/FeedBackForm/feedBackFor
 
 export default function FeedBack() {
   return (
-    <div>
+    <div style={{display:"flex", flexDirection:"column",alignItems:"center"}}>
       <h1
         style={{
           borderBottom: "3px solid #3e301b",

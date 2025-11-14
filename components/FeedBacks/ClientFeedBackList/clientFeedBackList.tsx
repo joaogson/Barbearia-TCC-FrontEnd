@@ -52,7 +52,12 @@ export default function FeedbackList() {
             {fb.comment && <p className="comment">{fb.comment}</p>}
             <div className="feedBack-header">
               <strong className="feedback-user">{user?.role === "CLIENT" ? fb.barber.user.name : fb.client.user.name}</strong>
-              <span className="feedback-rating">{fb.rating} Estrelas ⭐</span>
+              <div className="feedback-rating">
+                {Array(fb.rating).fill(null).map((_, index) => (
+                <span key={index}>⭐</span>
+                ))}
+              </div>
+              
 
               {/* TODO: Mostrar estrelas */}
             </div>

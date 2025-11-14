@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-self: center;
+  width: 80%;
 }
 .list-error {
   color: #d9534f;
