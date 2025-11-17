@@ -94,3 +94,11 @@
     font-size: 5rem;
   }
 }
+
+@media (max-width: 420px) {
+
+  .image-title {
+    font-size: 3rem;
+  }
+  
+}
