@@ -15,13 +15,11 @@ export default function WhatsappButton({ phone, message, label, style }: Props) 
 
   const link = () => {
     let url = `https://wa.me/${phoneFormatted}`;
-
     if (message) {
       // Codifica a mensagem para que funcione na URL
       const encodedMessage = encodeURIComponent(message);
       url += `?text=${encodedMessage}`;
     }
-
     return url;
   };
 
