@@ -45,8 +45,8 @@ export default function Register() {
           <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
         <div className="register-style">
-          <label htmlFor="phone">Celular</label>
-          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+          <label htmlFor="phone">Celular (apenas numeros)</label>
+          <input type="number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         </div>
 
         <div className="register-style">
