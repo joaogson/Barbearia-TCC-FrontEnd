@@ -1,4 +1,5 @@
 "use client";
+import ProtectedRoute from "components/ProtectedRoute/protectedRoute";
 import BarberFeedbackList from "../../../components/FeedBacks/BarberFeedBacksList/barberFeedBackList";
 import ClientFeedbackList from "../../../components/FeedBacks/ClientFeedBackList/clientFeedBackList";
 import ListPerfil from "../../../components/Perfil/listPerfil";
@@ -34,7 +35,7 @@ export default function Perfil() {
   };
 
   return (
-    <>
+    <ProtectedRoute allowedRoles={["BARBER", "CLIENT", "ADMIN"]}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <h2
           style={{
@@ -54,6 +55,6 @@ export default function Perfil() {
         {/* 3. Chama a função de renderização condicional */}
         {renderFeedbackSection()}
       </div>
-    </>
+    </ProtectedRoute>
   );
 }

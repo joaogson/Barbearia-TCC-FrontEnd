@@ -10,6 +10,7 @@ import "./config.css";
 import { useEffect, useState } from "react";
 import { InactivePeriods } from "types/Barber";
 import { createInactivePeriod, deleteInactivePeriod, getInactivePeriods } from "services/barberAPI";
+import ProtectedRoute from "components/ProtectedRoute/protectedRoute";
 
 export default function Configuracoes() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -26,120 +27,115 @@ export default function Configuracoes() {
   useEffect(() => {
     fetchPeriods(selectedDate);
   }, [selectedDate]); // Continua rodando quando a data muda
-  
+
   const handleAddPeriod = async (newPeriod: { startTime: string; endTime: string }) => {
     const dataToSend = {
       date: selectedDate.toISOString().split("T")[0],
       ...newPeriod,
     };
     await createInactivePeriod(dataToSend);
-    
+
     // Atualiza a lista
-    fetchPeriods(selectedDate); 
+    fetchPeriods(selectedDate);
   };
 
   const handleDelete = async (periodId: number) => {
     if (!window.confirm("Tem certeza que deseja remover este bloqueio?")) return;
     await deleteInactivePeriod(periodId);
-    
+
     // Atualiza a lista (localmente para velocidade)
     setPeriods((currentPeriods) => currentPeriods.filter((p) => p.id !== periodId));
   };
 
   return (
-    <div className="page-config-container">
-      {user?.role === "CLIENT" && <div style={{ fontSize: "2rem", color: "#3e301b" }}> Voce não tem permissão para acessar essa página!</div>}
-      <h1
-        style={{
-          borderBottom: "3px solid #3e301b",
-          width: "80%",
-          textAlign: "start",
-          color: "#3e301b",
-          fontSize: "2rem",
-          marginTop: "25px",
-        }}
-      >
-        Configurações
-      </h1>
-      <div className="config-container">
+    <ProtectedRoute allowedRoles={["BARBER", "CLIENT", "ADMIN"]}>
+      <div className="page-config-container">
+        {user?.role === "CLIENT" && <div style={{ fontSize: "2rem", color: "#3e301b" }}> Voce não tem permissão para acessar essa página!</div>}
+        <h1
+          style={{
+            borderBottom: "3px solid #3e301b",
+            width: "80%",
+            textAlign: "start",
+            color: "#3e301b",
+            fontSize: "2rem",
+            marginTop: "25px",
+          }}
+        >
+          Configurações
+        </h1>
+        <div className="config-container">
+          <div className="config-content">
+            <h2
+              style={{
+                borderBottom: "3px solid #3e301b",
+                width: "100%",
+                textAlign: "start",
+                color: "#3e301b",
+                fontSize: "2rem",
+                marginTop: "25px",
+              }}
+            >
+              Horarios
+            </h2>
+            <div className="time-service-container">
+              <div className="time-service-manager">
+                <WorkTimeForm />
+
+                <InactivePeriodsManager selectedDate={selectedDate} onDateChange={setSelectedDate} onAddPeriod={handleAddPeriod} />
+              </div>
+              <div className="list-periods">
+                <ListInactivePeriods periods={periods} onDelete={handleDelete} />
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="config-content">
           <h2
             style={{
               borderBottom: "3px solid #3e301b",
-              width: "100%",
+              width: "80%",
               textAlign: "start",
               color: "#3e301b",
               fontSize: "2rem",
               marginTop: "25px",
             }}
           >
-            Horarios
+            Serviços
           </h2>
-          <div className="time-service-container">
-            <div className="time-service-manager">
-            <WorkTimeForm />
+          <ServiceManager />
+        </div>
+        <div className="config-content">
+          <h2
+            style={{
+              borderBottom: "3px solid #3e301b",
+              width: "80%",
+              textAlign: "start",
+              color: "#3e301b",
+              fontSize: "2rem",
+              marginTop: "25px",
+            }}
+          >
+            Planos
+          </h2>
+          <PlanManager />
+        </div>
 
-            <InactivePeriodsManager
-              selectedDate={selectedDate}
-              onDateChange={setSelectedDate}
-              onAddPeriod={handleAddPeriod}
-            />
-            </div>
-            <div className="list-periods">
-            <ListInactivePeriods
-              periods={periods}
-              onDelete={handleDelete}
-            />
-            </div>
-          </div>
+        <div className="config-content">
+          <h2
+            style={{
+              borderBottom: "3px solid #3e301b",
+              width: "80%",
+              textAlign: "start",
+              color: "#3e301b",
+              fontSize: "2rem",
+              marginTop: "25px",
+            }}
+          >
+            Vincular Planos aos Clientes
+          </h2>
+          <ClientPlanLinker />
         </div>
       </div>
-      <div className="config-content">
-        <h2
-          style={{
-            borderBottom: "3px solid #3e301b",
-            width: "80%",
-            textAlign: "start",
-            color: "#3e301b",
-            fontSize: "2rem",
-            marginTop: "25px",
-          }}
-        >
-          Serviços
-        </h2>
-        <ServiceManager />
-      </div>
-      <div className="config-content">
-        <h2
-          style={{
-            borderBottom: "3px solid #3e301b",
-            width: "80%",
-            textAlign: "start",
-            color: "#3e301b",
-            fontSize: "2rem",
-            marginTop: "25px",
-          }}
-        >
-          Planos
-        </h2>
-        <PlanManager />
-      </div>
-
-      <div className="config-content">
-        <h2
-          style={{
-            borderBottom: "3px solid #3e301b",
-            width: "80%",
-            textAlign: "start",
-            color: "#3e301b",
-            fontSize: "2rem",
-            marginTop: "25px",
-          }}
-        >
-          Vincular Planos aos Clientes
-        </h2>
-        <ClientPlanLinker />
-      </div>
-    </div>
+    </ProtectedRoute>
   );
 }
