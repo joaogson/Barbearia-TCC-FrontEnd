@@ -69,50 +69,51 @@ export default function WorkTimeForm() {
   }
 
   return (
-    
     <div className="form-container">
       <h3>Horário de Expediente</h3>
       <form onSubmit={handleSubmit} className="settings-form">
         <div className="form-group">
-            <div className="workTime-form"><label htmlFor="workStartTime">Início do Expediente</label>
-          <input
-            type="time" // O input 'time' oferece um seletor de horário nativo!
-            id="workStartTime"
-            name="workStartTime"
-            value={formData.workStartTime}
-            onChange={handleInputChange}
-            required
-          />
-</div>
-            <div className="workTime-form"><label htmlFor="workEndTime">Fim do Expediente</label>
-          <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required /></div>
-            <div className="workTime-form"><label htmlFor="breakBetweenCostumerService">Intervalo entre atendimentos</label>
-          <select
-            className="select-interval"
-            id="breakBetweenCostumerService"
-            name="breakBetweenCostumerService"
-            value={formData.breakBetweenCostumerService}
-            onChange={handleInputChange} // Sua função que atualiza o estado
-          >
-            <option className="interval-option" value={0}>
-              Nenhum intervalo
-            </option>
-            <option className="interval-option" value={5}>
-              5 minutos
-            </option>
-            <option className="interval-option" value={10}>
-              10 minutos
-            </option>
-            <option className="interval-option" value={15}>
-              15 minutos
-            </option>
-            <option className="interval-option" value={30}>
-              30 minutos
-            </option>
-          </select></div>
-          
-          
-          
+          <div className="workTime-form">
+            <label htmlFor="workStartTime">Início do Expediente</label>
+            <input
+              type="time" // O input 'time' oferece um seletor de horário nativo!
+              id="workStartTime"
+              name="workStartTime"
+              value={formData.workStartTime}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="workTime-form">
+            <label htmlFor="workEndTime">Fim do Expediente</label>
+            <input type="time" id="workEndTime" name="workEndTime" value={formData.workEndTime} onChange={handleInputChange} required />
+          </div>
+          <div className="workTime-form">
+            <label htmlFor="breakBetweenCostumerService">Intervalo entre atendimentos</label>
+            <select
+              className="select-interval"
+              id="breakBetweenCostumerService"
+              name="breakBetweenCostumerService"
+              value={formData.breakBetweenCostumerService}
+              onChange={handleInputChange} // Sua função que atualiza o estado
+            >
+              <option className="interval-option" value={0}>
+                Nenhum intervalo
+              </option>
+              <option className="interval-option" value={5}>
+                5 minutos
+              </option>
+              <option className="interval-option" value={10}>
+                10 minutos
+              </option>
+              <option className="interval-option" value={15}>
+                15 minutos
+              </option>
+              <option className="interval-option" value={30}>
+                30 minutos
+              </option>
+            </select>
+          </div>
         </div>
 
         <button type="submit" disabled={isSaving}>
