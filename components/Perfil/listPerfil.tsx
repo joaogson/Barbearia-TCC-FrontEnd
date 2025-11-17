@@ -54,7 +54,9 @@ export default function ListPerfil() {
       <div className="information-block">
         <div className="information-header">Plano</div>
 
-        <p className="label">{ client?.plan ? `Plano ${client?.plan?.id} - ${client?.plan?.haircutNumber} cortes por R$${client?.plan?.value}`: "Sem Plano"}</p>
+        <p className="label">
+          {client?.plan ? `Plano ${client?.plan?.id} - ${client?.plan?.haircutNumber} cortes por R$${client?.plan?.value}` : "Sem Plano"}
+        </p>
       </div>
     );
   };
@@ -64,27 +66,26 @@ export default function ListPerfil() {
       <div className="informations-container">
         <div className="information-details">
           <div className="information-card">
-            <div className="information-block">
-              <div className="information-header">Nome</div>
-              <p className="label">{user?.name}</p>
+            <div className="information-header">
+              <p className="label-name">{user?.name}</p>
             </div>
+            <div className="information-content">
+              <div className="information-block">
+                <div className="information-header">Email</div>
+                <p className="label"> {user?.email}</p>
+              </div>
 
-            <div className="information-block">
-              <div className="information-header">Email</div>
-              <p className="label"> {user?.email}</p>
-            </div>
-
-            <div className="information-block">
-              <div className="information-header">Celular</div>
-              <p className="label">{user?.phone}</p>
+              <div className="information-block">
+                <div className="information-header">Celular</div>
+                <p className="label">{user?.phone}</p>
+              </div>
             </div>
             {renderPlanBlock()}
           </div>
           <Link className="button-actions" href="/Perfil/editar">
-          <p>editar</p>
+            <p>editar</p>
           </Link>
         </div>
-        
       </div>
     </>
   );
