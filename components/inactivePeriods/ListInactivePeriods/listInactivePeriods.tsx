@@ -19,7 +19,7 @@ export default function ListInactivePeriods({ periods, onDelete }: ListInactiveP
       {periods.map((period) => (
         <li key={period.id}>
             <div className="list-details">
-          <p className="list-text">{`Bloqueado de ${period.startTime} às ${period.endTime}`}</p>
+          <p className="list-text">{`Bloqueado de ${period.startTime} às ${period.endTime} no dia ${new Date(period.date).toLocaleDateString('pt-Br', {timeZone: 'UTC'})}`}</p>
           
           {/* 3. Chama a função 'onDelete' recebida via props, passando o ID */}
           <div className="list-buttons">
