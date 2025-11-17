@@ -7,9 +7,10 @@ interface Props {
   phone: string; // O número já no formato internacional (ex: 5542999998888)
   message?: string; // A mensagem padrão (opcional)
   label: string; // O texto do botão (ex: "Entrar em Contato")
+  style?: React.CSSProperties;
 }
 
-export default function WhatsappButton({ phone, message, label }: Props) {
+export default function WhatsappButton({ phone, message, label, style }: Props) {
   const phoneFormatted = `+55${phone}`;
 
   const link = () => {
@@ -25,7 +26,7 @@ export default function WhatsappButton({ phone, message, label }: Props) {
   };
 
   return (
-    <a href={link()} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "#547a46", padding: "10px", width:"100%"}}>
+    <a href={link()} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "#547a46", padding: "10px", width:"100%", fontWeight:"bold", fontSize:"1rem", textAlign:"center", ...style}}>
       {label}
     </a>
   );

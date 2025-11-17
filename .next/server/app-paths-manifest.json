@@ -1,6 +1,7 @@
 {
   "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/AgendeSeuHorario/page": "app/AgendeSeuHorario/page.js",
+  "/Barbers/page": "app/Barbers/page.js",
+  "/Configuracoes/page": "app/Configuracoes/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
 }

@@ -5,6 +5,7 @@ import "./clientPlanLinker.css";
 
 import { ClientForList, Plan } from "../../types/Plan";
 import { getClientsForManagement, getPlans, updateClientPlan } from "../../services/planAPI";
+import WhatsappButton from "components/whatsAppButton/whatsAppbutton";
 
 export default function ClientPlanLinker() {
   const [clients, setClients] = useState<ClientForList[]>([]);
@@ -97,10 +98,12 @@ export default function ClientPlanLinker() {
                         : "Sem Plano"
                       }
                     </td>
-                    <td >
+                    <td>
                       <button onClick={() => handleManageClick(client)}>
                         {client.plan ? "Editar Plano" : "Vincular Plano"}
                       </button>
+                      
+                      <WhatsappButton style={{width:"50%"}} label="Contato" phone={client.user.phone}/>
                     </td>
 
                   </tr>

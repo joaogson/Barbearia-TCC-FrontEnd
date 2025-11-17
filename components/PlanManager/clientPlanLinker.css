@@ -98,6 +98,10 @@ Bege: #d6d0bc
   border-bottom: none;
   /* ✅ Remove o padding do botão para ele encostar no fundo */
   padding: 0; 
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: nowrap;
 }
 
 /* Estilo do Botão (Moderno) */
@@ -108,7 +112,7 @@ Bege: #d6d0bc
   padding: 12px 16px;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
   font-size: 1rem;
   
@@ -204,6 +208,8 @@ select.plan-select {
 }
 
 
+
+
 /* --- 4. ESTILOS DESKTOP (Telas Maiores) --- */
 @media (min-width: 769px) {
   
@@ -276,5 +282,6 @@ select.plan-select {
   .client-plan-content button {
     width: 100%; /* O botão se ajusta ao texto */
     font-size: 0.85rem;
+    flex-shrink: 0;
   }
 }
