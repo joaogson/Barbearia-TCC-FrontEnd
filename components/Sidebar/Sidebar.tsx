@@ -79,6 +79,11 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
             ) : (
               <>
                 <li>
+                  <Link href="/" onClick={toggleSidebar}>
+                    Inicio
+                  </Link>
+                </li>
+                <li>
                   <Link href="/login" onClick={toggleSidebar}>
                     Entrar
                   </Link>

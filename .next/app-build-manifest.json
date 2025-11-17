@@ -1,6 +1,6 @@
 {
   "pages": {
-    "/Perfil/editar/page": [
+    "/(auth)/login/page": [
       "static/chunks/node_modules_next_dist_8db7fb1f._.js",
       "static/chunks/src_app_favicon_ico_mjs_243aa161._.js",
       "static/chunks/node_modules_next_90d63a5e._.js",
@@ -12,9 +12,9 @@
       "static/chunks/[root-of-the-server]__35090412._.css",
       "static/chunks/src_app_layout_tsx_0a548d63._.js",
       "static/chunks/node_modules_next_dist_client_components_builtin_global-error_e7b66302.js",
-      "static/chunks/components_Perfil_editarPerfil_bf610785.css",
-      "static/chunks/components_Perfil_editarPerfil_tsx_64489b1f._.js",
-      "static/chunks/src_app_Perfil_editar_page_tsx_e7b66302._.js",
+      "static/chunks/components_Auth_FormLogin_login_e29ad236.css",
+      "static/chunks/_283d0cbc._.js",
+      "static/chunks/src_app_(auth)_login_page_tsx_e7b66302._.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_57d40746._.js",
       "static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js",
       "static/chunks/node_modules_next_dist_compiled_next-devtools_index_a9cb0712.js",
