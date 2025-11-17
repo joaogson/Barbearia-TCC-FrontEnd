@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { Barber } from "../../../types/Barber";
 import { GetAllBarbers } from "../../../services/barberAPI";
 import BarberSelection from "../../../components/BarberSelection/barberSelection";
+import ProtectedRoute from "components/ProtectedRoute/protectedRoute";
 
 export default function AgendarHorario() {
   // Estado para armazenar a data selecionada (Calendar)
@@ -195,25 +196,27 @@ export default function AgendarHorario() {
   };
 
   return (
-    <div style={{display:"flex", flexDirection:"column",alignItems:"center"}}>
-      <h1 style={{ borderBottom: "3px solid #3e301b", width: "80%", textAlign: "start", color: "#3e301b", fontSize: "2rem", marginTop: "25px" }}>
-        Agende Seu Atendimento
-      </h1>
-      <div className="agendar-horario-container">
-        {renderizarEtapa()}
+    <ProtectedRoute allowedRoles={["CLIENT", "ADMIN", "BARBER"]}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <h1 style={{ borderBottom: "3px solid #3e301b", width: "80%", textAlign: "start", color: "#3e301b", fontSize: "2rem", marginTop: "25px" }}>
+          Agende Seu Atendimento
+        </h1>
+        <div className="agendar-horario-container">
+          {renderizarEtapa()}
 
-        <div className="buttons-container">
-          <BotaoNavegacao onClick={etapaAnterior} tipo="voltar">
-            Voltar
-          </BotaoNavegacao>
-
-          {etapa <= 4 && (
-            <BotaoNavegacao onClick={etapa === 4 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
-              {etapa === 4 ? "Confirmar" : "Avançar"}
+          <div className="buttons-container">
+            <BotaoNavegacao onClick={etapaAnterior} tipo="voltar">
+              Voltar
             </BotaoNavegacao>
-          )}
+
+            {etapa <= 4 && (
+              <BotaoNavegacao onClick={etapa === 4 ? handleConfirmarAgendamento : proximaEtapa} tipo={etapa === 3 ? "confirmar" : "avancar"}>
+                {etapa === 4 ? "Confirmar" : "Avançar"}
+              </BotaoNavegacao>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }

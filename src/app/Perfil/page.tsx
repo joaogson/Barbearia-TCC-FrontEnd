@@ -1,4 +1,5 @@
 "use client";
+import ProtectedRoute from "components/ProtectedRoute/protectedRoute";
 import BarberFeedbackList from "../../../components/FeedBacks/BarberFeedBacksList/barberFeedBackList";
 import ClientFeedbackList from "../../../components/FeedBacks/ClientFeedBackList/clientFeedBackList";
 import ListPerfil from "../../../components/Perfil/listPerfil";
@@ -24,7 +25,7 @@ export default function Perfil() {
         return (
           <>
             <h2 className="perfil-title">Avaliações Recebidas</h2>
-            <ClientFeedbackList/>
+            <ClientFeedbackList />
           </>
         );
       default:
@@ -34,14 +35,26 @@ export default function Perfil() {
   };
 
   return (
-    <>
-      <div style={{ textAlign: "center", marginTop: "20px" }}>
-        <h2 className="perfil-title">Informações do Perfil</h2>
+    <ProtectedRoute allowedRoles={["BARBER", "CLIENT", "ADMIN"]}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <h2
+          style={{
+            borderBottom: "3px solid #3e301b",
+            width: "80%",
+            textAlign: "start",
+            color: "#3e301b",
+            fontSize: "2rem",
+            marginTop: "25px",
+          }}
+          className="perfil-title"
+        >
+          Informações do Perfil
+        </h2>
         <ListPerfil />
 
         {/* 3. Chama a função de renderização condicional */}
         {renderFeedbackSection()}
       </div>
-    </>
+    </ProtectedRoute>
   );
 }

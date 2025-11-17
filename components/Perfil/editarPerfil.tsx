@@ -73,18 +73,20 @@ export default function EditarPerfil() {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="edit-form">
-        {error && <p className="error-message">{error}</p>}
-        <div className="label-input-container">
-          <label>Nome:</label>
-          <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
-        </div>
-        <div className="label-input-container">
-          <label>Email:</label>
-          <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
-        </div>
-        <div className="label-input-container">
-          <label>Celular:</label>
-          <input type="text" name="phone" value={formData.phone} onChange={handleInputChange} required />
+        <div className="edit-perfil-form">
+          {error && <p className="error-message">{error}</p>}
+          <div className="label-input-container">
+            <label>Nome:</label>
+            <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
+          </div>
+          <div className="label-input-container">
+            <label>Email:</label>
+            <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+          </div>
+          <div className="label-input-container">
+            <label>Celular:</label>
+            <input type="text" name="phone" value={formData.phone} onChange={handleInputChange} required />
+          </div>
         </div>
         <button type="submit" disabled={isSaving}>
           {isSaving ? "Salvando..." : "Salvar Alterações"}
