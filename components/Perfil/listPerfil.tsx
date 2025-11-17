@@ -13,13 +13,11 @@ export default function ListPerfil() {
   useEffect(() => {
     async function fetchClientData() {
       try {
-        // Tenta buscar o perfil de cliente
         const profileData = await getClient();
         setClient(profileData.data);
       } catch (error) {
-        // Erro  se o usuário logado for um Barbeiro
         console.log("Este usuário não é um cliente.");
-        setClient(null); // Garante que o perfil é nulo
+        setClient(null);
       } finally {
         setIsLoadingPlan(false);
       }
@@ -27,66 +25,65 @@ export default function ListPerfil() {
     if (user?.role === "CLIENT") {
       fetchClientData();
     } else {
-      // Se for 'barber', não fazemos nada
-      // e paramos o 'loading' imediatamente.
       setIsLoadingPlan(false);
     }
   }, [user?.role]);
 
   const renderPlanBlock = () => {
-    // 1. Se não for um cliente, não renderiza o bloco.
-    if (user?.role !== "CLIENT") {
-      return null; // Retorna 'nada'
-    }
+    if (user?.role !== "CLIENT") return null;
 
-    // 2. Se for cliente, mas ainda estiver carregando
     if (isLoadingPlan) {
       return (
-        <div className="information-block">
-          <div className="information-header">Plano</div>
-          <p className="label">Carregando...</p>
+        <div className="profile-block">
+          <span className="block-label">Plano Atual</span>
+          <p className="block-value">Carregando...</p>
         </div>
       );
     }
 
-    // 3. Se for cliente e já carregou (com ou sem plano)
     return (
-      <div className="information-block">
-        <div className="information-header">Plano</div>
-
-        <p className="label">
-          {client?.plan ? `Plano ${client?.plan?.id} - ${client?.plan?.haircutNumber} cortes por R$${client?.plan?.value}` : "Sem Plano"}
+      <div className="profile-block">
+        <span className="block-label">Plano Atual</span>
+        <p className="block-value">
+          {client?.plan
+            ? `${client.plan.id} - ${client.plan.haircutNumber} cortes - R$${client.plan.value}`
+            : "Sem Plano Vinculado"}
         </p>
       </div>
     );
   };
 
   return (
-    <>
-      <div className="informations-container">
-        <div className="information-details">
-          <div className="information-card">
-            <div className="information-header">
-              <p className="label-name">{user?.name}</p>
-            </div>
-            <div className="information-content">
-              <div className="information-block">
-                <div className="information-header">Email</div>
-                <p className="label"> {user?.email}</p>
-              </div>
-
-              <div className="information-block">
-                <div className="information-header">Celular</div>
-                <p className="label">{user?.phone}</p>
-              </div>
-            </div>
-            {renderPlanBlock()}
-          </div>
-          <Link className="button-actions" href="/Perfil/editar">
-            <p>editar</p>
-          </Link>
+    <div className="informations-container">
+      {/* Card Principal com fundo Marrom e borda Verde */}
+      <div className="profile-card">
+        
+        {/* Cabeçalho com o NOME GRANDE */}
+        <div className="profile-header">
+          <h1 className="label-name">{user?.name}</h1>
         </div>
+
+        {/* Corpo com as informações menores */}
+        <div className="profile-content">
+          <div className="profile-block">
+            <span className="block-label">Email</span>
+            <p className="block-value">{user?.email}</p>
+          </div>
+
+          <div className="profile-block">
+            <span className="block-label">Celular</span>
+            <p className="block-value">{user?.phone}</p>
+          </div>
+
+          {/* Renderiza o plano se for cliente */}
+          {renderPlanBlock()}
+        </div>
+
+        {/* Botão de Editar no rodapé do card */}
+        <Link className="button-actions" href="/Perfil/editar">
+          Editar Perfil
+        </Link>
       </div>
-    </>
+    </div>
   );
 }
