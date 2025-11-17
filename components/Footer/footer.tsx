@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Bloco 1: Localização */}
         <div className="footer-block">
           <h3>Onde estamos</h3>
-          <p>Avenida Manoel Ribas, XXX</p>
+          <p>Avenida Manoel Ribas, 219</p>
         </div>
 
         {/* Bloco 2: Contato */}
@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="footer-contact-item">
             <FaWhatsapp /> {/* <-- Ícone aqui */}
             {/* Usamos <p> pois não é um link clicável */}
-            <p className="whatsapp-number">42987654321</p>
+            <Link href="https://wa.me/+5542999587153" target="_blank" className="whatsapp-number">42999587153</Link>
           </div>
         </div>
       </div>
