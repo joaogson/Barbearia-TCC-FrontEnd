@@ -74,7 +74,7 @@
 
 .agendamento-button:hover {
   background-color: #5a4a2a; /* Um tom mais claro no hover */
-  transform: translate(-50%, -50%) scale(1.05); /* Efeito de zoom leve */
+  transform: scale(1.05); /* Efeito de zoom leve */
 }
 
 .image-container .image {
