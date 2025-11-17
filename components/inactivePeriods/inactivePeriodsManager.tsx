@@ -35,7 +35,7 @@ export default function InactivePeriodsManager({
           Selecione a data
         </label>
         <input
-          // ✅ CLASSE REMOVIDA DAQUI
+          
           id="data-select"
           type="date"
           value={selectedDate.toISOString().split("T")[0]}

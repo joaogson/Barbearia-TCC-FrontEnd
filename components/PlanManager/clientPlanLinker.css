@@ -280,8 +280,7 @@ select.plan-select {
   }
 
   .client-plan-content button {
-    width: 100%; /* O botão se ajusta ao texto */
+    width: 50%;
     font-size: 0.85rem;
-    flex-shrink: 0;
   }
 }
