@@ -49,7 +49,7 @@ export default function FeedbackList() {
         {myFeedbacks.map((fb) => (
           <li key={fb.id} className="feedBack-card">
             {/* Só renderiza o parágrafo se o comentário existir */}
-            {fb.comment && <p className="comment">{fb.comment}</p>}
+            {fb.comment && <p className="comment">{`"${fb.comment}"`}</p>}
             <div className="feedBack-header">
               <strong className="feedback-user">{user?.role === "CLIENT" ? fb.barber.user.name : fb.client.user.name}</strong>
               <div className="feedback-rating">
