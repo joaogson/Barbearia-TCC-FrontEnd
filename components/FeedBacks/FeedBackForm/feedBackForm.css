@@ -65,9 +65,10 @@ select {
   padding: 10px;
   text-align: center;
   align-self: center;
+  cursor: pointer;
 }
 
-.button-feedback p{
+.button-feedback p {
   width: 100%;
   text-align: center;
 }

@@ -118,11 +118,10 @@ export default function FeedbackForm() {
             placeholder="Como foi sua experiência?"
           />
         </div>
-        
       </form>
-      <button className="button-feedback" type="submit" disabled={isSubmitting}>
-          <p>{isSubmitting ? "Enviando..." : "Enviar Avaliação"}</p>
-        </button>
+      <button className="button-feedback" onClick={handleSubmit} disabled={isSubmitting}>
+        <p>{isSubmitting ? "Enviando..." : "Enviar Avaliação"}</p>
+      </button>
     </div>
   );
 }
