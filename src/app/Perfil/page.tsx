@@ -1,6 +1,5 @@
 "use client";
 import ProtectedRoute from "components/ProtectedRoute/protectedRoute";
-import BarberFeedbackList from "../../../components/FeedBacks/BarberFeedBacksList/barberFeedBackList";
 import ClientFeedbackList from "../../../components/FeedBacks/ClientFeedBackList/clientFeedBackList";
 import ListPerfil from "../../../components/Perfil/listPerfil";
 import { useAuth } from "../../../contexts/AuthContext";
