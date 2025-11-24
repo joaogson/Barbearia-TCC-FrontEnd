@@ -60,7 +60,7 @@ export default function ListarServicos(props: ServicesListProps) {
 
   return (
     <div className="list-servicos-selection-grid-container">
-      <ul className="list-servicos-selection">
+      <ul id="list-services" className="list-servicos-selection">
         {services.map((service) => {
           const isSelected = props.selectedService.some((s) => s.id === service.id);
           return (

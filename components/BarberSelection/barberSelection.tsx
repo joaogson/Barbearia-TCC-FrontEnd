@@ -56,7 +56,7 @@ export default function BarberSelection({ selectedBarberId, onBarberSelect }: Ba
   // 5. Renderização de Sucesso
   // Mapeia a lista de barbeiros e renderiza um <button> para cada um.
   return (
-    <div className="list-barber-container">
+    <div id="list-barber" className="list-barber-container">
       {barbers.map((barber) => (
         <button
           type="button" // Garante que o botão não envie um formulário
