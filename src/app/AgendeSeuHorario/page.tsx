@@ -45,6 +45,7 @@ export default function AgendarHorario() {
 
   useEffect(() => {
     const fetchAvailableSlots = async () => {
+      setSelectedBarberId(2);
       if (selectedServicos.length === 0 || !selectedDate) {
         setAvailableSlots([]); // Limpa os horários se não houver serviço
         return;
