@@ -30,83 +30,82 @@ export default function Register() {
         setError("As senhas não batem.");
       } else {
         console.error("Erro: ", error);
-        setError("Falha ao registrar. Tente outro e-mail.");
+        setError("Falha ao registrar.");
       }
     }
   };
 
   return (
     <div className="register-box">
-    <div className="container-register">
-      <h1 className="register-title">Cadastrar</h1>
-      <form className="form-register" action="">
-        <div className="register-style">
-          <label htmlFor="name">Nome Completo</label>
-          <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-        </div>
-        <div className="register-style">
-          <label htmlFor="phone">Celular (apenas numeros)</label>
-          <input type="number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-        </div>
+      <div className="container-register">
+        <h1 className="register-title">Cadastrar</h1>
+        <form className="form-register" action="">
+          <div className="register-style">
+            <label htmlFor="name">Nome Completo</label>
+            <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
+          <div className="register-style">
+            <label htmlFor="phone">Celular (apenas numeros, sem espaços)</label>
+            <input type="number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+          </div>
 
-        <div className="register-style">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
-        <div className="register-style">
-          <label htmlFor="password">Senha</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
+          <div className="register-style">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              style={{ width: "100%", padding: "8px" }}
+            />
+          </div>
+          <div className="register-style">
+            <label htmlFor="password">Senha</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              style={{ width: "100%", padding: "8px" }}
+            />
+          </div>
 
-        <div className="register-style">
-          <label htmlFor="Confirmpassword">Confirme a senha</label>
-          <input
-            id="Confirmpassword"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
+          <div className="register-style">
+            <label htmlFor="Confirmpassword">Confirme a senha</label>
+            <input
+              id="Confirmpassword"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              style={{ width: "100%", padding: "8px" }}
+            />
+          </div>
 
-        {error && (
-          <p className="error" style={{ color: "red" }}>
-            {error}
-          </p>
-        )}
-        
-      </form>
-      <p className="sem-conta" style={{ marginTop: "1rem", textAlign: "center" }}>
-        Já tem uma conta?{" "}
-        <Link className="link-cadastrar" href="/login">
-          Faça login
-        </Link>
-      </p>
-    </div>
-    <button
-          className="submit-button-register"
-          type="submit"
-          disabled={isSubmitting}
-          style={{ width: "100%", padding: "10px" }}
-          onClick={handleSubmit}
-        >
-          {isSubmitting ? "Criando conta..." : "Cadastrar"}
-        </button>
+          {error && (
+            <p className="error" style={{ color: "red" }}>
+              {error}
+            </p>
+          )}
+        </form>
+        <p className="sem-conta" style={{ marginTop: "1rem", textAlign: "center" }}>
+          Já tem uma conta?{" "}
+          <Link className="link-cadastrar" href="/login">
+            Faça login
+          </Link>
+        </p>
+      </div>
+      <button
+        className="submit-button-register"
+        type="submit"
+        disabled={isSubmitting}
+        style={{ width: "100%", padding: "10px" }}
+        onClick={handleSubmit}
+      >
+        {isSubmitting ? "Criando conta..." : "Cadastrar"}
+      </button>
     </div>
   );
 }

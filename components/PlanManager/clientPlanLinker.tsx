@@ -35,7 +35,7 @@ export default function ClientPlanLinker() {
       }
     };
     loadData();
-  }, [setClients]);
+  }, [setClients, setPlans]);
 
   // 2. Abre o modal para gerenciar um cliente
   const handleManageClick = (client: ClientForList) => {
@@ -88,24 +88,17 @@ export default function ClientPlanLinker() {
               <tbody className="client-plan-content">
                 {clients.map((client) => (
                   <tr key={client.id}>
-                    
                     {/* ✅ ADICIONE OS 'data-label's */}
                     <td data-label="Cliente">{client.user.name}</td>
                     <td data-label="Plano Atual">
                       {/* Lógica ternária corrigida para "Sem Plano" */}
-                      {client.plan
-                        ? `${client.plan.id} - ${client.plan.haircutNumber} cortes por R$${client.plan.value}`
-                        : "Sem Plano"
-                      }
+                      {client.plan ? `${client.plan.id} - ${client.plan.haircutNumber} cortes por R$${client.plan.value}` : "Sem Plano"}
                     </td>
                     <td>
-                      <button onClick={() => handleManageClick(client)}>
-                        {client.plan ? "Editar Plano" : "Vincular Plano"}
-                      </button>
-                      
-                      <WhatsappButton style={{width:"50%"}} label="Contato" phone={client.user.phone}/>
-                    </td>
+                      <button onClick={() => handleManageClick(client)}>{client.plan ? "Editar Plano" : "Vincular Plano"}</button>
 
+                      <WhatsappButton style={{ width: "50%" }} label="Contato" phone={client.user.phone} />
+                    </td>
                   </tr>
                 ))}
               </tbody>
