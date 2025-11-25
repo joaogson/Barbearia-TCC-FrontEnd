@@ -74,7 +74,9 @@ export default function ServiceManager() {
         setServices((prev) => prev.map((s) => (s.id === editingServiceId ? updatedService : s)));
       } else {
         // Criar
+        console.log("Service", formData);
         const newService = await createService(formData);
+        
         setServices((prev) => [...prev, newService].sort((a, b) => a.description.localeCompare(b.description)));
       }
       handleCancelEdit(); // Limpa o formulário
@@ -91,10 +93,10 @@ export default function ServiceManager() {
           <h2 className="services-title">Gerenciar Serviços</h2>
           <form onSubmit={handleSubmit} className="services-form">
             <div className="services-content">
-            <label htmlFor="description">{editingServiceId ? "Editar Serviço" : "Adicionar Novo Serviço"}</label>
-            <input id="description" name="description" value={formData.description} onChange={handleInputChange} placeholder="Descrição" />
-            <label htmlFor="duration">Duração</label>
-            <input id="duration" name="duration" value={formData.duration} onChange={handleInputChange} type="number" />
+              <label htmlFor="description">{editingServiceId ? "Editar Serviço" : "Adicionar Novo Serviço"}</label>
+              <input id="description" name="description" value={formData.description} onChange={handleInputChange} placeholder="Descrição" />
+              <label htmlFor="duration">Duração</label>
+              <input id="duration" name="duration" value={formData.duration} onChange={handleInputChange} type="number" />
             </div>
             <div className="services-button">
               <button className="button-services" type="submit">
@@ -117,7 +119,7 @@ export default function ServiceManager() {
             ) : (
               <ul className="services-ul">
                 {services.map((service) => (
-                  <li key={service.id} style={{boxShadow:"5px 5px 10px rgba(0, 0, 0.5)"}}>
+                  <li key={service.id} style={{ boxShadow: "5px 5px 10px rgba(0, 0, 0.5)" }}>
                     {/* ✅ Exibição da lista simplificada, sem 'price' */}
                     <div className="list-details">
                       <div className="list-text">

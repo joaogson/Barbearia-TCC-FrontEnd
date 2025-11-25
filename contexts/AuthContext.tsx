@@ -8,8 +8,43 @@ import { api } from "../services/api";
 import * as authService from "../services/AuthAPI";
 import * as userService from "../services/UserAPI";
 import { User } from "../types/User";
+import {
+  register as authServiceRegister,
+  login as authServiceLogin, // Renomeia para evitar conflito
+  isBackendErrorResponse,
+  LoginCredentials,
+  RegisterCredentials,
+  RegisterSuccesResponse,
+  LoginResponse, // Opcional, se precisar usar o tipo exato de sucesso
+} from "../services/AuthAPI";
 // Crie o contexto
 const AuthContext = createContext<AuthContextType | null>(null);
+
+export interface LoginContextSuccessResult {
+  success: true;
+  message?: string;
+  // userId: string; // Adicione dados do usuário se quiser
+  // email: string;
+}
+
+export interface LoginContextErrorResult {
+  success: false;
+  message: string;
+}
+
+export type LoginContextResult = LoginContextSuccessResult | LoginContextErrorResult;
+export interface RegisterContextSuccessResult {
+  success: true;
+  message: string; // Exemplo: "Registro realizado com sucesso!"
+  email: string; // O email que foi registrado
+}
+
+export interface RegisterContextErrorResult {
+  success: false;
+  message: string; // A mensagem de erro para o frontend (ex: "Email já cadastrado")
+}
+
+export type RegisterContextResult = RegisterContextSuccessResult | RegisterContextErrorResult;
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -42,41 +77,75 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     loadUserFromCookies();
   }, []);
 
-  const login = async (email: string, password: string) => {
+  const login = async (credentials: LoginCredentials): Promise<LoginContextResult> => {
     try {
-      const { accessToken } = await authService.login({ email, password });
+      const apiResponse = await authServiceLogin(credentials); // Chame a função de login do serviço
 
-      if (!accessToken) {
-        throw new Error("Token não recebido da API");
+      if (isBackendErrorResponse(apiResponse)) {
+        console.error("Erro do backend na camada de contexto (login):", apiResponse);
+        // Mensagem mais específica para login
+        const msg = Array.isArray(apiResponse.message) ? apiResponse.message.join(", ") : apiResponse.message;
+        if (msg.includes("Unauthorized")) {
+          // Exemplo de mensagem de erro do NestJS
+          return { success: false, message: "E-mail ou senha inválidos." };
+        }
+        return { success: false, message: msg };
       }
 
-      Cookies.set("token", accessToken, { expires: 1, secure: true }); // Expira em 1 dia
+      const { accessToken } = apiResponse as LoginResponse;
+      if (!accessToken) {
+        // Se a API não retornou o token, é um erro inesperado
+        console.error("Token não recebido da API após login bem-sucedido.");
+        return { success: false, message: "Erro de autenticação: token não recebido." };
+      }
+
+      Cookies.set("token", accessToken, { expires: 1, secure: process.env.NODE_ENV === "production" }); // Expira em 1 dia, secure em produção
       api.defaults.headers.Authorization = `Bearer ${accessToken}`;
+      const userData = await userService.getMe(); // Assume que userService.getMe() retorna { data: User }
+      setUser(userData.data); // Define o usuário no estado do contexto
+      // console.log("Role após login: ", userData.data?.role); // Para debug
 
-      const userData = await userService.getMe();
-      setUser(userData.data);
-      console.log("Role: ", user?.role);
+      // 6. Redireciona
+      router.push("/"); // ✅ Redireciona para a página inicial (ou dashboard)
 
-      router.push("/");
-    } catch (error) {
-      console.error("Falha no login", error);
-      throw error;
+      return { success: true, message: "Login realizado com sucesso!" };
+    } catch (error: unknown) {
+      console.error("Erro inesperado na função login do contexto:", error);
+      let errorMessage = "Ocorreu um erro inesperado ao tentar fazer login.";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      }
+      return { success: false, message: errorMessage };
     }
   };
 
-  const register = async (email: string, password: string, phone: string, name: string) => {
+  const register = async (credentials: RegisterCredentials): Promise<RegisterContextResult> => {
     try {
-      const { email: responseEmail } = await authService.register({ email, password, phone, name });
-      console.log("Email Response: ", responseEmail);
-      if (!email) throw new Error("Email não recebido da API");
+      const apiResponse = await authServiceRegister(credentials);
 
-      setRegistredEmail(responseEmail);
-      router.push("/login");
+      if (isBackendErrorResponse(apiResponse)) {
+        // É um erro do backend
+        console.error("Erro do backend na camada de contexto:", apiResponse);
+        // Retorna o erro com a mensagem do backend
+        return { success: false, message: Array.isArray(apiResponse.message) ? apiResponse.message.join(", ") : apiResponse.message };
+      }
 
-      return responseEmail;
+      // Se chegou aqui, é sucesso (apiResponse é RegisterSuccessResponse)
+      console.log("Registro bem-sucedido (contexto):", apiResponse);
+      setRegistredEmail(credentials.email); // Salva o email no estado
+      router.push(`/login`); // Redireciona e passa o email
+
+      return {
+        success: true,
+        email: credentials.email,
+        message: (apiResponse as RegisterSuccesResponse).message || "Registro realizado com sucesso!",
+      }; // Retorna sucesso
     } catch (error) {
-      console.error("Falha no registro:", error);
-      throw error;
+      // Erro inesperado que não veio do backend (ex: erro de JS no próprio contexto)
+      console.error("Erro inesperado na função register do contexto:", error);
+      return { success: false, message: "Ocorreu um erro inesperado ao processar o registro." };
     }
   };
 

@@ -16,7 +16,7 @@ export default function Home() {
         <div className="image-content">
           <h2 className="image-title">Mr Guapo</h2>
           <Link className="agendamento-button" href={"/AgendeSeuHorario"}>
-            <button>Agende seu horario</button>
+            <button id="agendeHorario">Agende seu horario</button>
           </Link>
         </div>
       </div>

@@ -36,9 +36,13 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
   // 5. FUNÇÕES DE RENDERIZAÇÃO
   const renderHeader = () => (
     <div className={styles.header}>
-      <button onClick={handlePrevMonth}>&lt;</button>
+      <button aria-label="Voltar Mes" onClick={handlePrevMonth}>
+        &lt;
+      </button>
       <h2>{`${currentDate.toLocaleString("pt-BR", { month: "long" })} de ${currentDate.getFullYear()}`}</h2>
-      <button onClick={handleNextMonth}>&gt;</button>
+      <button aria-label="Proximo Mes" onClick={handleNextMonth}>
+        &gt;
+      </button>
     </div>
   );
 
@@ -96,7 +100,7 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
       <div>
         <div className={styles.timeGrid}>
           {availableSlots.map((time) => {
-            const formattedTime = dayjs(time).utc().format("HH:mm");
+            const formattedTime = dayjs(time).format("HH:mm");
             console.log(time);
             console.log(formattedTime);
             const isSelected = selectedTime === formattedTime;

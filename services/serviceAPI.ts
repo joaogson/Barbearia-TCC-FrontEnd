@@ -4,7 +4,9 @@ import { api } from "./api";
 export const getServices = async () => await api.get<Service[]>("/service");
 export const getService = async (id: number) => await api.get<Service>(`/service/${id}`);
 export const createService = async (data: CreateServiceDto): Promise<Service> => {
+  console.log("Data: ", data);
   const response = await api.post("/service", data);
+  console.log(response);
   return response.data;
 };
 

@@ -205,7 +205,7 @@ export default function AgendarHorario() {
         <div className="agendar-horario-container">
           {renderizarEtapa()}
 
-          <div className="buttons-container">
+          <div id="buttonNavigation" className="buttons-container">
             <BotaoNavegacao onClick={etapaAnterior} tipo="voltar">
               Voltar
             </BotaoNavegacao>

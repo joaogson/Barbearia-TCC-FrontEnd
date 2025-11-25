@@ -1,4 +1,6 @@
+import { LoginCredentials, RegisterCredentials } from "services/AuthAPI";
 import { User } from "./User";
+import { LoginContextResult, RegisterContextResult } from "contexts/AuthContext";
 
 export interface AuthContextType {
   isAuthenticated: boolean;
@@ -7,7 +9,7 @@ export interface AuthContextType {
   loading: boolean;
   clearRegistredEmail: () => void;
   registredEmail: string | null;
-  login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, phone: string, name: string) => Promise<string | void>;
+  login: (credentials: LoginCredentials) => Promise<LoginContextResult>;
+  register: (credentials: RegisterCredentials) => Promise<RegisterContextResult>;
   logout: () => void;
 }
