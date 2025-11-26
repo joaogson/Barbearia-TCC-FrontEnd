@@ -77,36 +77,42 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     loadUserFromCookies();
   }, []);
 
+const clearRegistredEmail = useCallback(() => {
+    setRegistredEmail(null);
+  }, []);
+
+  const logout = () => {
+    setUser(null);
+    Cookies.remove("token");
+    delete api.defaults.headers.Authorization;
+    router.push("/login");
+  };
+
   const login = async (credentials: LoginCredentials): Promise<LoginContextResult> => {
     try {
-      const apiResponse = await authServiceLogin(credentials); // Chame a função de login do serviço
+      const apiResponse = await authServiceLogin(credentials);
 
       if (isBackendErrorResponse(apiResponse)) {
         console.error("Erro do backend na camada de contexto (login):", apiResponse);
-        // Mensagem mais específica para login
+        
         const msg = Array.isArray(apiResponse.message) ? apiResponse.message.join(", ") : apiResponse.message;
         if (msg.includes("Unauthorized")) {
-          // Exemplo de mensagem de erro do NestJS
+      
           return { success: false, message: "E-mail ou senha inválidos." };
         }
         return { success: false, message: msg };
       }
-
       const { accessToken } = apiResponse as LoginResponse;
       if (!accessToken) {
-        // Se a API não retornou o token, é um erro inesperado
         console.error("Token não recebido da API após login bem-sucedido.");
         return { success: false, message: "Erro de autenticação: token não recebido." };
       }
-
-      Cookies.set("token", accessToken, { expires: 1, secure: process.env.NODE_ENV === "production" }); // Expira em 1 dia, secure em produção
+      Cookies.set("token", accessToken, { expires: 1});
       api.defaults.headers.Authorization = `Bearer ${accessToken}`;
-      const userData = await userService.getMe(); // Assume que userService.getMe() retorna { data: User }
-      setUser(userData.data); // Define o usuário no estado do contexto
-      // console.log("Role após login: ", userData.data?.role); // Para debug
-
-      // 6. Redireciona
-      router.push("/"); // ✅ Redireciona para a página inicial (ou dashboard)
+      const userData = await userService.getMe();
+      setUser(userData.data);
+      
+      router.push("/");
 
       return { success: true, message: "Login realizado com sucesso!" };
     } catch (error: unknown) {
@@ -126,16 +132,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const apiResponse = await authServiceRegister(credentials);
 
       if (isBackendErrorResponse(apiResponse)) {
-        // É um erro do backend
+        
         console.error("Erro do backend na camada de contexto:", apiResponse);
-        // Retorna o erro com a mensagem do backend
+       
         return { success: false, message: Array.isArray(apiResponse.message) ? apiResponse.message.join(", ") : apiResponse.message };
       }
-
-      // Se chegou aqui, é sucesso (apiResponse é RegisterSuccessResponse)
       console.log("Registro bem-sucedido (contexto):", apiResponse);
-      setRegistredEmail(credentials.email); // Salva o email no estado
-      router.push(`/login`); // Redireciona e passa o email
+      setRegistredEmail(credentials.email); 
+      router.push(`/login`);
 
       return {
         success: true,
@@ -143,21 +147,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         message: (apiResponse as RegisterSuccesResponse).message || "Registro realizado com sucesso!",
       }; // Retorna sucesso
     } catch (error) {
-      // Erro inesperado que não veio do backend (ex: erro de JS no próprio contexto)
       console.error("Erro inesperado na função register do contexto:", error);
       return { success: false, message: "Ocorreu um erro inesperado ao processar o registro." };
     }
-  };
-
-  const clearRegistredEmail = useCallback(() => {
-    setRegistredEmail(null);
-  }, []);
-
-  const logout = () => {
-    setUser(null);
-    Cookies.remove("token");
-    delete api.defaults.headers.Authorization;
-    router.push("/login");
   };
 
   return (
