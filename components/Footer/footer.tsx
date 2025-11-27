@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Bloco 1: Localização */}
         <div className="footer-block">
           <h3>Onde estamos</h3>
-          <p>Avenida Manoel Ribas, 219</p>
+          <p>Avenida Y, XXX</p>
         </div>
 
         {/* Bloco 2: Contato */}
@@ -21,7 +21,7 @@ export default function Footer() {
           <p>Instagram</p>
           <div className="footer-contact-item">
             <FaInstagram /> {/* <-- Ícone aqui */}
-            <Link href="https://www.instagram.com/mrguapo_barber">MrGuapo</Link>
+            <Link href="https://www.instagram.com/mrguapo_barber">Barbearia X</Link>
           </div>
 
           {/* Sub-bloco WhatsApp */}
@@ -29,12 +29,14 @@ export default function Footer() {
           <div className="footer-contact-item">
             <FaWhatsapp /> {/* <-- Ícone aqui */}
             {/* Usamos <p> pois não é um link clicável */}
-            <Link href="https://wa.me/+5542999587153" target="_blank" className="whatsapp-number">42999587153</Link>
+            <Link href="https://wa.me/+5542999587153" target="_blank" className="whatsapp-number">
+              42999999999
+            </Link>
           </div>
         </div>
       </div>
 
-      <p className="rodape">Criado por Joao Gabriel Menegassio Sonalio</p>
+      <p className="rodape"></p>
     </div>
   );
 }

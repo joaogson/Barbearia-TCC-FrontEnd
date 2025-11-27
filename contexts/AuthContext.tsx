@@ -79,8 +79,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const login = async (credentials: LoginCredentials): Promise<LoginContextResult> => {
     try {
-      const apiResponse = await authServiceLogin(credentials); // Chame a função de login do serviço
-
+      const apiResponse = await authServiceLogin(credentials);
       if (isBackendErrorResponse(apiResponse)) {
         console.error("Erro do backend na camada de contexto (login):", apiResponse);
         // Mensagem mais específica para login
@@ -99,7 +98,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         return { success: false, message: "Erro de autenticação: token não recebido." };
       }
 
-      Cookies.set("token", accessToken, { expires: 1, secure: process.env.NODE_ENV === "production" }); // Expira em 1 dia, secure em produção
+      Cookies.set("token", accessToken, { expires: 1 }); // Expira em 1 dia, secure em produção
       api.defaults.headers.Authorization = `Bearer ${accessToken}`;
       const userData = await userService.getMe(); // Assume que userService.getMe() retorna { data: User }
       setUser(userData.data); // Define o usuário no estado do contexto
