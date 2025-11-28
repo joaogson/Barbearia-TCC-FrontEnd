@@ -1,141 +1,119 @@
-/* ... (Seu CSS .services-title e .services-container) ... */
-
 .services-title {
- color: #3e301b;
- font-size: 1.5rem;
- background-color: #d6d0bc;
- width: 100%;
+  color: #3e301b;
+  font-size: 1.5rem;
+  background-color: #d6d0bc;
+  width: 100%;
 }
 
 .services-container {
- color: #3e301b;
- display: flex;
- gap: 100px;
- width: 80%;
- justify-self: center;
- justify-content: space-between;
+  color: #3e301b;
+  display: flex;
+  gap: 100px;
+  width: 80%;
+  justify-self: center;
+  justify-content: space-between;
 }
 
-.services-content{
+.services-content {
   padding: 15px;
 }
 
 .services-form-container {
- width: 50%;
+  width: 50%;
 }
 
-/* --- FORMULÁRIO (REFATORADO) --- */
-
-/* O formulário em si (estilo de card marrom) */
 .services-form {
- display: flex;
- flex-direction: column;
- background-color: #3e301b;
-color: #d6d0bc;
- box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
- 
-  /* ✅ Borda verde (mantida do seu original) */
- border-bottom: 6px solid #547a46;
-   
+  display: flex;
+  flex-direction: column;
+  background-color: #3e301b;
+  color: #d6d0bc;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: 6px solid #547a46;
 }
 
-/* ✅ Label (do plan-form) */
 .services-form label {
- font-weight: 600;
- font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
-/* ✅ Inputs (do plan-form, mas aplicado a todos os inputs) */
 .services-form input {
- background-color: #d6d0bc;
- color: #3e301b;
- border: none;
- border-bottom: 4px solid #547a46;
- padding: 12px;
- width: 100%;
- box-sizing: border-box;
- font-size: 1rem;
- font-weight: 500;
+  background-color: #d6d0bc;
+  color: #3e301b;
+  border: none;
+  border-bottom: 4px solid #547a46;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-/* Container do botão (sem mudanças) */
 .services-button {
- width: 100%;
+  width: 100%;
   margin-top: 10px;
 }
 
-/* ✅ Botão (do button-plan e [type="submit"]) */
 .button-services {
-  /* Estilo do botão principal */
- background-color: #547a46; /* Verde */
- color: #d6d0bc; /* Bege */
-  
- /* Estilo genérico do button-plan */
- padding: 12px 15px;
- border: none;
- cursor: pointer;
- font-weight: bold;
- font-size: 1rem;
-
-  /* Suas regras originais que mantivemos */
- width: 100%;
+  background-color: #547a46;
+  color: #d6d0bc; /* Bege */
+  padding: 12px 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
 }
 
-
-/* --- LISTA DE SERVIÇOS (Sem alterações) --- */
-
 .services-list-container {
- width: 50%;
+  width: 50%;
 }
 
 .services-ul {
- display: flex;
- flex-direction: column;
- gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .services-list {
-width: 100%;
-display: flex;
-flex-direction: column;
-max-height: 400px;
-overflow: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow: auto;
 }
-/* ... (Restante do seu CSS de lista) ... */
+
 .services-details {
-background-color: #3e301b;
-color: #d6d0bc;
-padding: 15px;
-display: flex;
-flex-direction: column;
-gap: 20px;
-box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
+  background-color: #3e301b;
+  color: #d6d0bc;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
 }
 
 .services-text {
-color: #3e301b;
-background-color: #d6d0bc;
-padding: 5px;
-border-bottom: 4px solid #547a46;
+  color: #3e301b;
+  background-color: #d6d0bc;
+  padding: 5px;
+  border-bottom: 4px solid #547a46;
 }
 
 .list-buttons-service {
-display: flex;
-
+  display: flex;
 }
 
-/* --- MEDIA QUERY (Sem alterações) --- */
 @media (max-width: 768px) {
-.services-container {
- min-width: 80%;
- flex-wrap: wrap;
- margin: 20 auto;
- padding: 10px;
- }
- .services-form-container {
- width: 100%;
- }
- .services-list-container {
- width: 100%;
- }
+  .services-container {
+    min-width: 80%;
+    flex-wrap: wrap;
+    margin: 20 auto;
+    padding: 10px;
+  }
+  .services-form-container {
+    width: 100%;
+  }
+  .services-list-container {
+    width: 100%;
+  }
 }

@@ -1,7 +1,6 @@
 import { Barber } from "../../../types/Barber";
 import "./barberCard.css";
 import WhatsappButton from "../../whatsAppButton/whatsAppbutton";
-// import Image from 'next/image';
 
 interface Props {
   barber: Barber;

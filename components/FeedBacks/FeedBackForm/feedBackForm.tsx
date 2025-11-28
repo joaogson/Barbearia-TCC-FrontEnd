@@ -1,4 +1,3 @@
-// components/FeedBacks/FeedBackForm/feedBackForm.tsx
 "use client";
 
 import "./feedBackForm.css";
@@ -13,12 +12,10 @@ export default function FeedbackForm() {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // 2. Estados para carregar e selecionar o barbeiro
   const [barbers, setBarbers] = useState<Barber[]>([]);
   const [selectedBarberId, setSelectedBarberId] = useState<string>("");
   const [isLoadingBarbers, setIsLoadingBarbers] = useState(true);
 
-  // 3. Efeito para buscar os barbeiros quando o componente carregar
   useEffect(() => {
     async function loadBarbers() {
       try {
@@ -32,7 +29,7 @@ export default function FeedbackForm() {
       }
     }
     loadBarbers();
-  }, []); // [] = Roda apenas uma vez
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,7 +47,6 @@ export default function FeedbackForm() {
     setError("");
 
     try {
-      // 4. Envia para a API (SEM clientId)
       await createFeedback({
         rating,
         comment: comment.trim() || undefined,
@@ -59,7 +55,6 @@ export default function FeedbackForm() {
       console.log(`Feedback: ${rating}, ${comment}, ${selectedBarberId}`);
       alert("Feedback Enviado com sucesso!");
 
-      // Limpa o formulário
       setComment("");
       setRating(5);
       setSelectedBarberId("");
@@ -79,7 +74,6 @@ export default function FeedbackForm() {
         </div>
         {error && <p className="error-message">{error}</p>}
 
-        {/* 5. O <select> para escolher o barbeiro */}
         <div className="form-group">
           <div className="feedback-form-header">
             <label>Profissional</label>
@@ -94,7 +88,6 @@ export default function FeedbackForm() {
           </select>
         </div>
 
-        {/* ... (O resto do seu formulário: Nota e Comentário) ... */}
         <div className="form-group">
           <div className="feedback-form-header">
             <label>Nota (de 1 a 5)</label>

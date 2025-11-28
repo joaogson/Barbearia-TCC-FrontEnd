@@ -12,12 +12,10 @@ export default function ClientPlanLinker() {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Estados para o Modal de Edição
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentClient, setCurrentClient] = useState<ClientForList | null>(null);
-  const [selectedPlanId, setSelectedPlanId] = useState<string>(""); // Usamos string para o <select>
+  const [selectedPlanId, setSelectedPlanId] = useState<string>("");
 
-  // 1. Busca todos os clientes e todos os planos
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -37,10 +35,9 @@ export default function ClientPlanLinker() {
     loadData();
   }, [setClients, setPlans]);
 
-  // 2. Abre o modal para gerenciar um cliente
   const handleManageClick = (client: ClientForList) => {
     setCurrentClient(client);
-    setSelectedPlanId(client.plan?.id?.toString() || "null"); // Define o valor atual do <select>
+    setSelectedPlanId(client.plan?.id?.toString() || "null");
     setIsModalOpen(true);
   };
 
@@ -50,7 +47,6 @@ export default function ClientPlanLinker() {
     setSelectedPlanId("");
   };
 
-  // 3. Salva a alteração
   const handleSavePlan = async () => {
     if (!currentClient) return;
 
@@ -59,7 +55,6 @@ export default function ClientPlanLinker() {
 
       const updatedClient = await updateClientPlan(currentClient.id, newPlanId);
 
-      // Atualiza a lista de clientes na tela
       setClients((prevClients) => prevClients.map((c) => (c.id === updatedClient.id ? updatedClient : c)));
 
       handleCloseModal();
@@ -88,10 +83,8 @@ export default function ClientPlanLinker() {
               <tbody className="client-plan-content">
                 {clients.map((client) => (
                   <tr key={client.id}>
-                    {/* ✅ ADICIONE OS 'data-label's */}
                     <td data-label="Cliente">{client.user.name}</td>
                     <td data-label="Plano Atual">
-                      {/* Lógica ternária corrigida para "Sem Plano" */}
                       {client.plan ? `${client.plan.id} - ${client.plan.haircutNumber} cortes por R$${client.plan.value}` : "Sem Plano"}
                     </td>
                     <td>
@@ -105,11 +98,8 @@ export default function ClientPlanLinker() {
             </table>
           </div>
 
-          {/* MODAL DE EDIÇÃO */}
           {isModalOpen && currentClient && (
-            // 1.Wrapper que cobre a tela
             <div className="modal-wrapper" onClick={handleCloseModal}>
-              {/* Caixa do modal*/}
               <div className="modal-box" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                   <h3 className="modal-title">Gerenciar Plano de {currentClient.user.name}</h3>

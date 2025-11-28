@@ -6,9 +6,7 @@ export interface Client {
   id: number;
   user: User;
 
-  // plan | null por ser opcional
   plan?: Plan | null;
 
-  // feedBack | null por ser opcional
   feedBack?: Feedback | null;
 }

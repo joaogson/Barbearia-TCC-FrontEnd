@@ -17,8 +17,6 @@ export default function WorkTimeForm() {
   const [success, setSuccess] = useState<string | null>(null);
 
   const { user } = useAuth();
-
-  // Busca os dados atuais para preencher o formulário
   useEffect(() => {
     const fetchSettings = async () => {
       try {
@@ -75,14 +73,7 @@ export default function WorkTimeForm() {
         <div className="form-group">
           <div className="workTime-form">
             <label htmlFor="workStartTime">Início do Expediente</label>
-            <input
-              type="time" // O input 'time' oferece um seletor de horário nativo!
-              id="workStartTime"
-              name="workStartTime"
-              value={formData.workStartTime}
-              onChange={handleInputChange}
-              required
-            />
+            <input type="time" id="workStartTime" name="workStartTime" value={formData.workStartTime} onChange={handleInputChange} required />
           </div>
           <div className="workTime-form">
             <label htmlFor="workEndTime">Fim do Expediente</label>
@@ -95,7 +86,7 @@ export default function WorkTimeForm() {
               id="breakBetweenCostumerService"
               name="breakBetweenCostumerService"
               value={formData.breakBetweenCostumerService}
-              onChange={handleInputChange} // Sua função que atualiza o estado
+              onChange={handleInputChange}
             >
               <option className="interval-option" value={0}>
                 Nenhum intervalo

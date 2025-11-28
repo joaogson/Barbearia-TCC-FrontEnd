@@ -1,7 +1,7 @@
 .barber-card {
   display: flex;
   flex-direction: column;
-  margin: 20px; /* Adicionado um pouco mais de margem geral */
+  margin: 20px;
   align-items: center;
   width: 100%;
   box-shadow: 5px 5px 10px rgba(0, 0, 0.5);
@@ -35,7 +35,7 @@
 .barber-block {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Fundo geral para o conteúdo */
+  width: 100%;
 }
 
 .barber-label {
@@ -47,7 +47,7 @@
 
 .barber-button {
   display: flex;
-  justify-content: flex-end; /* Alinha o botão à direita */
+  justify-content: flex-end;
   margin: 10px;
 }
 .barber-action {

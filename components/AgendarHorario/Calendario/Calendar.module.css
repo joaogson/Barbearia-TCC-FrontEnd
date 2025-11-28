@@ -1,4 +1,3 @@
-/* Container principal que engloba tudo */
 .container {
   width: 400px;
   background-color: #d6d0bc;
@@ -8,14 +7,12 @@
   box-sizing: border-box;
 }
 
-/* Divisória entre o calendário e os horários */
 .separator {
   border: none;
   border-top: 2px solid #547a46;
   margin: 20px 0;
 }
 
-/* --- ESTILOS DO CALENDÁRIO --- */
 .calendarWrapper {
   width: 100%;
 }
@@ -46,7 +43,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
-  gap: 5px; /* Adicionado um gap para os dias */
+  gap: 5px;
 }
 .weekday {
   font-weight: bold;
@@ -70,7 +67,7 @@
   cursor: not-allowed;
   color: #aaa;
   text-decoration: line-through;
-  background-color: transparent !important; /* Garante que não tenha hover */
+  background-color: transparent !important;
 }
 .day.selected {
   background-color: #547a46;
@@ -81,9 +78,8 @@
   border: 2px solid #547a46;
 }
 
-/* --- ESTILOS DOS HORÁRIOS --- */
 .horariosWrapper {
-  min-height: 100px; /* Evita que o layout pule enquanto carrega */
+  min-height: 100px;
   text-align: center;
 }
 
@@ -121,13 +117,13 @@
   border-color: #c9c3b0;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .container {
-  width: 90%;
-  background-color: #d6d0bc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  color: #3e301b;
-  box-sizing: border-box;
-}
+    width: 90%;
+    background-color: #d6d0bc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    color: #3e301b;
+    box-sizing: border-box;
+  }
 }

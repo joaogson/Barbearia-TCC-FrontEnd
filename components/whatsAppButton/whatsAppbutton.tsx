@@ -1,12 +1,12 @@
-"use client"; // Se estiver no App Router
+"use client";
 
 import React from "react";
-import "./whatsAppButton.css"; // Crie um CSS para ele
+import "./whatsAppButton.css";
 
 interface Props {
-  phone: string; // O número já no formato internacional (ex: 5542999998888)
-  message?: string; // A mensagem padrão (opcional)
-  label: string; // O texto do botão (ex: "Entrar em Contato")
+  phone: string;
+  message?: string;
+  label: string;
   style?: React.CSSProperties;
 }
 
@@ -16,7 +16,6 @@ export default function WhatsappButton({ phone, message, label, style }: Props) 
   const link = () => {
     let url = `https://wa.me/${phoneFormatted}`;
     if (message) {
-      // Codifica a mensagem para que funcione na URL
       const encodedMessage = encodeURIComponent(message);
       url += `?text=${encodedMessage}`;
     }
@@ -24,7 +23,12 @@ export default function WhatsappButton({ phone, message, label, style }: Props) 
   };
 
   return (
-    <a href={link()} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "#547a46", padding: "10px", width:"100%", fontWeight:"bold", fontSize:"1rem", textAlign:"center", ...style}}>
+    <a
+      href={link()}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ backgroundColor: "#547a46", padding: "10px", width: "100%", fontWeight: "bold", fontSize: "1rem", textAlign: "center", ...style }}
+    >
       {label}
     </a>
   );

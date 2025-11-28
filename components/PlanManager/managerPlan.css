@@ -5,8 +5,6 @@ Verde: #547a46
 Bege: #d6d0bc
 */
 
-/* --- 1. LAYOUT GERAL (MOBILE-FIRST) --- */
-
 .plan-manager-container {
   width: 100%;
   margin: 20px auto;
@@ -23,8 +21,6 @@ Bege: #d6d0bc
   width: 80%;
 }
 
-/* --- 2. FORMULÁRIO DE PLANOS (SEM ALTERAÇÕES) --- */
-
 .plan-title {
   color: #3e301b;
   font-size: 1.5rem;
@@ -34,7 +30,7 @@ Bege: #d6d0bc
   margin-bottom: 20px;
 }
 
-.plan-form-details{
+.plan-form-details {
   padding: 20px;
 }
 
@@ -44,7 +40,6 @@ Bege: #d6d0bc
   background-color: #3e301b;
   color: #d6d0bc;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  
 }
 
 .plan-form label {
@@ -64,46 +59,31 @@ Bege: #d6d0bc
   font-weight: 500;
 }
 
-/* ... (todo o CSS anterior) ... */
-
-/* Container dos botões do formulário */
 .plan-button {
   width: 100%;
   display: flex;
- 
+
   margin-top: 10px;
 }
 
-/* Botões genéricos do formulário */
 .button-plan {
   padding: 12px 15px;
   border: none;
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
-  border-left: 1px solid rgba(62, 48, 27, 0.3); /* Linha sutil marrom */
+  border-left: 1px solid rgba(62, 48, 27, 0.3);
 }
 
-/* Botão de Ação (Salvar/Adicionar) */
 .plan-button button[type="submit"] {
-  background-color: #547a46; /* Verde */
-  color: #d6d0bc; /* Bege */
-  
+  background-color: #547a46;
+  color: #d6d0bc;
 }
 
-/* ✅ Botão Secundário (Cancelar Edição) */
 .plan-button button[type="button"] {
-  background-color: #547a46; /* Fundo Bege */
-  color: #d6d0bc; /* Texto Marrom */  
+  background-color: #547a46;
+  color: #d6d0bc;
 }
-
-/* ... (resto do CSS, incluindo o @media) ... */
-
-
-
-
-
-/* --- 4. LAYOUT DESKTOP (Telas Maiores) --- */
 
 @media (min-width: 768px) {
   .plan-manager-container {
@@ -120,13 +100,13 @@ Bege: #d6d0bc
   .list-container {
     width: 50%;
   }
-  
+
   .list {
     max-height: 500px;
     overflow-y: auto;
     padding-right: 10px;
   }
-  
+
   .list-button {
     flex-direction: row;
   }

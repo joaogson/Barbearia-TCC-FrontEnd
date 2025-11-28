@@ -1,5 +1,5 @@
-import dayjs from "dayjs"; // Importe dayjs aqui
-import "dayjs/locale/pt-br"; // Se precisar de localização para asserts de UI
+import dayjs from "dayjs";
+import "dayjs/locale/pt-br";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 

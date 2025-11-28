@@ -4,7 +4,6 @@ export interface Service {
   id: number;
   description: string;
   duration: number;
-  //ServiceOnCostumerService: ServiceOnCostumerService[];
 }
 
 export interface CreateServiceDto {

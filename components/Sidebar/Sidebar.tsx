@@ -14,16 +14,12 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
 
   return (
     <>
-      {/* 1. O OVERLAY: Aparece quando 'isOpen' é true e fecha a sidebar ao ser clicado */}
       <div className={`sidebar-overlay ${isOpen ? "open" : ""}`} onClick={toggleSidebar} />
-
-      {/* 2. SUA SIDEBAR: A classe 'open' controla a animação de entrada/saída */}
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <nav>
           <ul>
             {isAuthenticated ? (
               <>
-                {/* ESTRUTURA HTML CORRIGIDA: <li> envolve <Link> */}
                 <li>
                   <Link href="/" onClick={toggleSidebar}>
                     Inicio
@@ -70,7 +66,6 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
                   </li>
                 </RoleGuard>
                 <li>
-                  {/* LINK DE SAIR CORRIGIDO: usa a função handleLogout */}
                   <Link href="/login" onClick={logout}>
                     Sair
                   </Link>

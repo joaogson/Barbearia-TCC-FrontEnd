@@ -63,7 +63,7 @@ button {
 }
 
 .error-message {
-  color: #c0392b; /* Vermelho */
+  color: #c0392b;
   background-color: #fdd;
   padding: 10px;
   border-radius: 5px;

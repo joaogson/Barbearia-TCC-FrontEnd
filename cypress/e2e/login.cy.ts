@@ -1,5 +1,5 @@
 // cypress/e2e/login_flow.cy.ts
-const INICIO_PATH = "/"; // Ou '/dashboard', ou o path para onde o usuário vai após o login
+const INICIO_PATH = "/";
 const LOGIN_PATH = "/login";
 
 import {
@@ -17,7 +17,6 @@ import {
 describe("Fluxo de Login do Usuário", () => {
   beforeEach(() => {
     cy.visit(`${LOGIN_PATH}`);
-    // Limpa quaisquer cookies/localStorage de sessões anteriores para garantir um estado limpo
     cy.clearCookies();
     cy.clearLocalStorage();
   });
@@ -31,7 +30,7 @@ describe("Fluxo de Login do Usuário", () => {
     cy.get("#password").type(userPassword);
 
     cy.intercept("POST", API_LOGIN_ROUTE).as("loginApiRequest");
-   
+
     cy.intercept("GET", "/user/me", {
       statusCode: 200,
     }).as("getMeApiRequest");
@@ -55,7 +54,6 @@ describe("Fluxo de Login do Usuário", () => {
       cy.getCookie("token").should("have.property", "value", realAccessToken);
     });
 
-    
     cy.wait("@getMeApiRequest").its("response.statusCode").should("eq", 200);
   });
 
@@ -72,10 +70,10 @@ describe("Fluxo de Login do Usuário", () => {
     cy.get("#email").type(invalidEmail);
     cy.get("#password").type(invalidPassword);
     cy.get(".submit-button-login").click();
-   
+
     cy.wait("@loginApiRequest").its("response.statusCode").should("eq", 401);
 
-    cy.get(".server-error-message").should("be.visible").and("contain", "E-mail ou senha inválidos."); 
+    cy.get(".server-error-message").should("be.visible").and("contain", "E-mail ou senha inválidos.");
 
     cy.location("pathname").should("eq", LOGIN_PATH);
 
@@ -107,7 +105,7 @@ describe("Fluxo de Login do Usuário", () => {
 
   // CENÁRIO 5: Email pré-preenchido vindo do registro
   it("deve pré-preencher o campo de e-mail se vier da página de registro com e-mail", () => {
-    const uniqueEmail = `registered-${Date.now()}@test.com`; // E-mail único para o registro
+    const uniqueEmail = `registered-${Date.now()}@test.com`;
     const userName = `Registered User ${Date.now()}`;
     const userPhone = `429${Math.floor(10000000 + Math.random() * 90000000)}`;
     const userPassword = "Password@123";
@@ -121,21 +119,17 @@ describe("Fluxo de Login do Usuário", () => {
 
     cy.visit(`/register`);
 
-    // 2. Preenche o formulário de registro
     cy.get("#name").type(userName);
     cy.get("#phone").type(userPhone);
     cy.get("#email").type(uniqueEmail);
     cy.get("#password").type(userPassword);
     cy.get("#confirmPassword").type(userPassword);
 
-    // 3. Clica no botão de registro
     cy.get("button[type=submit]").click();
-
-    // 4. Espera a requisição de registro e o redirecionamento para a página de login
     cy.wait("@registerApiRequest").its("response.statusCode").should("eq", 201);
-    cy.location("pathname").should("eq", LOGIN_PATH); // Verifica se foi redirecionado para a página de login
+    cy.location("pathname").should("eq", LOGIN_PATH);
 
     cy.get("#email").should("have.value", uniqueEmail);
-    cy.get("#password").should("have.value", ""); // A senha deve estar vazia
+    cy.get("#password").should("have.value", "");
   });
 });

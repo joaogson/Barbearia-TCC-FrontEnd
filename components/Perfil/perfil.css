@@ -12,37 +12,33 @@
   padding-bottom: 30px;
 }
 
-/* --- O Card Principal (Estilo Feedback) --- */
 .profile-card {
   background-color: #3e301b;
   color: #d6d0bc;
-  width: 90%; /* Mobile first */
-  max-width: 600px; /* Limite para não ficar gigante no desktop */
-  
+  width: 90%;
+  max-width: 600px;
+
   display: flex;
   flex-direction: column;
-  
-  /* Sombra e Borda Verde (Identidade Visual) */
+
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   border-bottom: 6px solid #547a46;
 }
 
-/* --- Cabeçalho: O Nome em Destaque --- */
 .profile-header {
   padding: 30px 20px 10px 20px;
   text-align: center;
-  border-bottom: 1px solid rgba(84, 122, 70, 0.3); /* Linha verde sutil */
+  border-bottom: 1px solid rgba(84, 122, 70, 0.3);
 }
 
 .label-name {
-  font-size: 2.5rem; /* Bem grande */
+  font-size: 2.5rem;
   font-weight: bold;
   margin: 0;
-  text-transform: capitalize; /* Primeira letra maiúscula */
+  text-transform: capitalize;
   color: #d6d0bc;
 }
 
-/* --- Corpo: Informações Secundárias --- */
 .profile-content {
   padding: 20px;
   display: flex;
@@ -53,26 +49,25 @@
 .profile-block {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centralizado no mobile */
+  align-items: center;
 }
 
 .block-label {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #d6d0bc; /* Verde para o rótulo (EMAIL, CELULAR) */
+  color: #d6d0bc;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .block-value {
-  font-size: 1.2rem; /* Tamanho médio para os dados */
+  font-size: 1.2rem;
   color: #d6d0bc;
   margin: 0;
   text-align: center;
 }
 
-/* --- Botão de Editar --- */
 .button-actions {
   background-color: #547a46;
   color: #d6d0bc;
@@ -83,27 +78,24 @@
   font-size: 1.1rem;
   text-transform: uppercase;
   transition: background-color 0.2s;
-  margin-top: 10px; /* Espaço do conteúdo */
+  margin-top: 10px;
 }
 
 .button-actions:hover {
-  background-color: #466a3a; /* Verde um pouco mais escuro no hover */
+  background-color: #466a3a;
 }
 
-/* --- Desktop (Telas maiores que 768px) --- */
 @media (min-width: 768px) {
   .label-name {
-    font-size: 3.5rem; /* Ainda maior no desktop */
+    font-size: 3.5rem;
   }
 
   .profile-content {
-    /* Grid para organizar Email e Celular lado a lado */
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 
-  /* Faz o bloco de "Plano" ocupar a largura total se estiver sozinho na linha de baixo */
   .profile-block:last-child:nth-child(odd) {
     grid-column: span 2;
   }

@@ -26,7 +26,7 @@ export default function Configuracoes() {
 
   useEffect(() => {
     fetchPeriods(selectedDate);
-  }, [selectedDate]); // Continua rodando quando a data muda
+  }, [selectedDate]);
 
   const handleAddPeriod = async (newPeriod: { startTime: string; endTime: string }) => {
     const dataToSend = {
@@ -35,15 +35,12 @@ export default function Configuracoes() {
     };
     await createInactivePeriod(dataToSend);
 
-    // Atualiza a lista
     fetchPeriods(selectedDate);
   };
 
   const handleDelete = async (periodId: number) => {
     if (!window.confirm("Tem certeza que deseja remover este bloqueio?")) return;
     await deleteInactivePeriod(periodId);
-
-    // Atualiza a lista (localmente para velocidade)
     setPeriods((currentPeriods) => currentPeriods.filter((p) => p.id !== periodId));
   };
 

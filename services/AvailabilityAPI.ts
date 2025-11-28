@@ -2,7 +2,7 @@ import { api } from "./api";
 
 interface GetAvailabilityParams {
   barberId: number;
-  date: string; // "YYYY-MM-DD"
+  date: string;
   serviceIds: number[];
 }
 

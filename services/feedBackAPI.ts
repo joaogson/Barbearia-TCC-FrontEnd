@@ -11,7 +11,7 @@ export const getFeedbacksForBarber = async (barberId: number): Promise<Feedback[
 };
 
 export const getMyFeedbacks = async (): Promise<Feedback[]> => {
-  const response = await api.get("/feedback/me"); // Rota protegida
+  const response = await api.get("/feedback/me");
   return response.data;
 };
 

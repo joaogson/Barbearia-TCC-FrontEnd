@@ -25,9 +25,9 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <h2 className="forgot-password-title">Esqueceu sua senha?</h2>
-      <p className="forgot-password-message">Não se preocupe. Digite seu e-mail e enviaremos um link de recuperação.</p>
+      <p className="forgot-password-message">Digite seu e-mail e enviaremos um link de recuperação.</p>
 
       {message && <p style={{ color: "green" }}>{message}</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}

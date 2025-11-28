@@ -5,7 +5,7 @@ Verde: #547a46
 Bege: #d6d0bc
 */
 
-.inactive-periods-block{
+.inactive-periods-block {
   width: 50%;
 }
 
@@ -23,44 +23,34 @@ h3 {
   text-align: start;
 }
 
-/* --- 1. O "FORMULÁRIO" (REFATORADO) --- */
-/* (Este é o card marrom principal) */
 .inactive-periods-container {
-  /* O visual do card (do services-form) */
   background-color: #3e301b;
   color: #d6d0bc;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-bottom: 6px solid #547a46;
-  
-  /* Layout interno */
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.add-period-content{
+.add-period-content {
   padding: 10px;
-
 }
-/* (Esta é a div que agrupa label/input) */
+
 .add-period-form {
   text-align: start;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Espaço entre label e input */
+  gap: 10px;
   background-color: #3e301b;
-  
 }
 
-/* ✅ Label (Estilo do services-form) */
 .label-select-date {
   text-align: start;
   font-weight: 600;
   font-size: 1.1rem;
 }
 
-/* ✅ Inputs (Estilo do services-form) */
-/* (Aplica a todos os inputs dentro do container) */
 .inactive-periods-container input[type="date"],
 .inactive-periods-container input[type="time"] {
   background-color: #d6d0bc;
@@ -74,12 +64,6 @@ h3 {
   font-weight: 500;
 }
 
-/* (Removemos a classe .input-inactive-period, pois não é mais necessária) */
-
-
-/* --- 2. LISTA DE PERÍODOS (Sem alterações) --- */
-/* (O estilo de lista que você já tinha) */
-
 .period-list {
   display: flex;
   flex-direction: column;
@@ -90,8 +74,6 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* O fundo aqui é marrom, mas a lista já está em um container marrom */
-  /* background-color: #3e301b; */ 
   padding: 15px 0;
 }
 
@@ -103,11 +85,8 @@ h3 {
 }
 
 .button-inactive-period {
-  /* Estilo do botão principal */
-  background-color: #547a46; /* Verde */
-  color: #d6d0bc; /* Bege */
-  
-  /* Estilo genérico */
+  background-color: #547a46;
+  color: #d6d0bc;
   padding: 12px 15px;
   border: none;
   cursor: pointer;
@@ -116,13 +95,12 @@ h3 {
   width: 100%;
 }
 
-/* --- 3. MEDIA QUERY (Sem alterações) --- */
 @media (max-width: 768px) {
-  .inactive-periods-block{
+  .inactive-periods-block {
     width: 80%;
   }
 
-  .inactive-periods-container{
+  .inactive-periods-container {
     width: 100%;
   }
   .container-page {
@@ -131,7 +109,4 @@ h3 {
     margin: 20px auto;
     padding: 10px;
   }
-  /* ... (todo o CSS que colei acima) ... */
-
-/* ✅ Botão (Estilo do button-services) */
 }

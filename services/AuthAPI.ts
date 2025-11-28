@@ -29,10 +29,9 @@ export interface RegisterSuccesResponse {
   message: string;
 }
 
-// O que seu backend NestJS geralmente retorna em caso de erro
 export interface BackendErrorResponse {
   statusCode: number;
-  message: string; // Pode ser uma string ou um array de strings
+  message: string;
   error: string;
 }
 
@@ -43,7 +42,6 @@ export type AuthServiceRegisterResult = RegisterSuccesResponse | BackendErrorRes
 export const login = async (credentials: LoginCredentials): Promise<AuthServiceLoginResult> => {
   try {
     const { data } = await api.post<LoginResponse>("/auth/login", credentials);
-    // Armazene o token ou outras informações de usuário aqui se precisar
     console.log("Login bem-sucedido (authService):", data);
     return data;
   } catch (error: unknown) {
@@ -66,7 +64,6 @@ export const login = async (credentials: LoginCredentials): Promise<AuthServiceL
   }
 };
 
-// === TYPE GUARD ===
 export function isBackendErrorResponse(response: RegisterSuccesResponse): response is BackendErrorResponse {
   return (
     (response as BackendErrorResponse).statusCode !== undefined &&
@@ -82,10 +79,9 @@ export const register = async (credentials: RegisterCredentials): Promise<AuthSe
     return data;
   } catch (error: unknown) {
     if (axios.isAxiosError(error) && error.response) {
-      // Erro veio do servidor (status 4xx ou 5xx)
       const backendError = error.response.data as BackendErrorResponse;
       console.error("Erro do Backend no registro (authService):", backendError);
-      return backendError; // Retorna a estrutura de erro do backend
+      return backendError;
     }
 
     // Erro de rede ou desconhecido
@@ -94,6 +90,6 @@ export const register = async (credentials: RegisterCredentials): Promise<AuthSe
       statusCode: 500,
       message: "Falha na conexão com o servidor. Tente novamente.",
       error: "Network Error",
-    } as BackendErrorResponse; // Type assertion necessário
+    } as BackendErrorResponse;
   }
 };

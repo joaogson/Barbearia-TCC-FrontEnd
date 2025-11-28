@@ -35,17 +35,16 @@ export default function BarberFeedbackList({ barberId }: Props) {
       <ul className="feedBack-barber-list">
         {feedbacks.map((fb) => (
           <li key={fb.id} className="feedBack-card">
-            {/* Só renderiza o parágrafo se o comentário existir */}
             {fb.comment && <p className="comment">{fb.comment}</p>}
             <div className="feedBack-header">
               <strong className="feedback-user">{fb.client.user.name}</strong>
               <div className="feedback-rating">
-                {Array(fb.rating).fill(null).map((_, index) => (
-                <span key={index}>⭐</span>
-                ))}
+                {Array(fb.rating)
+                  .fill(null)
+                  .map((_, index) => (
+                    <span key={index}>⭐</span>
+                  ))}
               </div>
-
-              {/* TODO: Mostrar estrelas */}
             </div>
           </li>
         ))}

@@ -55,31 +55,29 @@
   font-style: italic;
 }
 
-@media (max-width:768px) {
-
-  .feedBack-list-container{
+@media (max-width: 768px) {
+  .feedBack-list-container {
     width: 100%;
     box-sizing: border-box;
   }
 
-    .feedBack-barber-list{
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      max-width: 500px;
-    
-    }
-
-    .feedBack-list::-webkit-scrollbar {
-    display: none; 
+  .feedBack-barber-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 500px;
   }
-    .feedBack-barber-list {
-    -ms-overflow-style: none;  
-    scrollbar-width: none; 
+
+  .feedBack-list::-webkit-scrollbar {
+    display: none;
+  }
+  .feedBack-barber-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     justify-content: flex-start;
     margin: 15px;
   }
 
-  .feedBack-card{
+  .feedBack-card {
     flex-shrink: 0;
   }
 }

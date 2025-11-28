@@ -18,10 +18,8 @@ interface SeletorDataHoraProps {
 }
 
 export default function SeletorDataHora({ selectedDate, selectedTime, onDateSelect, onTimeSelect, availableSlots, isLoading }: SeletorDataHoraProps) {
-  // 1. GERENCIAMENTO DE ESTADO (useState)
   const [currentDate, setCurrentDate] = useState(new Date());
   console.log(availableSlots);
-  // HANDLERS
   const handlePrevMonth = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
   };
@@ -33,7 +31,6 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
     onDateSelect(date);
   };
 
-  // 5. FUNÇÕES DE RENDERIZAÇÃO
   const renderHeader = () => (
     <div className={styles.header}>
       <button aria-label="Voltar Mes" onClick={handlePrevMonth}>
@@ -83,15 +80,12 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
   };
 
   const renderTimeSlots = () => {
-    // Caso 1: Estamos esperando a resposta da API
     if (isLoading) {
       return <p className={styles.infoText}>Carregando horários...</p>;
     }
-    // Caso 2: Nenhuma data foi selecionada ainda
     if (!selectedDate) {
       return <p className={styles.infoText}>Selecione uma data para ver os horários.</p>;
     }
-    // Caso 3: A API respondeu, mas não há horários para os serviços/data escolhidos
     if (availableSlots.length === 0) {
       return <p className={styles.infoText}>Nenhum horário disponível para esta data e serviços selecionados.</p>;
     }
@@ -104,11 +98,10 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
             console.log(time);
             console.log(formattedTime);
             const isSelected = selectedTime === formattedTime;
-            // Se o horário está na lista availableSlots, ele é válido e clicável.
             return (
               <button
                 key={time}
-                disabled={false} // O botão nunca está desabilitado se ele for renderizado
+                disabled={false}
                 className={`${styles.timeSlot} ${isSelected ? styles.selected : ""}`}
                 onClick={() => onTimeSelect(formattedTime)}
               >
@@ -121,7 +114,6 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
     );
   };
 
-  // 6. RENDERIZAÇÃO PRINCIPAL DO COMPONENTE
   return (
     <div className={styles.container}>
       {renderHeader()}

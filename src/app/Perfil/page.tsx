@@ -8,11 +8,10 @@ export default function Perfil() {
   const { user } = useAuth();
 
   const renderFeedbackSection = () => {
-    if (!user) return null; // Não renderiza nada se o usuário não estiver carregado
+    if (!user) return null;
 
     switch (user.role) {
       case "CLIENT":
-        // Se for cliente, mostra os feedbacks que ele FEZ
         return (
           <>
             <h2 className="perfil-title">Minhas Avaliações</h2>
@@ -20,7 +19,6 @@ export default function Perfil() {
           </>
         );
       case "BARBER":
-        // Se for barbeiro, mostra os feedbacks que ele RECEBEU
         return (
           <>
             <h2 className="perfil-title">Avaliações Recebidas</h2>
@@ -28,7 +26,6 @@ export default function Perfil() {
           </>
         );
       default:
-        // Se for admin ou outro tipo, não mostra nada
         return null;
     }
   };
@@ -50,8 +47,6 @@ export default function Perfil() {
           Informações do Perfil
         </h2>
         <ListPerfil />
-
-        {/* 3. Chama a função de renderização condicional */}
         {renderFeedbackSection()}
       </div>
     </ProtectedRoute>

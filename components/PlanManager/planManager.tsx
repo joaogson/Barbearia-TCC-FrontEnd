@@ -3,7 +3,7 @@
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { getPlans, createPlan, deletePlan, updatePlan } from "../../services/planAPI";
 import "./managerPlan.css";
-import "../style/list.css"
+import "../style/list.css";
 import { Plan, createPlanDto } from "../../types/Plan";
 
 const initialState: createPlanDto = { haircutNumber: 0, value: 0 };
@@ -15,7 +15,6 @@ export default function PlanManager() {
   const [isLoading, setIsLoading] = useState(true);
 
   const formRef = useRef<HTMLFormElement>(null);
-  // Busca inicial dos serviços (sem mudanças)
   useEffect(() => {
     async function loadPlans() {
       try {
@@ -38,7 +37,6 @@ export default function PlanManager() {
     }));
   };
 
-  // ✅ Função de edição simplificada, sem 'price'
   const handleEdit = (plan: Plan) => {
     setEditingPlanId(plan.id);
     setFormData({ haircutNumber: plan.haircutNumber, value: plan.value });
@@ -63,7 +61,6 @@ export default function PlanManager() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // ✅ Validação simplificada, sem 'price'
     if (!formData.haircutNumber || formData.value <= 0) {
       alert("Por favor, preencha a numero de cortes e o valor corretamente.");
       return;
@@ -71,17 +68,14 @@ export default function PlanManager() {
 
     try {
       if (editingPlanId) {
-        // Atualizar
         const updatePlanConst = await updatePlan(editingPlanId, formData);
         setPlans((prev) => prev.map((s) => (s.id === editingPlanId ? updatePlanConst : s)));
       } else {
-        // Criar
-
         const newPlan = await createPlan(formData);
 
         setPlans((prev) => [...prev, newPlan]);
       }
-      handleCancelEdit(); // Limpa o formulário
+      handleCancelEdit();
     } catch (error) {
       console.error("Falha ao salvar o serviço", error);
       alert("Não foi possível salvar o serviço.");
@@ -95,22 +89,20 @@ export default function PlanManager() {
           <h2 className="plan-title">Gerenciar Planos</h2>
           <form ref={formRef} onSubmit={handleSubmit} className="plan-form">
             <div className="plan-form-details">
-            <label htmlFor="haircutNumber">{editingPlanId ? "Editar Plano" : "Adicionar Novo Plano"}</label>
-            <input
-              id="haircutNumber"
-              name="haircutNumber"
-              value={formData.haircutNumber}
-              onChange={handleInputChange}
-              placeholder="Numero de Cortes"
-              type="number"
-            />
-            <label htmlFor="value">Valor</label>
-            <input id="value" name="value" value={formData.value} onChange={handleInputChange} type="number" />
+              <label htmlFor="haircutNumber">{editingPlanId ? "Editar Plano" : "Adicionar Novo Plano"}</label>
+              <input
+                id="haircutNumber"
+                name="haircutNumber"
+                value={formData.haircutNumber}
+                onChange={handleInputChange}
+                placeholder="Numero de Cortes"
+                type="number"
+              />
+              <label htmlFor="value">Valor</label>
+              <input id="value" name="value" value={formData.value} onChange={handleInputChange} type="number" />
             </div>
             <div className="list-buttons">
-              <button type="submit">
-                {editingPlanId ? "Salvar Alterações" : "Adicionar Plano"}
-              </button>
+              <button type="submit">{editingPlanId ? "Salvar Alterações" : "Adicionar Plano"}</button>
               {editingPlanId && (
                 <button type="button" onClick={handleCancelEdit}>
                   Cancelar Edição
@@ -128,7 +120,7 @@ export default function PlanManager() {
             ) : (
               <ul className="list-ul">
                 {plans.map((plan) => (
-                  <li key={plan.id} style={{boxShadow:"5px 5px 10px rgba(0, 0, 0.5)"}}>
+                  <li key={plan.id} style={{ boxShadow: "5px 5px 10px rgba(0, 0, 0.5)" }}>
                     <div className="list-details">
                       <div className="list-text">
                         <span> {plan.id} - </span>

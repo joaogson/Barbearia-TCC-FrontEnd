@@ -55,15 +55,12 @@ export default function ListPerfil() {
 
   return (
     <div className="informations-container">
-      {/* Card Principal com fundo Marrom e borda Verde */}
       <div className="profile-card">
-        
-        {/* Cabeçalho com o NOME GRANDE */}
+      
         <div className="profile-header">
           <h1 className="label-name">{user?.name}</h1>
         </div>
 
-        {/* Corpo com as informações menores */}
         <div className="profile-content">
           <div className="profile-block">
             <span className="block-label">Email</span>
@@ -75,11 +72,8 @@ export default function ListPerfil() {
             <p className="block-value">{user?.phone}</p>
           </div>
 
-          {/* Renderiza o plano se for cliente */}
           {renderPlanBlock()}
         </div>
-
-        {/* Botão de Editar no rodapé do card */}
         <Link className="button-actions" href="/Perfil/editar">
           Editar Perfil
         </Link>

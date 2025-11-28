@@ -47,22 +47,20 @@ export default function AgendarHorario() {
     const fetchAvailableSlots = async () => {
       setSelectedBarberId(2);
       if (selectedServicos.length === 0 || !selectedDate) {
-        setAvailableSlots([]); // Limpa os horários se não houver serviço
+        setAvailableSlots([]);
         return;
       }
 
       try {
         const serviceIds = selectedServicos.map((servico) => servico.id);
-        const dateString = selectedDate.toISOString().split("T")[0]; // Formato "YYYY-MM-DD"
-
-        // 2. Chama a nova API com os dados necessários
+        const dateString = selectedDate.toISOString().split("T")[0];
         if (!selectedBarberId) throw new Error("Barbeiro não selecionado");
         const times = await getAvailability(selectedBarberId, dateString, serviceIds);
         console.log(times);
         setAvailableSlots(times);
       } catch (error) {
         console.error("Erro ao buscar horários disponíveis:", error);
-        setAvailableSlots([]); // Limpa a lista em caso de erro
+        setAvailableSlots([]);
       } finally {
         setIsLoading(false);
       }
@@ -80,7 +78,6 @@ export default function AgendarHorario() {
     console.log(etapa);
   };
 
-  //HANDLERS
   const handleDateSelection = (date: Date) => {
     console.log("Data recebida no componente pai:", date.toLocaleDateString("pt-BR"));
     setSelectedDate(date);
@@ -97,15 +94,13 @@ export default function AgendarHorario() {
 
   const handleBarberSelection = (barberId: number | null) => {
     setSelectedBarberId(barberId);
-    setSelectedHorario(null); // Reseta horários
+    setSelectedHorario(null);
   };
 
   const handleConfirmarAgendamento = async () => {
     console.log("Iniciando confirmação. Estado atual:");
     console.log("selectedDate:", selectedDate);
     console.log("selectedHorario:", selectedHorario);
-    //Validação dos preenchimentos dos campos
-    //Validação dos preenchimentos dos campos
     if (!selectedDate || !selectedHorario || selectedServicos.length === 0 || !selectedBarberId) {
       alert("Por favor, selecione os serviços, o barbeiro, uma data e um horário.");
       return;

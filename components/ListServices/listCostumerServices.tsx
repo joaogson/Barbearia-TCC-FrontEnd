@@ -8,7 +8,6 @@ import "./listServices.css";
 import Link from "next/link";
 
 export default function ListServices() {
-  // Estado para a lista inicial de atendimentos vinda da API
   const [costumerServices, setCostumerServices] = useState<costumerService[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +23,7 @@ export default function ListServices() {
         if (response && Array.isArray(response.data)) {
           setCostumerServices(response.data);
         } else {
-          setCostumerServices([]); // Garante que seja sempre um array
+          setCostumerServices([]);
         }
       } catch (error) {
         console.error("Erro ao buscar atendimentos ", error);
@@ -63,13 +62,16 @@ export default function ListServices() {
   }
 
   if (costumerServices.length === 0) {
-    return (<div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-      <p className="sem-atendimentos-service">Não existem atendimentos</p>;
-      <button style={{backgroundColor: "#547a46", padding: "10px", boxShadow:"5px 5px 5px rgba(0,0,0,0.5)"}}><Link href="/AgendeSeuHorario"> Agendar Horario </Link></button>
-    </div>)
+    return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <p className="sem-atendimentos-service">Não existem atendimentos</p>;
+        <button style={{ backgroundColor: "#547a46", padding: "10px", boxShadow: "5px 5px 5px rgba(0,0,0,0.5)" }}>
+          <Link href="/AgendeSeuHorario"> Agendar Horario </Link>
+        </button>
+      </div>
+    );
   }
 
-  // 3. RENDERIZAÇÃO: Mapeia a lista JÁ FORMATADA
   return (
     <>
       <div className="costumer-services-container-service">
@@ -127,8 +129,8 @@ export default function ListServices() {
                   </div>
                 </div>
                 <button className="cancel-button-service" onClick={() => handleCancel(service.id)}>
-                    Cancelar Atendimento
-                  </button>
+                  Cancelar Atendimento
+                </button>
               </li>
             );
           })}

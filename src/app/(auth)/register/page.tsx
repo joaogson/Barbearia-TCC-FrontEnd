@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-// import { useAuth } from '@/contexts/AuthContext'; // Descomente quando tiver a função register
 import Link from "next/link";
 import Register from "../../../../components/Auth/FormRegister/register";
 

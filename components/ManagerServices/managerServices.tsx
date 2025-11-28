@@ -13,7 +13,6 @@ export default function ServiceManager() {
   const [editingServiceId, setEditingServiceId] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Busca inicial dos serviços (sem mudanças)
   useEffect(() => {
     async function loadServices() {
       try {
@@ -28,7 +27,6 @@ export default function ServiceManager() {
     loadServices();
   }, []);
 
-  // ✅ Handler de input simplificado, sem 'price'
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
@@ -37,7 +35,6 @@ export default function ServiceManager() {
     }));
   };
 
-  // ✅ Função de edição simplificada, sem 'price'
   const handleEdit = (service: Service) => {
     setEditingServiceId(service.id);
     setFormData({ description: service.description, duration: service.duration });
@@ -61,7 +58,6 @@ export default function ServiceManager() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // ✅ Validação simplificada, sem 'price'
     if (!formData.description || formData.duration <= 0) {
       alert("Por favor, preencha a descrição e a duração corretamente.");
       return;
@@ -69,17 +65,15 @@ export default function ServiceManager() {
 
     try {
       if (editingServiceId) {
-        // Atualizar
         const updatedService = await updateService(editingServiceId, formData);
         setServices((prev) => prev.map((s) => (s.id === editingServiceId ? updatedService : s)));
       } else {
-        // Criar
         console.log("Service", formData);
         const newService = await createService(formData);
-        
+
         setServices((prev) => [...prev, newService].sort((a, b) => a.description.localeCompare(b.description)));
       }
-      handleCancelEdit(); // Limpa o formulário
+      handleCancelEdit();
     } catch (error) {
       console.error("Falha ao salvar o serviço", error);
       alert("Não foi possível salvar o serviço.");
@@ -120,7 +114,6 @@ export default function ServiceManager() {
               <ul className="services-ul">
                 {services.map((service) => (
                   <li key={service.id} style={{ boxShadow: "5px 5px 10px rgba(0, 0, 0.5)" }}>
-                    {/* ✅ Exibição da lista simplificada, sem 'price' */}
                     <div className="list-details">
                       <div className="list-text">
                         <span>{service.description}</span>

@@ -10,21 +10,18 @@ import * as userService from "../services/UserAPI";
 import { User } from "../types/User";
 import {
   register as authServiceRegister,
-  login as authServiceLogin, // Renomeia para evitar conflito
+  login as authServiceLogin,
   isBackendErrorResponse,
   LoginCredentials,
   RegisterCredentials,
   RegisterSuccesResponse,
-  LoginResponse, // Opcional, se precisar usar o tipo exato de sucesso
+  LoginResponse,
 } from "../services/AuthAPI";
-// Crie o contexto
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export interface LoginContextSuccessResult {
   success: true;
   message?: string;
-  // userId: string; // Adicione dados do usuário se quiser
-  // email: string;
 }
 
 export interface LoginContextErrorResult {
@@ -35,13 +32,13 @@ export interface LoginContextErrorResult {
 export type LoginContextResult = LoginContextSuccessResult | LoginContextErrorResult;
 export interface RegisterContextSuccessResult {
   success: true;
-  message: string; // Exemplo: "Registro realizado com sucesso!"
-  email: string; // O email que foi registrado
+  message: string;
+  email: string;
 }
 
 export interface RegisterContextErrorResult {
   success: false;
-  message: string; // A mensagem de erro para o frontend (ex: "Email já cadastrado")
+  message: string;
 }
 
 export type RegisterContextResult = RegisterContextSuccessResult | RegisterContextErrorResult;
@@ -66,7 +63,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           setUser(userData.data);
         } catch (error) {
           console.error("Token inválido ou expirado. Removendo...");
-          // Se o token for inválido, limpa tudo
           Cookies.remove("token");
           setUser(null);
           delete api.defaults.headers.Authorization;
@@ -77,7 +73,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     loadUserFromCookies();
   }, []);
 
-const clearRegistredEmail = useCallback(() => {
+  const clearRegistredEmail = useCallback(() => {
     setRegistredEmail(null);
   }, []);
 
@@ -94,10 +90,9 @@ const clearRegistredEmail = useCallback(() => {
 
       if (isBackendErrorResponse(apiResponse)) {
         console.error("Erro do backend na camada de contexto (login):", apiResponse);
-        
+
         const msg = Array.isArray(apiResponse.message) ? apiResponse.message.join(", ") : apiResponse.message;
         if (msg.includes("Unauthorized")) {
-      
           return { success: false, message: "E-mail ou senha inválidos." };
         }
         return { success: false, message: msg };
@@ -107,11 +102,11 @@ const clearRegistredEmail = useCallback(() => {
         console.error("Token não recebido da API após login bem-sucedido.");
         return { success: false, message: "Erro de autenticação: token não recebido." };
       }
-      Cookies.set("token", accessToken, { expires: 1});
+      Cookies.set("token", accessToken, { expires: 1 });
       api.defaults.headers.Authorization = `Bearer ${accessToken}`;
       const userData = await userService.getMe();
       setUser(userData.data);
-      
+
       router.push("/");
 
       return { success: true, message: "Login realizado com sucesso!" };
@@ -132,13 +127,12 @@ const clearRegistredEmail = useCallback(() => {
       const apiResponse = await authServiceRegister(credentials);
 
       if (isBackendErrorResponse(apiResponse)) {
-        
         console.error("Erro do backend na camada de contexto:", apiResponse);
-       
+
         return { success: false, message: Array.isArray(apiResponse.message) ? apiResponse.message.join(", ") : apiResponse.message };
       }
       console.log("Registro bem-sucedido (contexto):", apiResponse);
-      setRegistredEmail(credentials.email); 
+      setRegistredEmail(credentials.email);
       router.push(`/login`);
 
       return {

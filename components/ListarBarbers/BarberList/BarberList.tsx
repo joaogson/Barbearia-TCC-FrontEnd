@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Barber } from "../../../types/Barber"; // Ajuste o caminho
-import { GetAllBarbers } from "../../../services/barberAPI"; // Ajuste o caminho
+import { Barber } from "../../../types/Barber";
+import { GetAllBarbers } from "../../../services/barberAPI";
 import BarberCard from "../BarberCard/barberCard";
 import "./barberList.css";
 

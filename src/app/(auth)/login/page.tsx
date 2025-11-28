@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useAuth } from "../../../../contexts/AuthContext"; // Ajuste o caminho se necessário
+import { useAuth } from "../../../../contexts/AuthContext";
 
 import Login from "../../../../components/Auth/FormLogin/login";
 

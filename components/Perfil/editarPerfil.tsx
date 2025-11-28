@@ -8,16 +8,16 @@ import { getMe, updateUser } from "../../services/UserAPI";
 import "./editarPerfil.css";
 
 export default function EditarPerfil() {
-  const { user, setUser } = useAuth(); // Para atualizar o contexto global após a edição
-  const router = useRouter(); // Hook para redirecionar o usuário
+  const { user, setUser } = useAuth();
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
   });
-  const [isLoading, setIsLoading] = useState(true); // Começa carregando os dados
-  const [isSaving, setIsSaving] = useState(false); // Para o estado de salvamento
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -56,8 +56,8 @@ export default function EditarPerfil() {
 
       const updatedUser = await updateUser(userId, formData);
 
-      setUser(updatedUser.data); // Atualiza o contexto global
-      router.push("/Perfil"); // Redireciona para a página de perfil
+      setUser(updatedUser.data);
+      router.push("/Perfil");
     } catch (err) {
       setError("Erro ao salvar as alterações.");
       console.error(err);
