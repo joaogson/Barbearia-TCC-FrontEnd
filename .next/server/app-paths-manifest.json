@@ -1,5 +1,15 @@
 {
+  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js",
   "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(auth)/register/page": "app/(auth)/register/page.js",
+  "/(auth)/reset-password/page": "app/(auth)/reset-password/page.js",
+  "/AgendeSeuHorario/page": "app/AgendeSeuHorario/page.js",
+  "/Atendimentos/page": "app/Atendimentos/page.js",
+  "/Barbers/page": "app/Barbers/page.js",
+  "/Configuracoes/page": "app/Configuracoes/page.js",
+  "/Feedback/page": "app/Feedback/page.js",
+  "/Perfil/editar/page": "app/Perfil/editar/page.js",
+  "/Perfil/page": "app/Perfil/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
 }

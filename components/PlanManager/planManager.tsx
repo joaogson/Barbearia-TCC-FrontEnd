@@ -3,7 +3,7 @@
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { getPlans, createPlan, deletePlan, updatePlan } from "../../services/planAPI";
 import "./managerPlan.css";
-import "../style/list.css"
+import "../style/list.css";
 import { Plan, createPlanDto } from "../../types/Plan";
 
 const initialState: createPlanDto = { haircutNumber: 0, value: 0 };
@@ -95,22 +95,20 @@ export default function PlanManager() {
           <h2 className="plan-title">Gerenciar Planos</h2>
           <form ref={formRef} onSubmit={handleSubmit} className="plan-form">
             <div className="plan-form-details">
-            <label htmlFor="haircutNumber">{editingPlanId ? "Editar Plano" : "Adicionar Novo Plano"}</label>
-            <input
-              id="haircutNumber"
-              name="haircutNumber"
-              value={formData.haircutNumber}
-              onChange={handleInputChange}
-              placeholder="Numero de Cortes"
-              type="number"
-            />
-            <label htmlFor="value">Valor</label>
-            <input id="value" name="value" value={formData.value} onChange={handleInputChange} type="number" />
+              <label htmlFor="haircutNumber">Numero de Cortes</label>
+              <input
+                id="haircutNumber"
+                name="haircutNumber"
+                value={formData.haircutNumber}
+                onChange={handleInputChange}
+                placeholder="Numero de Cortes"
+                type="number"
+              />
+              <label htmlFor="value">Valor</label>
+              <input id="value" name="value" value={formData.value} onChange={handleInputChange} type="number" />
             </div>
             <div className="list-buttons">
-              <button type="submit">
-                {editingPlanId ? "Salvar Alterações" : "Adicionar Plano"}
-              </button>
+              <button type="submit">{editingPlanId ? "Salvar Alterações" : "Adicionar Plano"}</button>
               {editingPlanId && (
                 <button type="button" onClick={handleCancelEdit}>
                   Cancelar Edição
@@ -128,7 +126,7 @@ export default function PlanManager() {
             ) : (
               <ul className="list-ul">
                 {plans.map((plan) => (
-                  <li key={plan.id} style={{boxShadow:"5px 5px 10px rgba(0, 0, 0.5)"}}>
+                  <li key={plan.id} style={{ boxShadow: "5px 5px 10px rgba(0, 0, 0.5)" }}>
                     <div className="list-details">
                       <div className="list-text">
                         <span> {plan.id} - </span>
