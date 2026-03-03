@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Calendar.module.css";
 import dayjs from "dayjs";
-
+import "dayjs/locale/es";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 
@@ -94,7 +94,7 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
       <div>
         <div className={styles.timeGrid}>
           {availableSlots.map((time) => {
-            const formattedTime = dayjs(time).format();
+            const formattedTime = dayjs(time).locale("pt-br").format();
             console.log(`Time: ${time}`);
             console.log(`Formatted Time: ${formattedTime}`);
             const isSelected = selectedTime === formattedTime;
