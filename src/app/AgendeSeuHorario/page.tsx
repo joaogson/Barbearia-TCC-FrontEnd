@@ -54,9 +54,10 @@ export default function AgendarHorario() {
       try {
         const serviceIds = selectedServicos.map((servico) => servico.id);
         const dateString = selectedDate.toISOString().split("T")[0];
+        console.log(`DateString: ${dateString}`);
         if (!selectedBarberId) throw new Error("Barbeiro não selecionado");
         const times = await getAvailability(selectedBarberId, dateString, serviceIds);
-        console.log(times);
+        console.log(`times: ${times}`);
         setAvailableSlots(times);
       } catch (error) {
         console.error("Erro ao buscar horários disponíveis:", error);
