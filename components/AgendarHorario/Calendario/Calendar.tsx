@@ -73,7 +73,7 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
       days.push(
         <div key={day} className={classNames} onClick={isPast ? undefined : () => handleDayClick(day)}>
           {day}
-        </div>
+        </div>,
       );
     }
     return <div className={styles.grid}>{days}</div>;
@@ -95,8 +95,8 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
         <div className={styles.timeGrid}>
           {availableSlots.map((time) => {
             const formattedTime = dayjs(time).format("HH:mm");
-            console.log(time);
-            console.log(formattedTime);
+            console.log(`Time: ${time}`);
+            console.log(`Formatted Time: ${formattedTime}`);
             const isSelected = selectedTime === formattedTime;
             return (
               <button
