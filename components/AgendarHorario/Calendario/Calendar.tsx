@@ -94,7 +94,7 @@ export default function SeletorDataHora({ selectedDate, selectedTime, onDateSele
       <div>
         <div className={styles.timeGrid}>
           {availableSlots.map((time) => {
-            const formattedTime = dayjs(time).format("HH:mm");
+            const formattedTime = dayjs(time).format();
             console.log(`Time: ${time}`);
             console.log(`Formatted Time: ${formattedTime}`);
             const isSelected = selectedTime === formattedTime;
